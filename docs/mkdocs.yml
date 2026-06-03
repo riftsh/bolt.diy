@@ -1,4 +1,4 @@
-site_name: bolt.diy Docs
+site_name: Wisp Docs
 site_dir: ../site
 theme:
   name: material
@@ -31,25 +31,25 @@ theme:
     repo: fontawesome/brands/github
   # logo: assets/logo.png
   # favicon: assets/logo.png
-repo_name: bolt.diy
-repo_url: https://github.com/stackblitz-labs/bolt.diy
+repo_name: Wisp
+repo_url: https://github.com/stackblitz-labs/Wisp
 edit_uri: ''
 
 extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/stackblitz-labs/bolt.diy
-      name: bolt.diy
+      link: https://github.com/stackblitz-labs/Wisp
+      name: Wisp
     - icon: fontawesome/brands/discourse
       link: https://thinktank.ottomator.ai/
-      name: bolt.diy Discourse
+      name: Wisp Discourse
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/bolt_diy
-      name: bolt.diy on X
+      name: Wisp on X
     - icon: fontawesome/brands/bluesky
-      link: https://bsky.app/profile/bolt.diy
-      name: bolt.diy on Bluesky
+      link: https://bsky.app/profile/Wisp
+      name: Wisp on Bluesky
 
 markdown_extensions:
   - pymdownx.highlight:
