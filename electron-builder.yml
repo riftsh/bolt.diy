@@ -1,0 +1,36 @@
+appId: dev.wisp.app
+productName: Wisp
+directories:
+  buildResources: public
+  output: dist
+
+files:
+  - build
+  - node_modules
+  - package.json
+  - electron-main.mjs
+  - electron-preload.mjs
+
+extraMetadata:
+  main: electron-main.mjs
+
+mac:
+  target:
+    - dmg
+  category: public.app-category.productivity
+  minimumSystemVersion: "11.0.0"
+  identity: "-"
+  sign: null
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 430
+      y: 220
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380
+

@@ -34,6 +34,9 @@
     "docker:dev": "docker compose --profile dev up devonz-dev",
     "docker:update": "docker compose pull && docker compose up -d",
     "update": "node scripts/update.cjs",
+    "electron:build:mac": "electron-builder --mac",
+    "electron:build:win": "electron-builder --win",
+    "electron:build:linux": "electron-builder --linux",
     "knip": "knip"
   },
   "engines": {
@@ -163,6 +166,8 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^2.0.0",
     "drizzle-kit": "^0.31.9",
+    "electron": "^42.3.2",
+    "electron-builder": "^26.8.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "9.1.7",
