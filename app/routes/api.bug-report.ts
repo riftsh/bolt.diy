@@ -216,7 +216,7 @@ async function bugReportAction({ request, context }: ActionFunctionArgs) {
 
     // Get GitHub configuration
     const githubToken = context?.cloudflare?.env?.GITHUB_BUG_REPORT_TOKEN || process.env.GITHUB_BUG_REPORT_TOKEN;
-    const targetRepo = context?.cloudflare?.env?.BUG_REPORT_REPO || process.env.BUG_REPORT_REPO || 'zebbern/Devonz';
+    const targetRepo = context?.cloudflare?.env?.BUG_REPORT_REPO || process.env.BUG_REPORT_REPO || 'riftsh/wisp.dev';
 
     if (!githubToken) {
       logger.error('GitHub bug report token not configured');

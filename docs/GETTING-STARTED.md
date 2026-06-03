@@ -18,7 +18,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/zebbern/Devonz.git
+git clone https://https://github.com/riftsh/wisp.dev/.git
 cd Devonz
 
 # Install dependencies

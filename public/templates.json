@@ -188,5 +188,15 @@
     "githubRepo": "devonz-templates/skydda-ai-sentinel",
     "tags": ["ai", "security", "sentinel", "product"],
     "icon": "i-ph:shield-check-duotone"
+  },
+  {
+    "id": "gemini-next-chat",
+    "name": "gemini chat appliction",
+    "description": "A powerful ai chat application built with Next.js and Gemini API",
+    "category": "AI chatbot",
+    "vercelUrl": "https://gemini.u14.app",
+    "githubRepo": "u14app/gemini-next-chat",
+    "tags": ["AI", "Gemini", "modern", "clean"],
+    "icon": "i-ph:diamond-duotone"
   }
 ]

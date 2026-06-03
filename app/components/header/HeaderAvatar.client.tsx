@@ -105,7 +105,7 @@ export function HeaderAvatar() {
               )}
               onClick={() =>
                 window.open(
-                  'https://github.com/zebbern/Devonz/issues/new?template=bug_report.yml',
+                  'https://https://github.com/riftsh/wisp.dev//issues/new?template=bug_report.yml',
                   '_blank',
                   'noopener,noreferrer',
                 )

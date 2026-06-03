@@ -61,7 +61,7 @@ corepack prepare pnpm@9.14.4 --activate
 ### Setup
 
 ```bash
-git clone https://github.com/zebbern/Devonz.git
+git clone https://https://github.com/riftsh/wisp.dev/.git
 cd Devonz
 cp .env.example .env.local      # add at least one API key
 pnpm install
@@ -146,7 +146,7 @@ If omitted, a random key is generated on each startup and cookies will not survi
 No local Node.js required — just Docker.
 
 ```bash
-git clone https://github.com/zebbern/Devonz.git
+git clone https://https://github.com/riftsh/wisp.dev/.git
 cd Devonz
 cp .env.example .env.local      # add at least one API key
 docker compose up -d
@@ -297,7 +297,7 @@ Devonz is forked from [bolt.diy](https://github.com/stackblitz-labs/bolt.diy) (o
 <div align="center">
   <strong>Build anything with AI. Just describe what you want.</strong>
   <br><br>
-  <a href="https://github.com/zebbern/Devonz">GitHub</a> ·
-  <a href="https://github.com/zebbern/Devonz/issues">Issues</a> ·
+  <a href="https://https://github.com/riftsh/wisp.dev/">GitHub</a> ·
+  <a href="https://https://github.com/riftsh/wisp.dev//issues">Issues</a> ·
   <a href="docs/">Documentation</a>
 </div>

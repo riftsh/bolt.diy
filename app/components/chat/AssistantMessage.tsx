@@ -204,7 +204,7 @@ export const AssistantMessage = memo(
         {/* Assistant Header - Blink style */}
         <div className="flex items-center gap-2 mb-3">
           <div className="w-6 h-6 rounded-full bg-devonz-elements-bg-depth-3 border border-devonz-elements-borderColor flex items-center justify-center">
-            <span className="text-xs font-bold text-devonz-elements-textPrimary">D</span>
+            <span className="text-xs font-bold text-devonz-elements-textPrimary">W</span>
           </div>
           <span className="text-sm font-medium text-devonz-elements-textSecondary">Wisp</span>
           {(codeContext || chatSummary) && (

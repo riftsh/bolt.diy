@@ -16,7 +16,7 @@ Devonz supports deploying generated projects to four platforms directly from the
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/zebbern/Devonz.git
+git clone https://https://github.com/riftsh/wisp.dev/.git
 cd Devonz
 
 # 2. Copy environment template
@@ -39,7 +39,7 @@ docker compose up -d --build   # Build + run via Compose
 
 The project publishes Docker images to GitHub Container Registry on every push to `main`:
 
-- **Image**: `ghcr.io/zebbern/devonz:latest`
+- **Image**: `ghcr.io/riftsh/wisp.dev:latest`
 - **Base**: `node:20-slim` with `git` and `curl`
 - **Size**: ~1.5 GB
 - **User**: Non-root (`appuser:1001`)
