@@ -11,6 +11,11 @@ const BackgroundRays = () => {
       <div className={`${styles.lightRay} ${styles.ray6}`}></div>
       <div className={`${styles.lightRay} ${styles.ray7}`}></div>
       <div className={`${styles.lightRay} ${styles.ray8}`}></div>
+      <div className={`${styles.raySideLeft}`}></div>
+      <div className={`${styles.raySideRight}`}></div>
+      <div className={`${styles.rayBottom}`}></div>
+      <div className={`${styles.rayBottomLeft}`}></div>
+      <div className={`${styles.rayBottomRight}`}></div>
     </div>
   );
 };

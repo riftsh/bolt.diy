@@ -27,7 +27,7 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     logger.error('Caught error:', error, errorInfo);
-    console.error('[Devonz:LocalProvidersError]', {
+    console.error('[Wisp:LocalProvidersError]', {
       timestamp: new Date().toISOString(),
       name: error.name,
       message: error.message,

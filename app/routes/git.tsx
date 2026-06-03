@@ -11,15 +11,15 @@ const GitUrlImport = clientLazy(() =>
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Devonz' },
-    { name: 'description', content: 'Talk with Devonz, an AI-powered development assistant' },
-    { property: 'og:title', content: 'Devonz' },
-    { property: 'og:description', content: 'Talk with Devonz, an AI-powered development assistant' },
+    { title: 'Wisp' },
+    { name: 'description', content: 'Talk with Wisp, an AI-powered development assistant' },
+    { property: 'og:title', content: 'Wisp' },
+    { property: 'og:description', content: 'Talk with Wisp, an AI-powered development assistant' },
     { property: 'og:type', content: 'website' },
     { property: 'og:image', content: '/logo-dark-styled.png' },
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'Devonz' },
-    { name: 'twitter:description', content: 'Talk with Devonz, an AI-powered development assistant' },
+    { name: 'twitter:title', content: 'Wisp' },
+    { name: 'twitter:description', content: 'Talk with Wisp, an AI-powered development assistant' },
   ];
 };
 
@@ -43,7 +43,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   useEffect(() => {
-    console.error('[Devonz:GitRouteError]', {
+    console.error('[Wisp:GitRouteError]', {
       timestamp: new Date().toISOString(),
       route: 'git',
       ...(isRouteErrorResponse(error)

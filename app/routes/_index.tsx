@@ -3,6 +3,7 @@ import { type MetaFunction, useRouteError, isRouteErrorResponse } from 'react-ro
 import { BaseChat } from '~/components/chat/BaseChat';
 import { ComponentErrorBoundary } from '~/components/ui/ComponentErrorBoundary';
 import { Header } from '~/components/header/Header';
+import BackgroundRays from '~/components/ui/BackgroundRays';
 import { clientLazy } from '~/utils/react';
 
 const Chat = clientLazy(() => import('~/components/chat/Chat.client').then((m) => ({ default: m.Chat })));
@@ -13,15 +14,15 @@ const UpdateBanner = lazy(() => import('~/components/ui/UpdateBanner').then((m) 
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Devonz' },
-    { name: 'description', content: 'Talk with Devonz, an AI-powered development assistant' },
-    { property: 'og:title', content: 'Devonz' },
-    { property: 'og:description', content: 'Talk with Devonz, an AI-powered development assistant' },
+    { title: 'Wisp' },
+    { name: 'description', content: 'Talk with Wisp, an AI-powered development assistant' },
+    { property: 'og:title', content: 'Wisp' },
+    { property: 'og:description', content: 'Talk with Wisp, an AI-powered development assistant' },
     { property: 'og:type', content: 'website' },
     { property: 'og:image', content: '/logo-dark-styled.png' },
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'Devonz' },
-    { name: 'twitter:description', content: 'Talk with Devonz, an AI-powered development assistant' },
+    { name: 'twitter:title', content: 'Wisp' },
+    { name: 'twitter:description', content: 'Talk with Wisp, an AI-powered development assistant' },
   ];
 };
 
@@ -31,7 +32,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   useEffect(() => {
-    console.error('[Devonz:IndexRouteError]', {
+    console.error('[Wisp:IndexRouteError]', {
       timestamp: new Date().toISOString(),
       route: '_index',
       ...(isRouteErrorResponse(error)
@@ -94,6 +95,7 @@ export default function Index() {
       id="main-content"
       className="flex flex-col h-full w-full overflow-hidden bg-devonz-elements-background-depth-1"
     >
+      <BackgroundRays />
       <Suspense fallback={null}>
         <MigrationBanner />
       </Suspense>

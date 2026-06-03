@@ -1,6 +1,6 @@
 {
-  "name": "Devonz",
-  "short_name": "Devonz",
+  "name": "Wisp",
+  "short_name": "Wisp",
   "description": "AI-powered full-stack development agent",
   "start_url": "/",
   "display": "standalone",

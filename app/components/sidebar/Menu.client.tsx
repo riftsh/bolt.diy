@@ -345,7 +345,7 @@ export const Menu = () => {
       >
         <PanelErrorBoundary panelName="sidebar">
           <div className="h-12 flex items-center justify-between px-4 border-b border-devonz-elements-borderColor bg-devonz-elements-background-depth-2/80 rounded-tr-2xl">
-            <span className="text-devonz-elements-textPrimary font-semibold text-lg">Devonz</span>
+            <span className="text-devonz-elements-textPrimary font-semibold text-lg">Wisp</span>
             <div className="flex items-center gap-2">
               <SettingsButton onClick={handleSettingsClick} />
               <ThemeSwitch />

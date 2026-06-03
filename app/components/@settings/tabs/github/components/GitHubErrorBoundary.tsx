@@ -28,7 +28,7 @@ export class GitHubErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     logger.error('Caught error:', error, errorInfo);
-    console.error('[Devonz:GitHubError]', {
+    console.error('[Wisp:GitHubError]', {
       timestamp: new Date().toISOString(),
       name: error.name,
       message: error.message,

@@ -17,10 +17,9 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
   const isPreview = source === 'preview';
   const title = isPreview ? 'Preview Error' : 'Terminal Error';
   const message = isPreview
-    ? 'We encountered an error while running the preview. Would you like Devonz to analyze and help resolve this issue?'
-    : 'We encountered an error while running terminal commands. Would you like Devonz to analyze and help resolve this issue?';
-
-  const handleAskDevonz = () => {
+    ? 'We encountered an error while running the preview. Would you like Wisp to analyze and help resolve this issue?'
+    : 'We encountered an error while running terminal commands. Would you like Wisp to analyze and help resolve this issue?';
+  const handleAskWisp = () => {
     /*
      * Reset error handlers so the same error can be caught again after fix.
      * For terminal errors, also interrupt any running process (Ctrl+C).
@@ -92,7 +91,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
             >
               <div className={cn(' flex gap-2')}>
                 <button
-                  onClick={handleAskDevonz}
+                  onClick={handleAskWisp}
                   className={cn(
                     `px-2 py-1.5 rounded-md text-sm font-medium`,
                     'bg-devonz-elements-button-primary-background',
@@ -103,7 +102,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
                   )}
                 >
                   <div className="i-ph:chat-circle-duotone"></div>
-                  Ask Devonz
+                  Ask Wisp
                 </button>
                 <button
                   onClick={clearAlert}

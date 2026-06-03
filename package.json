@@ -1,5 +1,5 @@
 {
-  "name": "devonz",
+  "name": "wisp",
   "description": "AI-powered local vibe coding platform for full-stack development",
   "private": true,
   "license": "MIT",
@@ -7,7 +7,7 @@
   "type": "module",
   "version": "1.0.0",
   "author": {
-    "name": "Devonz team"
+    "name": "Wisp Team"
   },
   "scripts": {
     "deploy": "npm run build",

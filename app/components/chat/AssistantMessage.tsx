@@ -121,8 +121,10 @@ function stripRawArtifactTags(text: string): string {
     result = result.replace(CHAIN_OF_THOUGHT_BLOCK_RE, '').replace(CHAIN_OF_THOUGHT_TAG_RE, '');
   }
 
-  // Strip leaked code blocks when artifacts are present — code content
-  // should only appear inside artifact actions, never in chat text
+  /*
+   * Strip leaked code blocks when artifacts are present — code content
+   * should only appear inside artifact actions, never in chat text
+   */
   if (result.includes('__devonzArtifact__')) {
     result = result.replace(LEAKED_CODE_BLOCK_RE, '');
     result = result.replace(UNCLOSED_CODE_BLOCK_RE, '');
@@ -204,7 +206,7 @@ export const AssistantMessage = memo(
           <div className="w-6 h-6 rounded-full bg-devonz-elements-bg-depth-3 border border-devonz-elements-borderColor flex items-center justify-center">
             <span className="text-xs font-bold text-devonz-elements-textPrimary">D</span>
           </div>
-          <span className="text-sm font-medium text-devonz-elements-textSecondary">Devonz</span>
+          <span className="text-sm font-medium text-devonz-elements-textSecondary">Wisp</span>
           {(codeContext || chatSummary) && (
             <Popover
               side="right"

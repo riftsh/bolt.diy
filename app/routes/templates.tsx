@@ -8,10 +8,7 @@ const TemplatesGallery = clientLazy(() => import('~/components/templates/Templat
 // ── Route metadata ──────────────────────────────────────────────────────────
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: 'Templates | Devonz' },
-    { name: 'description', content: 'Browse curated website templates for Devonz' },
-  ];
+  return [{ title: 'Templates | Wisp' }, { name: 'description', content: 'Browse curated website templates for Wisp' }];
 };
 
 export const loader = () => Response.json({});
@@ -33,7 +30,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   useEffect(() => {
-    console.error('[Devonz:TemplatesRouteError]', {
+    console.error('[Wisp:TemplatesRouteError]', {
       timestamp: new Date().toISOString(),
       route: 'templates',
       ...(isRouteErrorResponse(error)

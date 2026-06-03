@@ -40,7 +40,7 @@ export function Header() {
           )}
           {!sidebarOpen && (
             <span className="text-sm font-semibold text-devonz-elements-textPrimary select-none tracking-tight">
-              Devonz
+              <img src="/favicon.svg" alt="Wisp Logo" style={{ width: '32px', height: '32px' }} />
             </span>
           )}
         </div>

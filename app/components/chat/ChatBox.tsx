@@ -275,7 +275,7 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
             props.planMode
               ? 'Describe what to plan...'
               : props.chatMode === 'build'
-                ? 'Ask Devonz to build...'
+                ? 'Ask Wisp to build...'
                 : 'What would you like to discuss?'
           }
           translate="no"

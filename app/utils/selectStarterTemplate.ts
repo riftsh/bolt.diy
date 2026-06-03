@@ -703,7 +703,7 @@ export async function getTemplates(templateName: string, title?: string) {
   const displayName = template?.name || resolvedName;
 
   const assistantMessage = `
-Devonz is initializing your project with the required files using the ${displayName} template.
+Wisp is initializing your project with the required files using the ${displayName} template.
 <devonzArtifact id="imported-files" title="${title || 'Create initial files'}" type="bundled">
 ${filesToImport.files
   .map(

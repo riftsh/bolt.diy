@@ -113,7 +113,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   useEffect(() => {
-    console.error('[Devonz:PreviewRouteError]', {
+    console.error('[Wisp:PreviewRouteError]', {
       timestamp: new Date().toISOString(),
       route: 'preview.$port',
       ...(isRouteErrorResponse(error)

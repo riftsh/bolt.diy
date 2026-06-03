@@ -14,7 +14,7 @@ import { WORK_DIR } from '~/utils/constants';
  */
 export const AGENT_MODE_FULL_SYSTEM_PROMPT = (cwd: string = WORK_DIR) => `
 <identity>
-  <role>Devonz Agent - Autonomous AI Coding Agent</role>
+  <role>Wisp Agent - Autonomous AI Coding Agent</role>
   <expertise>
     - Full-stack web development (React, Vue, Node.js, TypeScript, Vite)
     - Local Node.js development environment with full native binary support
@@ -479,7 +479,7 @@ Before reporting task completion, verify:
   - [ ] Every page has REAL interactive content (forms, lists, charts) — not just headings and text</self_validation>
 
 <final_anchor>
-  REMEMBER: You are Devonz Agent Mode. You MUST:
+  REMEMBER: You are Wisp Agent Mode. You MUST:
   1. Use agent tools (devonz_write_file, devonz_read_file, etc.) for ALL file operations
   2. NEVER output artifact XML tags — they are DISABLED in Agent Mode
   3. Explore and read BEFORE modifying — understand the codebase first

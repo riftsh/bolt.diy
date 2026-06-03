@@ -112,7 +112,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <noscript>
           <p style={{ padding: '2rem', color: '#fff', background: '#0a0a0a', textAlign: 'center' }}>
-            JavaScript is required to use Devonz.
+            JavaScript is required to use Wisp.
           </p>
         </noscript>
         <div id="root" className="w-full h-full">
@@ -135,7 +135,7 @@ export function SentryErrorBoundary() {
   Sentry.captureException(error);
 
   useEffect(() => {
-    console.error('[Devonz:RouteError]', {
+    console.error('[Wisp:RouteError]', {
       type: isRouteErrorResponse(error) ? 'route-response' : 'exception',
       timestamp: new Date().toISOString(),
       ...(isRouteErrorResponse(error)
@@ -296,7 +296,7 @@ function App() {
         showDialog={false}
         onError={(error) => {
           const err = error instanceof Error ? error : new Error(String(error));
-          console.error('[Devonz:AppError]', {
+          console.error('[Wisp:AppError]', {
             timestamp: new Date().toISOString(),
             name: err.name,
             message: err.message,

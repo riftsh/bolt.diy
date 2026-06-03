@@ -10,7 +10,7 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   useEffect(() => {
-    console.error('[Devonz:ChatRouteError]', {
+    console.error('[Wisp:ChatRouteError]', {
       timestamp: new Date().toISOString(),
       route: 'chat.$id',
       ...(isRouteErrorResponse(error)
