@@ -298,17 +298,17 @@ export const StagedChangesPanel = memo(() => {
       const commandToRun = rewriteResult.wasRewritten ? rewriteResult.command : cmd.command;
 
       try {
-        if (cmd.type === 'start') {
-          /*
-           * Start commands (like 'npm run dev') are long-running processes
-           * Don't await them - just fire and forget
-           */
-          shell.executeCommand(`staged-${cmd.id}`, commandToRun).catch((error) => {
-            logger.error(`Start command failed: ${commandToRun}`, error);
-          });
-        } else {
-          // Shell commands (like 'npm install') should be awaited
-          await shell.executeCommand(`staged-${cmd.id}`, commandToRun);
+        const result = await shell.executeCommand(`staged-${cmd.id}`, commandToRun);
+
+        if (!result) {
+          logger.error(`Command returned no result (shell may not be ready): ${cmd.command}`);
+          toast.error(`Command failed: ${cmd.command.substring(0, 30)}...`);
+        } else if (cmd.type === 'start') {
+          // Start commands (like 'npm run dev') are long-running - no need to check exit code
+          logger.debug(`Start command dispatched: ${cmd.command}`);
+        } else if (result.exitCode !== 0) {
+          logger.error(`Command exited with code ${result.exitCode}: ${cmd.command}`);
+          toast.error(`Command failed (exit ${result.exitCode}): ${cmd.command.substring(0, 30)}...`);
         }
       } catch (error) {
         logger.error(`Failed to execute command: ${cmd.command}`, error);
@@ -522,31 +522,16 @@ export const StagedChangesPanel = memo(() => {
       acceptAllChanges();
 
       if (isPreviewMode) {
-        /*
-         * Already in preview mode - files are already written to runtime
-         * Just clear the preview mode flag and clear staging
-         * No need to re-write files
-         */
         stagingStore.setKey('isPreviewMode', false);
       } else {
-        // Not in preview mode - apply files normally
         await applyChangesToRuntime();
       }
 
       // Execute pending commands after files are applied
       await executePendingCommands();
 
-      /*
-       * Take a snapshot after changes are applied to persist the new file state
-       * This ensures the files are saved even when staging mode delays writes
-       */
-      try {
-        await takeDelayedSnapshot(150); // 150ms delay for runtime sync
-      } catch (snapshotError) {
-        logger.error('Failed to take snapshot after accept:', snapshotError);
-
-        // Don't show toast for snapshot errors - files are still applied
-      }
+      // Increased delay to ensure runtime filesystem syncs before snapshot
+      await takeDelayedSnapshot(500);
     } catch (error) {
       logger.error('Failed to accept all changes:', error);
       toast.error('Failed to apply changes');

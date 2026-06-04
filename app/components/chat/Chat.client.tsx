@@ -40,6 +40,7 @@ import { hasExceededMaxRetries, recordFixAttempt, resetAutoFix } from '~/lib/sto
 import { planActionAtom, clearPlanAction } from '~/lib/stores/plan';
 import { modelRoutingConfigStore, blueprintModeStore } from '~/lib/stores/settings';
 import { resetStreamEventState } from '~/lib/stores/stream-event-router';
+import { useElectronMenu } from '~/lib/hooks/useElectronMenu';
 import type { PlanPhase } from '~/lib/agent/types';
 
 const logger = createScopedLogger('Chat');
@@ -506,6 +507,22 @@ export const ChatImpl = memo(
 
     const { enhancingPrompt, promptEnhanced, enhancePrompt, resetEnhancer } = usePromptEnhancer();
     const { parsedMessages, parseMessages } = useMessageParser();
+
+    useElectronMenu({
+      'menu:new-chat': () => {
+        chatId.set(undefined);
+        setSearchParams({});
+      },
+      'menu:export-chat': () => {
+        exportChat();
+      },
+      'menu:toggle-workbench': () => {
+        workbenchStore.setShowWorkbench(!workbenchStore.showWorkbench.get());
+      },
+      'menu:toggle-terminal': () => {
+        workbenchStore.toggleTerminal();
+      },
+    });
 
     const TEXTAREA_MAX_HEIGHT = chatStarted ? 400 : 200;
 

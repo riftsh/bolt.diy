@@ -205,9 +205,22 @@ export class WispShell {
     this.#readyBuffer = '';
     this.#readyResolver = () => readyPromise.resolve();
 
+    // Add timeout to prevent indefinite hangs if shell fails to initialize
+    const READY_TIMEOUT_MS = 10_000;
+    const timeoutTimer = setTimeout(() => {
+      if (this.#readyResolver && this.#readyMarker) {
+        logger.error(`Shell initialization timeout after ${READY_TIMEOUT_MS}ms`);
+        this.#readyResolver();
+        this.#readyResolver = undefined;
+        this.#readyMarker = '';
+        this.#readyBuffer = '';
+      }
+    }, READY_TIMEOUT_MS);
+
     this.#process.write(`echo "${this.#readyMarker}"\n`);
 
     await readyPromise.promise;
+    clearTimeout(timeoutTimer);
 
     /* Clear readiness detection state */
     this.#readyResolver = undefined;
@@ -348,7 +361,7 @@ export class WispShell {
    */
   async executeCommand(sessionId: string, command: string, abort?: () => void): Promise<ExecutionResult> {
     if (!this.#process || !this.#terminal) {
-      return undefined;
+      throw new Error('Shell not initialized - cannot execute command');
     }
 
     const state = this.executionState.get();

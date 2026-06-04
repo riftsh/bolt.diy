@@ -574,7 +574,7 @@ export const BaseChat = React.memo(
                   {!chatStarted && (
                     <div id="intro" className="mt-[8vh] max-w-2xl mx-auto text-center px-4 lg:px-0 relative">
                       {/* Liquid Metal 3D Text */}
-                      <div className="liquid-metal-container">
+                      <div className="liquid-metal-container color-gradient animate-liquid-metal mb-6">
                         <h1 className="liquid-metal-text" aria-label="Wisp">
                           Wisp
                         </h1>

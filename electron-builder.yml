@@ -15,12 +15,24 @@ extraMetadata:
   main: electron-main.mjs
 
 mac:
+  icon: build/icon.icns
   target:
     - dmg
   category: public.app-category.productivity
   minimumSystemVersion: "11.0.0"
   identity: "-"
   sign: null
+
+win:
+  icon: build/icon.ico
+  target:
+    - nsis
+
+linux:
+  icon: build/icon.png
+  target:
+    - AppImage
+  category: Development
 
 dmg:
   contents:

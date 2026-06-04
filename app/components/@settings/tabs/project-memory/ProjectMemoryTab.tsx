@@ -17,7 +17,7 @@ const RELATIVE_PATH = 'PROJECT.md';
 
 const DEFAULT_TEMPLATE = `# Project Memory
 
-This file contains persistent instructions for the AI. The AI will read this file at the start of every conversation and follow these rules.
+This file contains persistent instructions for the AI. The AI will read this file at the start of every conversation and follow these rules the way you tell it to.
 
 ## Project Information
 - Project Name:
@@ -613,7 +613,7 @@ export default function ProjectMemoryTab() {
                               {deleteTarget?.category === category && deleteTarget?.key === entry.key ? (
                                 <div className="flex items-center gap-1.5">
                                   <span className="text-[10px] text-wisp-elements-textTertiary whitespace-nowrap">
-                                    Are you sure?
+                                    Are you sure you want to continue? This action cannot be undone.
                                   </span>
                                   <button
                                     onClick={() => handleDeleteEntry(category, entry.key)}

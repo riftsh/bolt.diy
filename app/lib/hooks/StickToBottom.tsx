@@ -128,11 +128,10 @@ function Content({ children, ...props }: StickToBottomContentProps) {
   const context = useStickToBottomContext();
 
   return (
-    <div ref={context.scrollRef} className="w-full h-auto">
+    <div ref={context.scrollRef} className="w-full flex-1 min-h-0 overflow-y-auto overscroll-contain">
       <div {...props} ref={context.contentRef}>
         {typeof children === 'function' ? children(context) : children}
       </div>
-      {/* Blur effect overlay */}
     </div>
   );
 }

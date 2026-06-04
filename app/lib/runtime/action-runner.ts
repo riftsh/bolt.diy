@@ -461,7 +461,26 @@ export class ActionRunner {
     }
 
     const shell = this.#shellTerminal();
-    await shell.ready();
+
+    // Add timeout wrapper for shell.ready() to prevent indefinite hangs
+    const readyPromise = shell.ready();
+    const readyTimeout = new Promise<void>((_, reject) =>
+      setTimeout(() => reject(new Error('Shell readiness timeout')), 15000),
+    );
+
+    try {
+      await Promise.race([readyPromise, readyTimeout]);
+    } catch (readyError) {
+      logger.error('Shell failed to become ready in #runShellAction:', readyError);
+
+      this.onAlert?.({
+        type: 'error',
+        title: 'Terminal Not Ready',
+        description: 'Shell failed to initialize - cannot execute command',
+      });
+
+      return;
+    }
 
     if (!shell || !shell.terminal || !shell.process) {
       unreachable('Shell terminal not found');

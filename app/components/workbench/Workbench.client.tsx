@@ -321,7 +321,7 @@ export const Workbench = memo(({ chatStarted, isStreaming, setSelectedElement, w
                     className="rounded-md items-center justify-center [&:is(:disabled,.disabled)]:cursor-not-allowed [&:is(:disabled,.disabled)]:opacity-60 px-3 py-1.5 text-xs bg-wisp-elements-background-depth-3 text-wisp-elements-textPrimary border border-wisp-elements-borderColor hover:bg-wisp-elements-background-depth-4 [&:not(:disabled,.disabled)]:hover:text-accent-400 outline-accent-500 flex gap-1.7"
                   >
                     <div className="i-ph:terminal" />
-                    Toggle Terminal
+                    Open Terminal
                   </button>
                 </div>
               </div>

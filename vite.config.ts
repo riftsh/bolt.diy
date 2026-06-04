@@ -13,12 +13,22 @@ export default defineConfig((config) => {
     server: {
       port: Number(process.env.PORT) || 5173,
       strictPort: true,
+      host: true,
+      allowedHosts: true,
+      hrm: {
+        overlay: false,
+        clientPort:5173,
+      },
+      cors: true,
+      headers: {
+        'Connection': 'keep-alive',
+      },
       fs: {
-        /*
-         * Allow serving files when ?url= query param is used. Vite reserves ?url for
-         * its module system, which conflicts with our template import ?url=https://... pattern.
-         */
+       
         strict: false,
+      },
+      watch: {
+        usePolling: true,
       },
     },
     define: {
