@@ -225,13 +225,13 @@ export const BaseChat = React.memo(
         ) as ProgressAnnotation[];
         setProgressAnnotations(progressList);
 
-        // Process devonz_event entries (blueprint errors + error_validation)
+        // Process wisp_event entries (blueprint errors + error_validation)
         for (const item of data) {
-          if (typeof item !== 'object' || item === null || !('devonz_event' in item)) {
+          if (typeof item !== 'object' || item === null || !('wisp_event' in item)) {
             continue;
           }
 
-          const evt = (item as Record<string, unknown>).devonz_event;
+          const evt = (item as Record<string, unknown>).wisp_event;
 
           if (typeof evt !== 'object' || evt === null || !('type' in evt)) {
             continue;
@@ -758,9 +758,9 @@ function ScrollToBottom() {
   return (
     !isAtBottom && (
       <>
-        <div className="sticky bottom-0 left-0 right-0 bg-gradient-to-t from-devonz-elements-background-depth-1 to-transparent h-20 z-10" />
+        <div className="sticky bottom-0 left-0 right-0 bg-gradient-to-t from-wisp-elements-background-depth-1 to-transparent h-20 z-10" />
         <button
-          className="sticky z-50 bottom-0 left-0 right-0 text-4xl rounded-lg px-1.5 py-0.5 flex items-center justify-center mx-auto gap-2 bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor text-devonz-elements-textPrimary text-sm"
+          className="sticky z-50 bottom-0 left-0 right-0 text-4xl rounded-lg px-1.5 py-0.5 flex items-center justify-center mx-auto gap-2 bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor text-wisp-elements-textPrimary text-sm"
           onClick={() => scrollToBottom()}
         >
           Go to last message

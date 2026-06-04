@@ -14,7 +14,7 @@ import { createScopedLogger } from '~/utils/logger';
 
 const logger = createScopedLogger('ChatsDB');
 
-const MIGRATION_FLAG_KEY = 'devonz_migration_complete';
+const MIGRATION_FLAG_KEY = 'wisp_migration_complete';
 
 export interface ChatMessage {
   id: string;

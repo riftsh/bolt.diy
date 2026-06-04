@@ -40,8 +40,8 @@ function WithTooltip({
                 max-h-[300px]
                 select-none
                 rounded-md
-                bg-devonz-elements-background-depth-3
-                text-devonz-elements-textPrimary
+                bg-wisp-elements-background-depth-3
+                text-wisp-elements-textPrimary
                 text-sm
                 leading-tight
                 shadow-lg
@@ -62,7 +62,7 @@ function WithTooltip({
             <div className="break-words">{tooltip}</div>
             <TooltipPrimitive.Arrow
               className={`
-                  fill-devonz-elements-background-depth-3
+                  fill-wisp-elements-background-depth-3
                   ${arrowClassName}
                 `}
               width={12}

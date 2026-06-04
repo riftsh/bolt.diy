@@ -29,7 +29,7 @@ const bugReportSchema = z.object({
       browser: z.string().optional(),
       os: z.string().optional(),
       screenResolution: z.string().optional(),
-      devonzVersion: z.string().optional(),
+      wispVersion: z.string().optional(),
       aiProviders: z.string().optional(),
       projectType: z.string().optional(),
       currentModel: z.string().optional(),
@@ -131,8 +131,8 @@ function formatIssueBody(data: z.infer<typeof bugReportSchema>): string {
       body += `- Screen: ${data.environmentInfo.screenResolution}\n`;
     }
 
-    if (data.environmentInfo.devonzVersion) {
-      body += `- Devonz: ${data.environmentInfo.devonzVersion}\n`;
+    if (data.environmentInfo.wispVersion) {
+      body += `- wisp: ${data.environmentInfo.wispVersion}\n`;
     }
 
     if (data.environmentInfo.aiProviders) {
@@ -154,7 +154,7 @@ function formatIssueBody(data: z.infer<typeof bugReportSchema>): string {
     body += `**Contact:** ${data.contactEmail}\n\n`;
   }
 
-  body += '---\n*Submitted via Devonz bug report feature*';
+  body += '---\n*Submitted via wisp bug report feature*';
 
   return body;
 }
@@ -232,7 +232,7 @@ async function bugReportAction({ request, context }: ActionFunctionArgs) {
     // Initialize GitHub client
     const octokit = new Octokit({
       auth: githubToken,
-      userAgent: 'devonz-bug-reporter',
+      userAgent: 'wisp-bug-reporter',
     });
 
     // Create GitHub issue

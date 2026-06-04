@@ -12,33 +12,33 @@ export function RepositoryCard({ repo, onClone }: RepositoryCardProps) {
       href={repo.http_url_to_repo}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block p-4 rounded-lg bg-devonz-elements-background-depth-1 border border-devonz-elements-borderColor hover:border-devonz-elements-borderColorActive transition-all duration-200"
+      className="group block p-4 rounded-lg bg-wisp-elements-background-depth-1 border border-wisp-elements-borderColor hover:border-wisp-elements-borderColorActive transition-all duration-200"
     >
       <div className="space-y-3">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-2">
-            <div className="i-ph:git-branch w-4 h-4 text-devonz-elements-icon-info" />
-            <h5 className="text-sm font-medium text-devonz-elements-textPrimary group-hover:text-devonz-elements-item-contentAccent transition-colors">
+            <div className="i-ph:git-branch w-4 h-4 text-wisp-elements-icon-info" />
+            <h5 className="text-sm font-medium text-wisp-elements-textPrimary group-hover:text-wisp-elements-item-contentAccent transition-colors">
               {repo.name}
             </h5>
           </div>
-          <div className="flex items-center gap-3 text-xs text-devonz-elements-textSecondary">
+          <div className="flex items-center gap-3 text-xs text-wisp-elements-textSecondary">
             <span className="flex items-center gap-1" title="Stars">
-              <div className="i-ph:star w-3.5 h-3.5 text-devonz-elements-icon-warning" />
+              <div className="i-ph:star w-3.5 h-3.5 text-wisp-elements-icon-warning" />
               {repo.star_count.toLocaleString()}
             </span>
             <span className="flex items-center gap-1" title="Forks">
-              <div className="i-ph:git-fork w-3.5 h-3.5 text-devonz-elements-icon-info" />
+              <div className="i-ph:git-fork w-3.5 h-3.5 text-wisp-elements-icon-info" />
               {repo.forks_count.toLocaleString()}
             </span>
           </div>
         </div>
 
         {repo.description && (
-          <p className="text-xs text-devonz-elements-textSecondary line-clamp-2">{repo.description}</p>
+          <p className="text-xs text-wisp-elements-textSecondary line-clamp-2">{repo.description}</p>
         )}
 
-        <div className="flex items-center gap-3 text-xs text-devonz-elements-textSecondary">
+        <div className="flex items-center gap-3 text-xs text-wisp-elements-textSecondary">
           <span className="flex items-center gap-1" title="Default Branch">
             <div className="i-ph:git-branch w-3.5 h-3.5" />
             {repo.default_branch}
@@ -59,14 +59,14 @@ export function RepositoryCard({ repo, onClone }: RepositoryCardProps) {
                   e.stopPropagation();
                   onClone(repo);
                 }}
-                className="flex items-center gap-1 px-2 py-1 rounded text-xs bg-devonz-elements-background-depth-2 hover:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary hover:text-devonz-elements-textPrimary transition-colors"
+                className="flex items-center gap-1 px-2 py-1 rounded text-xs bg-wisp-elements-background-depth-2 hover:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary hover:text-wisp-elements-textPrimary transition-colors"
                 title="Clone repository"
               >
                 <div className="i-ph:git-branch w-3.5 h-3.5" />
                 Clone
               </button>
             )}
-            <span className="flex items-center gap-1 group-hover:text-devonz-elements-item-contentAccent transition-colors">
+            <span className="flex items-center gap-1 group-hover:text-wisp-elements-item-contentAccent transition-colors">
               <div className="i-ph:arrow-square-out w-3.5 h-3.5" />
               View
             </span>

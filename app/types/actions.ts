@@ -80,7 +80,7 @@ export interface TaskUpdateAction extends BaseAction {
   taskStatus: 'not-started' | 'in-progress' | 'completed';
 }
 
-export type DevonzAction =
+export type WispAction =
   | FileAction
   | DiffAction
   | ShellAction
@@ -90,7 +90,7 @@ export type DevonzAction =
   | PlanAction
   | TaskUpdateAction;
 
-export type DevonzActionData = DevonzAction | BaseAction;
+export type WispActionData = WispAction | BaseAction;
 
 export interface ActionAlert {
   type: string;

@@ -50,10 +50,10 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
             className="w-[90vw] md:w-[500px]"
           >
             <Dialog.Content
-              className="bg-white dark:bg-devonz-elements-background-depth-1 rounded-lg p-6 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark shadow-xl"
+              className="bg-white dark:bg-wisp-elements-background-depth-1 rounded-lg p-6 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark shadow-xl"
               aria-describedby="gitlab-auth-description"
             >
-              <Dialog.Title className="text-lg font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark mb-4">
+              <Dialog.Title className="text-lg font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark mb-4">
                 Connect to GitLab
               </Dialog.Title>
 
@@ -67,12 +67,12 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-base font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark">
+                  <h3 className="text-base font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark">
                     GitLab Connection
                   </h3>
                   <p
                     id="gitlab-auth-description"
-                    className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark"
+                    className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark"
                   >
                     Connect your GitLab account to deploy your projects
                   </p>
@@ -81,7 +81,7 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
 
               <form onSubmit={handleConnect} className="space-y-4">
                 <div>
-                  <label className="block text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark mb-2">
+                  <label className="block text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark mb-2">
                     GitLab URL
                   </label>
                   <input
@@ -94,10 +94,10 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
                     placeholder="https://gitlab.com"
                     className={cn(
                       'w-full px-3 py-2 rounded-lg text-sm',
-                      'bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3',
-                      'border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark',
-                      'text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark',
-                      'placeholder-devonz-elements-textTertiary dark:placeholder-devonz-elements-textTertiary-dark',
+                      'bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3',
+                      'border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark',
+                      'text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark',
+                      'placeholder-wisp-elements-textTertiary dark:placeholder-wisp-elements-textTertiary-dark',
                       'focus:outline-none focus:ring-2 focus:ring-orange-500',
                       'disabled:opacity-50 disabled:cursor-not-allowed',
                     )}
@@ -105,7 +105,7 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark mb-2">
+                  <label className="block text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark mb-2">
                     Access Token
                   </label>
                   <input
@@ -118,16 +118,16 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
                     placeholder="Enter your GitLab access token"
                     className={cn(
                       'w-full px-3 py-2 rounded-lg text-sm',
-                      'bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3',
-                      'border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark',
-                      'text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark',
-                      'placeholder-devonz-elements-textTertiary dark:placeholder-devonz-elements-textTertiary-dark',
+                      'bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3',
+                      'border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark',
+                      'text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark',
+                      'placeholder-wisp-elements-textTertiary dark:placeholder-wisp-elements-textTertiary-dark',
                       'focus:outline-none focus:ring-2 focus:ring-orange-500',
                       'disabled:opacity-50 disabled:cursor-not-allowed',
                     )}
                     required
                   />
-                  <div className="mt-2 text-xs text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark">
+                  <div className="mt-2 text-xs text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark">
                     <a
                       href={`${gitlabUrl}/-/user_settings/personal_access_tokens`}
                       target="_blank"
@@ -152,7 +152,7 @@ export function GitLabAuthDialog({ isOpen, onClose }: GitLabAuthDialogProps) {
                   <motion.button
                     type="button"
                     onClick={onClose}
-                    className="px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 text-sm border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                    className="px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 text-sm border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={isConnecting}

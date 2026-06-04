@@ -580,7 +580,7 @@ const getInitialTabConfiguration = (): TabWindowConfig => {
   }
 
   try {
-    const saved = localStorage.getItem('devonz_tab_configuration');
+    const saved = localStorage.getItem('wisp_tab_configuration');
 
     if (!saved) {
       return defaultConfig;
@@ -611,7 +611,7 @@ export const resetTabConfiguration = () => {
   };
 
   tabConfigurationStore.set(defaultConfig);
-  localStorage.setItem('devonz_tab_configuration', JSON.stringify(defaultConfig));
+  localStorage.setItem('wisp_tab_configuration', JSON.stringify(defaultConfig));
 };
 
 // --- Model Routing Configuration ---

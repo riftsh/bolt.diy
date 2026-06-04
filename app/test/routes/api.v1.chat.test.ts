@@ -38,7 +38,7 @@ const ORIGINAL_ENV = process.env;
 
 beforeEach(() => {
   process.env = { ...ORIGINAL_ENV };
-  process.env.DEVONZ_API_KEY = 'test-api-key-for-chat';
+  process.env.wisp_API_KEY = 'test-api-key-for-chat';
   _resetApiRateLimitStore();
 });
 

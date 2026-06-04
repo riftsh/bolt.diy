@@ -8,10 +8,10 @@ function Card({ className, style, ref, ...props }: CardProps) {
   return (
     <div
       ref={ref}
-      className={cn('rounded-lg border text-devonz-elements-textPrimary shadow-sm', className)}
+      className={cn('rounded-lg border text-wisp-elements-textPrimary shadow-sm', className)}
       style={{
-        backgroundColor: 'var(--devonz-elements-bg-depth-1)',
-        borderColor: 'var(--devonz-elements-borderColor)',
+        backgroundColor: 'var(--wisp-elements-bg-depth-1)',
+        borderColor: 'var(--wisp-elements-borderColor)',
         ...style,
       }}
       {...props}
@@ -33,7 +33,7 @@ function CardTitle({
     <h3
       ref={ref}
       className={cn('text-2xl font-semibold leading-none tracking-tight', className)}
-      style={{ color: 'var(--devonz-elements-textPrimary)', ...style }}
+      style={{ color: 'var(--wisp-elements-textPrimary)', ...style }}
       {...props}
     />
   );
@@ -49,7 +49,7 @@ function CardDescription({
     <p
       ref={ref}
       className={cn('text-sm', className)}
-      style={{ color: 'var(--devonz-elements-textSecondary)', ...style }}
+      style={{ color: 'var(--wisp-elements-textSecondary)', ...style }}
       {...props}
     />
   );

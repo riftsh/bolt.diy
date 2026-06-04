@@ -44,9 +44,9 @@ export function extractPropertiesFromMessage(message: Omit<Message, 'id'>): {
   return { model, provider, content: cleanedContent };
 }
 
-export function simplifyDevonzActions(input: string): string {
-  // Using regex to match devonzAction tags that have type="file"
-  const regex = /(<devonzAction[^>]*type="file"[^>]*>)([\s\S]*?)(<\/devonzAction>)/g;
+export function simplifywispActions(input: string): string {
+  // Using regex to match wispAction tags that have type="file"
+  const regex = /(<wispAction[^>]*type="file"[^>]*>)([\s\S]*?)(<\/wispAction>)/g;
 
   // Replace each matching occurrence
   return input.replace(regex, (_0, openingTag, _2, closingTag) => {
@@ -82,10 +82,10 @@ export function createFilesContext(files: FileMap, useRelativePath?: boolean) {
         filePath = path.replace('/home/project/', '');
       }
 
-      return `<devonzAction type="file" filePath="${filePath}">${codeWithLinesNumbers}</devonzAction>`;
+      return `<wispAction type="file" filePath="${filePath}">${codeWithLinesNumbers}</wispAction>`;
     });
 
-  return `<devonzArtifact id="code-content" title="Code Content" >\n${fileContexts.join('\n')}\n</devonzArtifact>`;
+  return `<wispArtifact id="code-content" title="Code Content" >\n${fileContexts.join('\n')}\n</wispArtifact>`;
 }
 
 export function extractCurrentContext(messages: Message[]) {

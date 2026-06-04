@@ -50,29 +50,29 @@ export function ErrorBoundary() {
       : 'An unexpected error occurred.';
 
   return (
-    <main className="flex flex-col items-center justify-center h-full w-full bg-devonz-elements-background-depth-1 text-devonz-elements-textPrimary px-6">
+    <main className="flex flex-col items-center justify-center h-full w-full bg-wisp-elements-background-depth-1 text-wisp-elements-textPrimary px-6">
       <div className="max-w-lg w-full text-center">
         <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
           <div className="i-ph:warning-circle-duotone text-3xl text-red-400" />
         </div>
         <h1 className="text-2xl font-bold mb-2">Something went wrong</h1>
-        <p className="text-sm text-devonz-elements-textSecondary mb-8">{message}</p>
+        <p className="text-sm text-wisp-elements-textSecondary mb-8">{message}</p>
         <button
           onClick={() => window.location.reload()}
-          className="px-5 py-2.5 rounded-lg text-sm font-medium bg-devonz-elements-button-primary-background text-devonz-elements-button-primary-text hover:bg-devonz-elements-button-primary-backgroundHover transition-colors duration-200"
+          className="px-5 py-2.5 rounded-lg text-sm font-medium bg-wisp-elements-button-primary-background text-wisp-elements-button-primary-text hover:bg-wisp-elements-button-primary-backgroundHover transition-colors duration-200"
         >
           Reload Page
         </button>
         {error instanceof Error && error.stack && (
           <details className="mt-8 text-left w-full">
-            <summary className="cursor-pointer text-xs text-devonz-elements-textTertiary hover:text-devonz-elements-textSecondary transition-colors">
+            <summary className="cursor-pointer text-xs text-wisp-elements-textTertiary hover:text-wisp-elements-textSecondary transition-colors">
               Error Details
             </summary>
-            <div className="mt-3 p-4 bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor rounded-lg overflow-auto max-h-64">
+            <div className="mt-3 p-4 bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor rounded-lg overflow-auto max-h-64">
               <p className="text-xs text-red-400 font-mono font-semibold mb-2">
                 {error.name}: {error.message}
               </p>
-              <pre className="text-xs text-devonz-elements-textTertiary font-mono whitespace-pre-wrap break-words">
+              <pre className="text-xs text-wisp-elements-textTertiary font-mono whitespace-pre-wrap break-words">
                 {error.stack}
               </pre>
             </div>
@@ -84,17 +84,14 @@ export function ErrorBoundary() {
 }
 
 /**
- * Landing page component for Devonz
+ * Landing page component for wisp
  * Note: Settings functionality should ONLY be accessed through the sidebar menu.
  * Do not add settings button/panel to this landing page as it was intentionally removed
  * to keep the UI clean and consistent with the design system.
  */
 export default function Index() {
   return (
-    <main
-      id="main-content"
-      className="flex flex-col h-full w-full overflow-hidden bg-devonz-elements-background-depth-1"
-    >
+    <main id="main-content" className="flex flex-col h-full w-full overflow-hidden bg-wisp-elements-background-depth-1">
       <BackgroundRays />
       <Suspense fallback={null}>
         <MigrationBanner />

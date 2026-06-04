@@ -88,11 +88,7 @@ export async function getSharedHighlighter(): Promise<HighlighterGeneric<Bundled
  * If the requested language isn't loaded, attempts to load it dynamically.
  * Falls back to plaintext on any error to prevent unhandled rejections.
  */
-export async function safeCodeToHtml(
-  code: string,
-  lang: string,
-  theme: BundledTheme = 'dark-plus',
-): Promise<string> {
+export async function safeCodeToHtml(code: string, lang: string, theme: BundledTheme = 'dark-plus'): Promise<string> {
   const highlighter = await getSharedHighlighter();
 
   let effectiveLang: BundledLanguage | SpecialLanguage = isSpecialLang(lang as SpecialLanguage)

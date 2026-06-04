@@ -15,11 +15,11 @@ const ThoughtBox = ({ title, children }: PropsWithChildren<{ title: string }>) =
   }, []);
 
   return (
-    <div className="bg-devonz-elements-background-depth-2 shadow-sm rounded-lg border border-devonz-elements-borderColor">
+    <div className="bg-wisp-elements-background-depth-2 shadow-sm rounded-lg border border-wisp-elements-borderColor">
       {/* Header — always visible, never scrolls away */}
       <div
         onClick={handleToggle}
-        className="px-3 py-2 flex items-center gap-2 rounded-lg text-devonz-elements-textSecondary font-medium text-xs cursor-pointer select-none"
+        className="px-3 py-2 flex items-center gap-2 rounded-lg text-wisp-elements-textSecondary font-medium text-xs cursor-pointer select-none"
       >
         <div className="i-ph:brain-thin text-lg flex-shrink-0" />
         <span>{title}</span>

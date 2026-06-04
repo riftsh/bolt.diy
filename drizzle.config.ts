@@ -5,10 +5,10 @@ export default defineConfig({
   out: './drizzle',
   dialect: 'sqlite',
   dbCredentials: {
-    url: process.env.DEVONZ_DB_PATH
-      ? process.env.DEVONZ_DB_PATH.startsWith('file:')
-        ? process.env.DEVONZ_DB_PATH
-        : `file:${process.env.DEVONZ_DB_PATH}`
-      : 'file:./data/devonz.db',
+    url: process.env.wisp_DB_PATH
+      ? process.env.wisp_DB_PATH.startsWith('file:')
+        ? process.env.wisp_DB_PATH
+        : `file:${process.env.wisp_DB_PATH}`
+      : 'file:./data/wisp.db',
   },
 });

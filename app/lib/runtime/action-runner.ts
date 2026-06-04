@@ -3,7 +3,7 @@ import { path as nodePath, toRelativePath } from '~/utils/path';
 import { atom, map, type MapStore } from 'nanostores';
 import type {
   ActionAlert,
-  DevonzAction,
+  WispAction,
   DiffAction,
   DeployAlert,
   FileHistory,
@@ -21,7 +21,7 @@ import { rewriteUnsupportedCommand } from '~/utils/command-rewriter';
 import { repairMalformedCommand } from '~/utils/command-repair';
 import { unreachable } from '~/utils/unreachable';
 import type { ActionCallbackData } from './message-parser';
-import type { DevonzShell } from '~/utils/shell';
+import type { WispShell } from '~/utils/shell';
 import { setPlan, updateTaskStatus, type PlanTask } from '~/lib/stores/plan';
 import {
   stagingStore,
@@ -54,7 +54,7 @@ function schedulePreviewRefresh(): void {
 
 export type ActionStatus = 'pending' | 'running' | 'complete' | 'aborted' | 'failed';
 
-export type BaseActionState = DevonzAction & {
+export type BaseActionState = WispAction & {
   status: Exclude<ActionStatus, 'failed'>;
   abort: () => void;
   executed: boolean;
@@ -64,7 +64,7 @@ export type BaseActionState = DevonzAction & {
   messageId?: string;
 };
 
-export type FailedActionState = DevonzAction &
+export type FailedActionState = WispAction &
   Omit<BaseActionState, 'status'> & {
     status: Extract<ActionStatus, 'failed'>;
     error: string;
@@ -120,7 +120,7 @@ class ActionCommandError extends Error {
 export class ActionRunner {
   #runtime: Promise<RuntimeProvider>;
   #currentExecutionPromise: Promise<void> = Promise.resolve();
-  #shellTerminal: () => DevonzShell;
+  #shellTerminal: () => WispShell;
   runnerId = atom<string>(`${Date.now()}`);
   actions: ActionsMap = map({});
   onAlert?: (alert: ActionAlert) => void;
@@ -137,7 +137,7 @@ export class ActionRunner {
 
   constructor(
     runtimePromise: Promise<RuntimeProvider>,
-    getShellTerminal: () => DevonzShell,
+    getShellTerminal: () => WispShell,
     onAlert?: (alert: ActionAlert) => void,
     onSupabaseAlert?: (alert: SupabaseAlert) => void,
     onDeployAlert?: (alert: DeployAlert) => void,
@@ -391,8 +391,10 @@ export class ActionRunner {
       action.content = repairResult.command;
     }
 
-    // Track npm install attempts; inject --legacy-peer-deps only on retry (2nd+ attempt)
-    // This lets real peer dep conflicts surface first, with --legacy-peer-deps as fallback
+    /*
+     * Track npm install attempts; inject --legacy-peer-deps only on retry (2nd+ attempt)
+     * This lets real peer dep conflicts surface first, with --legacy-peer-deps as fallback
+     */
     if (/^npm\s+(install|ci)\b/.test(action.content.trim())) {
       this.#npmInstallAttemptCount++;
 
@@ -497,6 +499,7 @@ export class ActionRunner {
     if (!this.#isLikelyValidCommand(action.content)) {
       logger.warn(`Rejected invalid start command (appears to be error message): ${action.content.substring(0, 80)}`);
       this.#updateAction(actionId, { status: 'complete', executed: true });
+
       return undefined;
     }
 
@@ -525,6 +528,7 @@ export class ActionRunner {
       }
 
       this.#updateAction(actionId, { status: 'complete', executed: true });
+
       return undefined;
     }
 
@@ -587,6 +591,7 @@ export class ActionRunner {
     if (result === 'server-running') {
       logger.debug(`${action.type}: Dev server is running (command did not exit within ${SERVER_READY_TIMEOUT}ms)`);
       this.#updateAction(actionId, { status: 'complete', executed: true });
+
       return undefined;
     }
 
@@ -766,11 +771,11 @@ export class ActionRunner {
       let contentToWrite = action.content;
 
       /*
-       * Safety net: Strip any leaked devonz XML tags from file content.
+       * Safety net: Strip any leaked wisp XML tags from file content.
        * This can happen when the LLM omits closing tags and the parser's
        * streaming path accidentally includes artifact/action markup.
        */
-      contentToWrite = contentToWrite.replace(/<\/?devonzArtifact[^>]*>/g, '').replace(/<\/?devonzAction[^>]*>/g, '');
+      contentToWrite = contentToWrite.replace(/<\/?wispArtifact[^>]*>/g, '').replace(/<\/?wispAction[^>]*>/g, '');
 
       /*
        * Fast-path: If the file already exists with identical content
@@ -870,7 +875,7 @@ export class ActionRunner {
    * Run an npm install command via the server-side runtime exec API.
    *
    * This bypasses the interactive terminal entirely, using `child_process.exec`
-   * on the server. Much more reliable than the marker-based DevonzShell approach
+   * on the server. Much more reliable than the marker-based WispShell approach
    * because it doesn't contend with the dev-server shell session.
    *
    * Retries up to 3 times with exponential backoff (1s, 2s, 4s) on failure.
@@ -879,11 +884,7 @@ export class ActionRunner {
    * @param command   The npm install command to run (default: `npm install`; --legacy-peer-deps added on internal retry)
    * @param retries   Max retry attempts
    */
-  async #execNpmInstall(
-    runtime: RuntimeProvider,
-    command = 'npm install',
-    retries = 3,
-  ): Promise<ProcessResult> {
+  async #execNpmInstall(runtime: RuntimeProvider, command = 'npm install', retries = 3): Promise<ProcessResult> {
     for (let attempt = 1; attempt <= retries; attempt++) {
       // On internal retry (2nd+ attempt), add --legacy-peer-deps as fallback for peer dep conflicts
       let attemptCommand = command;
@@ -1174,9 +1175,7 @@ export class ActionRunner {
           }
         }
 
-        logger.info(
-          `Dependency validator found ${missing.length} missing package(s): ${missing.join(', ')}`,
-        );
+        logger.info(`Dependency validator found ${missing.length} missing package(s): ${missing.join(', ')}`);
 
         if (shadcnInstallable.length > 0) {
           for (const { name, version } of shadcnInstallable) {

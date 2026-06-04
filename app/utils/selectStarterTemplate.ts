@@ -442,7 +442,7 @@ function buildDirectoryHint(files: Array<{ path: string }>): string {
   }
 
   // Filter out noise directories
-  const ignore = new Set(['.git/', '.github/', '.devonz/', 'node_modules/', '.vscode/']);
+  const ignore = new Set(['.git/', '.github/', '.wisp/', 'node_modules/', '.vscode/']);
   const sorted = [...dirs].filter((d) => !ignore.has(d)).sort();
 
   return sorted.length > 0 ? sorted.join(', ') : '';
@@ -677,11 +677,11 @@ export async function getTemplates(templateName: string, title?: string) {
    * Previously excluded, now kept intentionally.
    */
 
-  // exclude    .devonz
-  filteredFiles = filteredFiles.filter((x) => !x.path.startsWith('.devonz'));
+  // exclude    .wisp
+  filteredFiles = filteredFiles.filter((x) => !x.path.startsWith('.wisp'));
 
-  // check for ignore file in .devonz folder
-  const templateIgnoreFile = files.find((x) => x.path.startsWith('.devonz') && x.name === 'ignore');
+  // check for ignore file in .wisp folder
+  const templateIgnoreFile = files.find((x) => x.path.startsWith('.wisp') && x.name === 'ignore');
 
   const filesToImport = {
     files: filteredFiles,
@@ -704,21 +704,21 @@ export async function getTemplates(templateName: string, title?: string) {
 
   const assistantMessage = `
 Wisp is initializing your project with the required files using the ${displayName} template.
-<devonzArtifact id="imported-files" title="${title || 'Create initial files'}" type="bundled">
+<wispArtifact id="imported-files" title="${title || 'Create initial files'}" type="bundled">
 ${filesToImport.files
   .map(
     (file) =>
-      `<devonzAction type="file" filePath="${file.path}">
+      `<wispAction type="file" filePath="${file.path}">
 ${file.content}
-</devonzAction>`,
+</wispAction>`,
   )
   .join('\n')}
-<devonzAction type="shell">npm install --legacy-peer-deps</devonzAction>
-<devonzAction type="start">npm run dev</devonzAction>
-</devonzArtifact>
+<wispAction type="shell">npm install --legacy-peer-deps</wispAction>
+<wispAction type="start">npm run dev</wispAction>
+</wispArtifact>
 `;
   let userMessage = ``;
-  const templatePromptFile = files.filter((x) => x.path.startsWith('.devonz')).find((x) => x.name === 'prompt');
+  const templatePromptFile = files.filter((x) => x.path.startsWith('.wisp')).find((x) => x.name === 'prompt');
 
   if (templatePromptFile) {
     userMessage = `

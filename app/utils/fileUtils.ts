@@ -109,16 +109,16 @@ export const detectProjectType = async (
 
 export const filesToArtifacts = (files: { [path: string]: { content: string } }, id: string): string => {
   return `
-<devonzArtifact id="${id}" title="User Updated Files">
+<wispArtifact id="${id}" title="User Updated Files">
 ${Object.keys(files)
   .map(
     (filePath) => `
-<devonzAction type="file" filePath="${filePath}">
+<wispAction type="file" filePath="${filePath}">
 ${files[filePath].content}
-</devonzAction>
+</wispAction>
 `,
   )
   .join('\n')}
-</devonzArtifact>
+</wispArtifact>
   `;
 };

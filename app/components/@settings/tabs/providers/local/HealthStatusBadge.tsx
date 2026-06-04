@@ -32,8 +32,8 @@ function HealthStatusBadge({ status, responseTime, className }: HealthStatusBadg
         };
       default:
         return {
-          color: 'text-devonz-elements-textTertiary',
-          bgColor: 'bg-devonz-elements-background-depth-3 border-devonz-elements-borderColor',
+          color: 'text-wisp-elements-textTertiary',
+          bgColor: 'bg-wisp-elements-background-depth-3 border-wisp-elements-borderColor',
           iconClass: 'i-ph:warning-circle',
           label: 'Unknown',
         };

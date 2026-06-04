@@ -568,7 +568,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
               className="w-[90vw] md:w-[600px] max-h-[85vh] overflow-y-auto"
             >
               <Dialog.Content
-                className="bg-white dark:bg-devonz-elements-background-depth-1 rounded-lg border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark shadow-xl"
+                className="bg-white dark:bg-wisp-elements-background-depth-1 rounded-lg border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark shadow-xl"
                 aria-describedby="success-dialog-description"
               >
                 <Dialog.Title className="sr-only">Successfully pushed to GitHub</Dialog.Title>
@@ -579,12 +579,12 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                         <div className="i-ph:check-circle w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark">
+                        <h3 className="text-lg font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark">
                           Successfully pushed to GitHub
                         </h3>
                         <p
                           id="success-dialog-description"
-                          className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark"
+                          className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark"
                         >
                           Your code is now available on GitHub
                         </p>
@@ -593,7 +593,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     <Dialog.Close asChild>
                       <button
                         onClick={handleClose}
-                        className="p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-devonz-elements-textTertiary hover:text-devonz-elements-textPrimary dark:text-devonz-elements-textTertiary-dark dark:hover:text-devonz-elements-textPrimary-dark hover:bg-devonz-elements-background-depth-2 dark:hover:bg-devonz-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-devonz-elements-borderColor dark:focus:ring-devonz-elements-borderColor-dark"
+                        className="p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-wisp-elements-textTertiary hover:text-wisp-elements-textPrimary dark:text-wisp-elements-textTertiary-dark dark:hover:text-wisp-elements-textPrimary-dark hover:bg-wisp-elements-background-depth-2 dark:hover:bg-wisp-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-wisp-elements-borderColor dark:focus:ring-wisp-elements-borderColor-dark"
                       >
                         <span className="i-ph:x block w-5 h-5" aria-hidden="true" />
                         <span className="sr-only">Close dialog</span>
@@ -601,13 +601,13 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     </Dialog.Close>
                   </div>
 
-                  <div className="bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 rounded-lg p-4 text-left border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark">
-                    <p className="text-sm font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark mb-2 flex items-center gap-2">
+                  <div className="bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 rounded-lg p-4 text-left border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark">
+                    <p className="text-sm font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark mb-2 flex items-center gap-2">
                       <span className="i-ph:github-logo w-4 h-4 text-purple-500" />
                       Repository URL
                     </p>
                     <div className="flex items-center gap-2">
-                      <code className="flex-1 text-sm bg-devonz-elements-background-depth-1 dark:bg-devonz-elements-background-depth-4 px-3 py-2 rounded border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark font-mono">
+                      <code className="flex-1 text-sm bg-wisp-elements-background-depth-1 dark:bg-wisp-elements-background-depth-4 px-3 py-2 rounded border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark font-mono">
                         {createdRepoUrl}
                       </code>
                       <motion.button
@@ -617,7 +617,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                             () => toast.error('Failed to copy URL'),
                           );
                         }}
-                        className="p-2 text-devonz-elements-textSecondary hover:text-devonz-elements-textPrimary dark:text-devonz-elements-textSecondary-dark dark:hover:text-devonz-elements-textPrimary-dark bg-devonz-elements-background-depth-1 dark:bg-devonz-elements-background-depth-4 rounded-lg border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                        className="p-2 text-wisp-elements-textSecondary hover:text-wisp-elements-textPrimary dark:text-wisp-elements-textSecondary-dark dark:hover:text-wisp-elements-textPrimary-dark bg-wisp-elements-background-depth-1 dark:bg-wisp-elements-background-depth-4 rounded-lg border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -626,8 +626,8 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     </div>
                   </div>
 
-                  <div className="bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 rounded-lg p-4 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark">
-                    <p className="text-sm font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark mb-2 flex items-center gap-2">
+                  <div className="bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 rounded-lg p-4 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark">
+                    <p className="text-sm font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark mb-2 flex items-center gap-2">
                       <span className="i-ph:files w-4 h-4 text-purple-500" />
                       Pushed Files ({pushedFiles.length})
                     </p>
@@ -635,16 +635,16 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                       {pushedFiles.slice(0, 100).map((file) => (
                         <div
                           key={file.path}
-                          className="flex items-center justify-between py-1.5 text-sm text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark border-b border-devonz-elements-borderColor/30 dark:border-devonz-elements-borderColor-dark/30 last:border-0"
+                          className="flex items-center justify-between py-1.5 text-sm text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark border-b border-wisp-elements-borderColor/30 dark:border-wisp-elements-borderColor-dark/30 last:border-0"
                         >
                           <span className="font-mono truncate flex-1 text-xs">{file.path}</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-devonz-elements-background-depth-3 dark:bg-devonz-elements-background-depth-4 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark ml-2">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-wisp-elements-background-depth-3 dark:bg-wisp-elements-background-depth-4 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark ml-2">
                             {(file.size / 1024).toFixed(1)} KB
                           </span>
                         </div>
                       ))}
                       {pushedFiles.length > 100 && (
-                        <div className="py-2 text-center text-xs text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark">
+                        <div className="py-2 text-center text-xs text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark">
                           +{pushedFiles.length - 100} more files
                         </div>
                       )}
@@ -670,7 +670,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                           () => toast.error('Failed to copy URL'),
                         );
                       }}
-                      className="px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 text-sm inline-flex items-center gap-2 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                      className="px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 text-sm inline-flex items-center gap-2 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -679,7 +679,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     </motion.button>
                     <motion.button
                       onClick={handleClose}
-                      className="px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 text-sm border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                      className="px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 text-sm border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -709,7 +709,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
               className="w-[90vw] md:w-[500px]"
             >
               <Dialog.Content
-                className="bg-white dark:bg-devonz-elements-background-depth-1 rounded-lg p-6 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark shadow-xl"
+                className="bg-white dark:bg-wisp-elements-background-depth-1 rounded-lg p-6 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark shadow-xl"
                 aria-describedby="connection-required-description"
               >
                 <Dialog.Title className="sr-only">GitHub Connection Required</Dialog.Title>
@@ -717,7 +717,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                   <Dialog.Close asChild>
                     <button
                       onClick={handleClose}
-                      className="absolute right-0 top-0 p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-devonz-elements-textTertiary hover:text-devonz-elements-textPrimary dark:text-devonz-elements-textTertiary-dark dark:hover:text-devonz-elements-textPrimary-dark hover:bg-devonz-elements-background-depth-2 dark:hover:bg-devonz-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-devonz-elements-borderColor dark:focus:ring-devonz-elements-borderColor-dark"
+                      className="absolute right-0 top-0 p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-wisp-elements-textTertiary hover:text-wisp-elements-textPrimary dark:text-wisp-elements-textTertiary-dark dark:hover:text-wisp-elements-textPrimary-dark hover:bg-wisp-elements-background-depth-2 dark:hover:bg-wisp-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-wisp-elements-borderColor dark:focus:ring-wisp-elements-borderColor-dark"
                     >
                       <span className="i-ph:x block w-5 h-5" aria-hidden="true" />
                       <span className="sr-only">Close dialog</span>
@@ -727,22 +727,22 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="mx-auto w-16 h-16 rounded-xl bg-devonz-elements-background-depth-3 flex items-center justify-center text-purple-500"
+                    className="mx-auto w-16 h-16 rounded-xl bg-wisp-elements-background-depth-3 flex items-center justify-center text-purple-500"
                   >
                     <div className="i-ph:github-logo w-8 h-8" />
                   </motion.div>
-                  <h3 className="text-lg font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark">
+                  <h3 className="text-lg font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark">
                     GitHub Connection Required
                   </h3>
                   <p
                     id="connection-required-description"
-                    className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark max-w-md mx-auto"
+                    className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark max-w-md mx-auto"
                   >
                     To deploy your code to GitHub, you need to connect your GitHub account first.
                   </p>
                   <div className="pt-2 flex justify-center gap-3">
                     <motion.button
-                      className="px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark text-sm hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                      className="px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark text-sm hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleClose}
@@ -784,7 +784,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
             className="w-[90vw] md:w-[500px]"
           >
             <Dialog.Content
-              className="bg-white dark:bg-devonz-elements-background-depth-1 rounded-lg border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark shadow-xl"
+              className="bg-white dark:bg-wisp-elements-background-depth-1 rounded-lg border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark shadow-xl"
               aria-describedby="push-dialog-description"
             >
               <div className="p-6">
@@ -793,17 +793,17 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="w-10 h-10 rounded-xl bg-devonz-elements-background-depth-3 flex items-center justify-center text-purple-500"
+                    className="w-10 h-10 rounded-xl bg-wisp-elements-background-depth-3 flex items-center justify-center text-purple-500"
                   >
                     <div className="i-ph:github-logo w-5 h-5" />
                   </motion.div>
                   <div>
-                    <Dialog.Title className="text-lg font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark">
+                    <Dialog.Title className="text-lg font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark">
                       Deploy to GitHub
                     </Dialog.Title>
                     <p
                       id="push-dialog-description"
-                      className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark"
+                      className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark"
                     >
                       Deploy your code to a new or existing GitHub repository
                     </p>
@@ -811,7 +811,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                   <Dialog.Close asChild>
                     <button
                       onClick={handleClose}
-                      className="ml-auto p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-devonz-elements-textTertiary hover:text-devonz-elements-textPrimary dark:text-devonz-elements-textTertiary-dark dark:hover:text-devonz-elements-textPrimary-dark hover:bg-devonz-elements-background-depth-2 dark:hover:bg-devonz-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-devonz-elements-borderColor dark:focus:ring-devonz-elements-borderColor-dark"
+                      className="ml-auto p-2 rounded-lg transition-all duration-200 ease-in-out bg-transparent text-wisp-elements-textTertiary hover:text-wisp-elements-textPrimary dark:text-wisp-elements-textTertiary-dark dark:hover:text-wisp-elements-textPrimary-dark hover:bg-wisp-elements-background-depth-2 dark:hover:bg-wisp-elements-background-depth-3 focus:outline-none focus:ring-2 focus:ring-wisp-elements-borderColor dark:focus:ring-wisp-elements-borderColor-dark"
                     >
                       <span className="i-ph:x block w-5 h-5" aria-hidden="true" />
                       <span className="sr-only">Close dialog</span>
@@ -819,7 +819,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                   </Dialog.Close>
                 </div>
 
-                <div className="flex items-center gap-3 mb-6 p-4 bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 rounded-lg border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark">
+                <div className="flex items-center gap-3 mb-6 p-4 bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 rounded-lg border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark">
                   <div className="relative">
                     <img loading="lazy" src={user.avatar_url} alt={user.login} className="w-10 h-10 rounded-full" />
                     <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white">
@@ -827,10 +827,10 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark">
+                    <p className="text-sm font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark">
                       {user.name || user.login}
                     </p>
-                    <p className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark">
+                    <p className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark">
                       @{user.login}
                     </p>
                   </div>
@@ -840,12 +840,12 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                   <div className="space-y-2">
                     <label
                       htmlFor="repoName"
-                      className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark"
+                      className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark"
                     >
                       Repository Name
                     </label>
                     <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-devonz-elements-textTertiary dark:text-devonz-elements-textTertiary-dark">
+                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-wisp-elements-textTertiary dark:text-wisp-elements-textTertiary-dark">
                         <span className="i-ph:git-branch w-4 h-4" />
                       </div>
                       <input
@@ -868,7 +868,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                           }
                         }}
                         placeholder="my-awesome-project"
-                        className="w-full pl-10 px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark placeholder-devonz-elements-textTertiary dark:placeholder-devonz-elements-textTertiary-dark focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full pl-10 px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark placeholder-wisp-elements-textTertiary dark:placeholder-wisp-elements-textTertiary-dark focus:outline-none focus:ring-2 focus:ring-purple-500"
                         required
                         maxLength={100}
                         pattern="[a-zA-Z0-9\-_\s]+"
@@ -876,7 +876,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                       />
                     </div>
                     {repoName && sanitizeRepoName(repoName) !== repoName && (
-                      <p className="text-xs text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark mt-1">
+                      <p className="text-xs text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark mt-1">
                         Will be created as:{' '}
                         <span className="font-mono text-purple-600 dark:text-purple-400">
                           {sanitizeRepoName(repoName)}
@@ -887,10 +887,10 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between mb-2">
-                      <label className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark">
+                      <label className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark">
                         Recent Repositories
                       </label>
-                      <span className="text-xs text-devonz-elements-textTertiary dark:text-devonz-elements-textTertiary-dark">
+                      <span className="text-xs text-wisp-elements-textTertiary dark:text-wisp-elements-textTertiary-dark">
                         {filteredRepos.length} of {recentRepos.length}
                       </span>
                     </div>
@@ -901,7 +901,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                         value={repoSearchQuery}
                         onChange={(e) => setRepoSearchQuery(e.target.value)}
                         onClear={() => setRepoSearchQuery('')}
-                        className="bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark text-sm"
+                        className="bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark text-sm"
                       />
                     </div>
 
@@ -927,14 +927,14 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                               key={repo.full_name}
                               type="button"
                               onClick={() => setRepoName(repo.name)}
-                              className="w-full p-3 text-left rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 transition-colors group border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark hover:border-purple-500/30"
+                              className="w-full p-3 text-left rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 transition-colors group border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark hover:border-purple-500/30"
                               whileHover={{ scale: 1.01 }}
                               whileTap={{ scale: 0.99 }}
                             >
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                   <div className="i-ph:git-branch w-4 h-4 text-purple-500" />
-                                  <span className="text-sm font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark group-hover:text-purple-500">
+                                  <span className="text-sm font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark group-hover:text-purple-500">
                                     {repo.name}
                                   </span>
                                 </div>
@@ -945,7 +945,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                                 )}
                               </div>
                               {repo.description && (
-                                <p className="mt-1 text-xs text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark line-clamp-2">
+                                <p className="mt-1 text-xs text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark line-clamp-2">
                                   {repo.description}
                                 </p>
                               )}
@@ -978,23 +978,23 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     </div>
                   )}
 
-                  <div className="p-3 bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 rounded-lg border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark">
+                  <div className="p-3 bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 rounded-lg border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark">
                     <div className="flex items-center gap-2">
                       <input
                         type="checkbox"
                         id="private"
                         checked={isPrivate}
                         onChange={(e) => setIsPrivate(e.target.checked)}
-                        className="rounded border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark text-purple-500 focus:ring-purple-500 dark:bg-devonz-elements-background-depth-3"
+                        className="rounded border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark text-purple-500 focus:ring-purple-500 dark:bg-wisp-elements-background-depth-3"
                       />
                       <label
                         htmlFor="private"
-                        className="text-sm text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary-dark"
+                        className="text-sm text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary-dark"
                       >
                         Make repository private
                       </label>
                     </div>
-                    <p className="text-xs text-devonz-elements-textTertiary dark:text-devonz-elements-textTertiary-dark mt-2 ml-6">
+                    <p className="text-xs text-wisp-elements-textTertiary dark:text-wisp-elements-textTertiary-dark mt-2 ml-6">
                       Private repositories are only visible to you and people you share them with
                     </p>
                   </div>
@@ -1003,7 +1003,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
                     <motion.button
                       type="button"
                       onClick={handleClose}
-                      className="px-4 py-2 rounded-lg bg-devonz-elements-background-depth-2 dark:bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark hover:bg-devonz-elements-background-depth-3 dark:hover:bg-devonz-elements-background-depth-4 text-sm border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor-dark"
+                      className="px-4 py-2 rounded-lg bg-wisp-elements-background-depth-2 dark:bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark hover:bg-wisp-elements-background-depth-3 dark:hover:bg-wisp-elements-background-depth-4 text-sm border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor-dark"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >

@@ -1,6 +1,6 @@
 import type { Message } from 'ai';
 import { generateId } from './fileUtils';
-import { detectProjectCommands, createCommandsMessage, escapeDevonzTags } from './projectCommands';
+import { detectProjectCommands, createCommandsMessage, escapewispTags } from './projectCommands';
 
 export const createChatFromFolder = async (
   files: File[],
@@ -38,15 +38,15 @@ export const createChatFromFolder = async (
     role: 'assistant',
     content: `I've imported the contents of the "${folderName}" folder.${binaryFilesMessage}
 
-<devonzArtifact id="imported-files" title="Imported Files" type="bundled" >
+<wispArtifact id="imported-files" title="Imported Files" type="bundled" >
 ${fileArtifacts
   .map(
-    (file) => `<devonzAction type="file" filePath="${file.path}">
-${escapeDevonzTags(file.content)}
-</devonzAction>`,
+    (file) => `<wispAction type="file" filePath="${file.path}">
+${escapewispTags(file.content)}
+</wispAction>`,
   )
   .join('\n\n')}
-</devonzArtifact>`,
+</wispArtifact>`,
     id: generateId(),
     createdAt: new Date(),
   };

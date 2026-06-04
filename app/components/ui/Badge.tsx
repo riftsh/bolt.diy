@@ -3,23 +3,23 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '~/utils/cn';
 
 const badgeVariants = cva(
-  'inline-flex items-center gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-devonz-elements-ring focus:ring-offset-2',
+  'inline-flex items-center gap-1 transition-colors focus:outline-none focus:ring-2 focus:ring-wisp-elements-ring focus:ring-offset-2',
   {
     variants: {
       variant: {
         default:
-          'border-transparent bg-devonz-elements-background text-devonz-elements-textPrimary hover:bg-devonz-elements-background/80',
+          'border-transparent bg-wisp-elements-background text-wisp-elements-textPrimary hover:bg-wisp-elements-background/80',
         secondary:
-          'border-transparent bg-devonz-elements-background text-devonz-elements-textSecondary hover:bg-devonz-elements-background/80',
+          'border-transparent bg-wisp-elements-background text-wisp-elements-textSecondary hover:bg-wisp-elements-background/80',
         destructive: 'border-transparent bg-red-500/10 text-red-500 hover:bg-red-500/20',
-        outline: 'text-devonz-elements-textPrimary',
+        outline: 'text-wisp-elements-textPrimary',
         primary: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
         success: 'bg-green-500/10 text-green-600 dark:text-green-400',
         warning: 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400',
         danger: 'bg-red-500/10 text-red-600 dark:text-red-400',
         info: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
         subtle:
-          'border border-devonz-elements-borderColor/30 dark:border-devonz-elements-borderColor-dark/30 bg-white/50 dark:bg-devonz-elements-background-depth-4/50 backdrop-blur-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary-dark',
+          'border border-wisp-elements-borderColor/30 dark:border-wisp-elements-borderColor-dark/30 bg-white/50 dark:bg-wisp-elements-background-depth-4/50 backdrop-blur-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary-dark',
       },
       size: {
         default: 'rounded-full px-2.5 py-0.5 text-xs font-semibold',

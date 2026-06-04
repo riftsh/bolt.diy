@@ -37,7 +37,7 @@ export const TerminalTabs = memo(() => {
     setActiveTerminal(0);
 
     try {
-      const shell = workbenchStore.devonzTerminal;
+      const shell = workbenchStore.wispTerminal;
       await shell.ready();
 
       let devCommand = 'npm run dev';
@@ -91,7 +91,7 @@ export const TerminalTabs = memo(() => {
     (index: number) => {
       if (index === 0) {
         return;
-      } // Can't close devonz terminal
+      } // Can't close wisp terminal
 
       const terminalRef = terminalRefs.current.get(index);
 
@@ -185,10 +185,10 @@ export const TerminalTabs = memo(() => {
       }}
     >
       <div className="h-full">
-        <div className="h-full flex flex-col" style={{ background: 'var(--devonz-elements-bg-depth-1)' }}>
+        <div className="h-full flex flex-col" style={{ background: 'var(--wisp-elements-bg-depth-1)' }}>
           <div
-            className="flex items-center border-y border-devonz-elements-borderColor gap-1.5 min-h-[34px] p-2"
-            style={{ background: 'var(--devonz-elements-bg-depth-1)' }}
+            className="flex items-center border-y border-wisp-elements-borderColor gap-1.5 min-h-[34px] p-2"
+            style={{ background: 'var(--wisp-elements-bg-depth-1)' }}
           >
             {Array.from({ length: terminalCount + 1 }, (_, index) => {
               const isActive = activeTerminal === index;
@@ -201,9 +201,8 @@ export const TerminalTabs = memo(() => {
                       className={cn(
                         'flex items-center text-sm cursor-pointer gap-1.5 px-3 py-2 h-full whitespace-nowrap rounded-full',
                         {
-                          'bg-devonz-elements-terminals-buttonBackground hover:text-devonz-elements-textPrimary':
-                            isActive,
-                          'bg-devonz-elements-background-depth-2 text-devonz-elements-textSecondary hover:bg-devonz-elements-terminals-buttonBackground':
+                          'bg-wisp-elements-terminals-buttonBackground hover:text-wisp-elements-textPrimary': isActive,
+                          'bg-wisp-elements-background-depth-2 text-wisp-elements-textSecondary hover:bg-wisp-elements-terminals-buttonBackground':
                             !isActive,
                         },
                       )}
@@ -220,8 +219,8 @@ export const TerminalTabs = memo(() => {
                         className={cn(
                           'flex items-center text-sm cursor-pointer gap-1.5 px-3 py-2 h-full whitespace-nowrap rounded-full',
                           {
-                            'bg-devonz-elements-terminals-buttonBackground': isActive,
-                            'bg-devonz-elements-background-depth-2 text-devonz-elements-textSecondary hover:bg-devonz-elements-terminals-buttonBackground':
+                            'bg-wisp-elements-terminals-buttonBackground': isActive,
+                            'bg-wisp-elements-background-depth-2 text-wisp-elements-textSecondary hover:bg-wisp-elements-terminals-buttonBackground':
                               !isActive,
                           },
                         )}
@@ -231,7 +230,7 @@ export const TerminalTabs = memo(() => {
                         <div className="i-ph:terminal-window-duotone text-lg" />
                         Terminal {terminalCount > 1 && index}
                         <button
-                          className="bg-transparent text-devonz-elements-textTertiary hover:text-devonz-elements-textPrimary hover:bg-transparent rounded"
+                          className="bg-transparent text-wisp-elements-textTertiary hover:text-wisp-elements-textPrimary hover:bg-transparent rounded"
                           onClick={(e) => {
                             e.stopPropagation();
                             closeTerminal(index);
@@ -261,7 +260,7 @@ export const TerminalTabs = memo(() => {
                   terminal.focus();
 
                   if (activeTerminal === 0) {
-                    workbenchStore.attachDevonzTerminal(terminal);
+                    workbenchStore.attachwispTerminal(terminal);
                   } else {
                     workbenchStore.attachTerminal(terminal);
                   }
@@ -276,7 +275,7 @@ export const TerminalTabs = memo(() => {
                 'flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition-all',
                 isRestarting
                   ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:bg-devonz-elements-terminals-buttonBackground cursor-pointer',
+                  : 'hover:bg-wisp-elements-terminals-buttonBackground cursor-pointer',
               )}
               style={{ color: '#22D3EE' }}
             >
@@ -294,7 +293,7 @@ export const TerminalTabs = memo(() => {
           {Array.from({ length: terminalCount + 1 }, (_, index) => {
             const isActive = activeTerminal === index;
 
-            logger.debug(`Starting devonz terminal [${index}]`);
+            logger.debug(`Starting wisp terminal [${index}]`);
 
             if (index === 0) {
               return (
@@ -310,7 +309,7 @@ export const TerminalTabs = memo(() => {
                         terminalRefs.current.set(index, ref);
                       }
                     }}
-                    onTerminalReady={(terminal) => workbenchStore.attachDevonzTerminal(terminal)}
+                    onTerminalReady={(terminal) => workbenchStore.attachwispTerminal(terminal)}
                     onTerminalResize={(cols, rows) => workbenchStore.onTerminalResize(cols, rows)}
                     theme={theme}
                   />

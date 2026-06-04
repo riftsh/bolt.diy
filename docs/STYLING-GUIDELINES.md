@@ -1,4 +1,4 @@
-# Styling Guidelines for Devonz
+# Styling Guidelines for wisp
 
 ## Dark Mode Implementation
 

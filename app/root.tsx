@@ -80,7 +80,7 @@ const inlineThemeCode = stripIndents`
   setTutorialKitTheme();
 
   function setTutorialKitTheme() {
-    let theme = localStorage.getItem('devonz_theme');
+    let theme = localStorage.getItem('wisp_theme');
 
     if (!theme) {
       theme = 'dark';
@@ -148,35 +148,35 @@ export function SentryErrorBoundary() {
 
   if (isRouteErrorResponse(error)) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-devonz-elements-background-depth-1 text-devonz-elements-textPrimary px-6">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-wisp-elements-background-depth-1 text-wisp-elements-textPrimary px-6">
         <div className="max-w-lg w-full text-center">
           <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
             <div className="i-ph:warning-circle-duotone text-3xl text-red-400" />
           </div>
           <h1 className="text-5xl font-bold mb-2 text-red-400">{error.status}</h1>
-          <h2 className="text-xl font-semibold mb-3 text-devonz-elements-textPrimary">{error.statusText}</h2>
-          <p className="text-sm text-devonz-elements-textSecondary mb-8">{error.data}</p>
+          <h2 className="text-xl font-semibold mb-3 text-wisp-elements-textPrimary">{error.statusText}</h2>
+          <p className="text-sm text-wisp-elements-textSecondary mb-8">{error.data}</p>
           <div className="flex gap-3 justify-center">
             <button
               onClick={() => window.history.back()}
-              className="px-5 py-2.5 rounded-lg text-sm font-medium border border-devonz-elements-borderColor bg-transparent text-devonz-elements-textPrimary hover:bg-devonz-elements-background-depth-2 transition-colors duration-200"
+              className="px-5 py-2.5 rounded-lg text-sm font-medium border border-wisp-elements-borderColor bg-transparent text-wisp-elements-textPrimary hover:bg-wisp-elements-background-depth-2 transition-colors duration-200"
             >
               Go Back
             </button>
             <button
               onClick={() => window.location.reload()}
-              className="px-5 py-2.5 rounded-lg text-sm font-medium bg-devonz-elements-button-primary-background text-devonz-elements-button-primary-text hover:bg-devonz-elements-button-primary-backgroundHover transition-colors duration-200"
+              className="px-5 py-2.5 rounded-lg text-sm font-medium bg-wisp-elements-button-primary-background text-wisp-elements-button-primary-text hover:bg-wisp-elements-button-primary-backgroundHover transition-colors duration-200"
             >
               Reload Page
             </button>
           </div>
           {!import.meta.env.PROD && (
             <details className="mt-8 text-left w-full">
-              <summary className="cursor-pointer text-xs text-devonz-elements-textTertiary hover:text-devonz-elements-textSecondary transition-colors">
+              <summary className="cursor-pointer text-xs text-wisp-elements-textTertiary hover:text-wisp-elements-textSecondary transition-colors">
                 Response Details
               </summary>
-              <div className="mt-3 p-4 bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor rounded-lg overflow-auto">
-                <pre className="text-xs text-devonz-elements-textSecondary font-mono whitespace-pre-wrap break-words">
+              <div className="mt-3 p-4 bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor rounded-lg overflow-auto">
+                <pre className="text-xs text-wisp-elements-textSecondary font-mono whitespace-pre-wrap break-words">
                   {JSON.stringify({ status: error.status, statusText: error.statusText, data: error.data }, null, 2)}
                 </pre>
               </div>
@@ -192,16 +192,16 @@ export function SentryErrorBoundary() {
   const errorStack = error instanceof Error ? error.stack : undefined;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-devonz-elements-background-depth-1 text-devonz-elements-textPrimary px-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-wisp-elements-background-depth-1 text-wisp-elements-textPrimary px-6">
       <div className="max-w-lg w-full text-center">
         <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
           <div className="i-ph:warning-circle-duotone text-3xl text-red-400" />
         </div>
         <h1 className="text-2xl font-bold mb-2">Unexpected Error</h1>
-        <p className="text-sm text-devonz-elements-textSecondary mb-2">
+        <p className="text-sm text-wisp-elements-textSecondary mb-2">
           {import.meta.env.PROD ? 'An unexpected error occurred.' : errorMessage}
         </p>
-        <p className="text-xs text-devonz-elements-textTertiary mb-8">
+        <p className="text-xs text-wisp-elements-textTertiary mb-8">
           {import.meta.env.PROD
             ? 'Please try again or reload the page.'
             : 'Something went wrong while rendering this page. Check the details below for debugging info.'}
@@ -209,28 +209,28 @@ export function SentryErrorBoundary() {
         <div className="flex gap-3 justify-center">
           <button
             onClick={() => window.history.back()}
-            className="px-5 py-2.5 rounded-lg text-sm font-medium border border-devonz-elements-borderColor bg-transparent text-devonz-elements-textPrimary hover:bg-devonz-elements-background-depth-2 transition-colors duration-200"
+            className="px-5 py-2.5 rounded-lg text-sm font-medium border border-wisp-elements-borderColor bg-transparent text-wisp-elements-textPrimary hover:bg-wisp-elements-background-depth-2 transition-colors duration-200"
           >
             Go Back
           </button>
           <button
             onClick={() => window.location.reload()}
-            className="px-5 py-2.5 rounded-lg text-sm font-medium bg-devonz-elements-button-primary-background text-devonz-elements-button-primary-text hover:bg-devonz-elements-button-primary-backgroundHover transition-colors duration-200"
+            className="px-5 py-2.5 rounded-lg text-sm font-medium bg-wisp-elements-button-primary-background text-wisp-elements-button-primary-text hover:bg-wisp-elements-button-primary-backgroundHover transition-colors duration-200"
           >
             Reload Page
           </button>
         </div>
         {!import.meta.env.PROD && (
           <details className="mt-8 text-left w-full" open>
-            <summary className="cursor-pointer text-xs text-devonz-elements-textTertiary hover:text-devonz-elements-textSecondary transition-colors">
+            <summary className="cursor-pointer text-xs text-wisp-elements-textTertiary hover:text-wisp-elements-textSecondary transition-colors">
               Error Details
             </summary>
-            <div className="mt-3 p-4 bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor rounded-lg overflow-auto max-h-80">
+            <div className="mt-3 p-4 bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor rounded-lg overflow-auto max-h-80">
               <p className="text-xs text-red-400 font-mono font-semibold mb-2">
                 {errorName}: {errorMessage}
               </p>
               {errorStack && (
-                <pre className="text-xs text-devonz-elements-textTertiary font-mono whitespace-pre-wrap break-words">
+                <pre className="text-xs text-wisp-elements-textTertiary font-mono whitespace-pre-wrap break-words">
                   {errorStack}
                 </pre>
               )}
@@ -304,40 +304,40 @@ function App() {
           });
         }}
         fallback={({ error, resetError }) => (
-          <div className="flex flex-col items-center justify-center min-h-screen bg-devonz-elements-background-depth-1 text-center px-6">
+          <div className="flex flex-col items-center justify-center min-h-screen bg-wisp-elements-background-depth-1 text-center px-6">
             <div className="max-w-lg w-full">
               <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
                 <div className="i-ph:warning-circle-duotone text-3xl text-red-400" />
               </div>
-              <h3 className="text-xl font-semibold text-devonz-elements-textPrimary mb-2">Application Error</h3>
-              <p className="text-sm text-devonz-elements-textSecondary mb-6">
+              <h3 className="text-xl font-semibold text-wisp-elements-textPrimary mb-2">Application Error</h3>
+              <p className="text-sm text-wisp-elements-textSecondary mb-6">
                 An unexpected error occurred in the application. You can try again or reload the page.
               </p>
               <div className="flex gap-3 justify-center">
                 <button
                   onClick={resetError}
-                  className="px-5 py-2.5 rounded-lg text-sm font-medium bg-devonz-elements-button-primary-background text-devonz-elements-button-primary-text hover:bg-devonz-elements-button-primary-backgroundHover transition-colors duration-200"
+                  className="px-5 py-2.5 rounded-lg text-sm font-medium bg-wisp-elements-button-primary-background text-wisp-elements-button-primary-text hover:bg-wisp-elements-button-primary-backgroundHover transition-colors duration-200"
                 >
                   Try Again
                 </button>
                 <button
                   onClick={() => window.location.reload()}
-                  className="px-5 py-2.5 rounded-lg text-sm font-medium border border-devonz-elements-borderColor bg-transparent text-devonz-elements-textPrimary hover:bg-devonz-elements-background-depth-2 transition-colors duration-200"
+                  className="px-5 py-2.5 rounded-lg text-sm font-medium border border-wisp-elements-borderColor bg-transparent text-wisp-elements-textPrimary hover:bg-wisp-elements-background-depth-2 transition-colors duration-200"
                 >
                   Reload Page
                 </button>
               </div>
               {!import.meta.env.PROD && error instanceof Error && (
                 <details className="mt-8 w-full text-left" open>
-                  <summary className="cursor-pointer text-xs text-devonz-elements-textTertiary hover:text-devonz-elements-textSecondary transition-colors">
+                  <summary className="cursor-pointer text-xs text-wisp-elements-textTertiary hover:text-wisp-elements-textSecondary transition-colors">
                     Error Details
                   </summary>
-                  <div className="mt-3 p-4 bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor rounded-lg overflow-auto max-h-80">
+                  <div className="mt-3 p-4 bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor rounded-lg overflow-auto max-h-80">
                     <p className="text-xs text-red-400 font-mono font-semibold mb-2">
                       {error.name}: {error.message}
                     </p>
                     {error.stack && (
-                      <pre className="text-xs text-devonz-elements-textTertiary font-mono whitespace-pre-wrap break-words">
+                      <pre className="text-xs text-wisp-elements-textTertiary font-mono whitespace-pre-wrap break-words">
                         {error.stack}
                       </pre>
                     )}

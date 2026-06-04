@@ -179,10 +179,10 @@ const CloudProvidersTab = () => {
     return (
       <div className={cn('flex flex-col items-center justify-center py-12 gap-3')}>
         <div
-          className="i-svg-spinners:90-ring-with-bg text-devonz-elements-loader-progress"
+          className="i-svg-spinners:90-ring-with-bg text-wisp-elements-loader-progress"
           style={{ fontSize: '2rem' }}
         />
-        <p className="text-sm text-devonz-elements-textSecondary">Loading provider status…</p>
+        <p className="text-sm text-wisp-elements-textSecondary">Loading provider status…</p>
       </div>
     );
   }
@@ -200,22 +200,20 @@ const CloudProvidersTab = () => {
             <div
               className={cn(
                 'w-8 h-8 flex items-center justify-center rounded-lg',
-                'bg-devonz-elements-background-depth-3',
-                'text-devonz-elements-item-contentAccent',
+                'bg-wisp-elements-background-depth-3',
+                'text-wisp-elements-item-contentAccent',
               )}
             >
               <div className="i-ph:cloud w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-md font-medium text-devonz-elements-textPrimary">Cloud Providers</h4>
-              <p className="text-sm text-devonz-elements-textSecondary">
-                Connect to cloud-based AI models and services
-              </p>
+              <h4 className="text-md font-medium text-wisp-elements-textPrimary">Cloud Providers</h4>
+              <p className="text-sm text-wisp-elements-textSecondary">Connect to cloud-based AI models and services</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-devonz-elements-textSecondary">Enable All Cloud</span>
+            <span className="text-sm text-wisp-elements-textSecondary">Enable All Cloud</span>
             <Switch checked={categoryEnabled} onCheckedChange={handleToggleCategory} />
           </div>
         </div>

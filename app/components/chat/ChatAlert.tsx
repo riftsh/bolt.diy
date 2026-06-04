@@ -46,7 +46,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className={`rounded-lg border border-devonz-elements-borderColor bg-devonz-elements-background-depth-2 p-4 mb-2`}
+        className={`rounded-lg border border-wisp-elements-borderColor bg-wisp-elements-background-depth-2 p-4 mb-2`}
       >
         <div className="flex items-start">
           {/* Icon */}
@@ -56,7 +56,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
             animate={{ scale: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <div className={`i-ph:warning-duotone text-xl text-devonz-elements-button-danger-text`}></div>
+            <div className={`i-ph:warning-duotone text-xl text-wisp-elements-button-danger-text`}></div>
           </motion.div>
           {/* Content */}
           <div className="ml-3 flex-1">
@@ -64,7 +64,7 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className={`text-sm font-medium text-devonz-elements-textPrimary`}
+              className={`text-sm font-medium text-wisp-elements-textPrimary`}
             >
               {title}
             </motion.h3>
@@ -72,11 +72,11 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className={`mt-2 text-sm text-devonz-elements-textSecondary`}
+              className={`mt-2 text-sm text-wisp-elements-textSecondary`}
             >
               <p>{message}</p>
               {description && (
-                <div className="text-xs text-devonz-elements-textSecondary p-2 bg-devonz-elements-background-depth-3 rounded mt-4 mb-4">
+                <div className="text-xs text-wisp-elements-textSecondary p-2 bg-wisp-elements-background-depth-3 rounded mt-4 mb-4">
                   Error: {description}
                 </div>
               )}
@@ -94,10 +94,10 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
                   onClick={handleAskWisp}
                   className={cn(
                     `px-2 py-1.5 rounded-md text-sm font-medium`,
-                    'bg-devonz-elements-button-primary-background',
-                    'hover:bg-devonz-elements-button-primary-backgroundHover',
-                    'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devonz-elements-button-danger-background',
-                    'text-devonz-elements-button-primary-text',
+                    'bg-wisp-elements-button-primary-background',
+                    'hover:bg-wisp-elements-button-primary-backgroundHover',
+                    'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wisp-elements-button-danger-background',
+                    'text-wisp-elements-button-primary-text',
                     'flex items-center gap-1.5',
                   )}
                 >
@@ -108,10 +108,10 @@ export default function ChatAlert({ alert, clearAlert, postMessage }: Props) {
                   onClick={clearAlert}
                   className={cn(
                     `px-2 py-1.5 rounded-md text-sm font-medium`,
-                    'bg-devonz-elements-button-secondary-background',
-                    'hover:bg-devonz-elements-button-secondary-backgroundHover',
-                    'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-devonz-elements-button-secondary-background',
-                    'text-devonz-elements-button-secondary-text',
+                    'bg-wisp-elements-button-secondary-background',
+                    'hover:bg-wisp-elements-button-secondary-backgroundHover',
+                    'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wisp-elements-button-secondary-background',
+                    'text-wisp-elements-button-secondary-text',
                   )}
                 >
                   Dismiss

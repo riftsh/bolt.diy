@@ -108,7 +108,7 @@ export function useChatHistory() {
 
           /*
            * SKIP SNAPSHOT MODE: Always load full message history
-           * This avoids the "Devonz Restored your chat" message that requires manual "Revert" click
+           * This avoids the "wisp Restored your chat" message that requires manual "Revert" click
            * and prevents jsh command not found errors since we don't intercept command execution
            */
           const filteredMessages = storedMessages.messages.slice(0, endingIdx);
@@ -336,7 +336,7 @@ export function useChatHistory() {
       // Fire-and-forget: wait for terminal → install → start dev server
       (async () => {
         try {
-          const shell = workbenchStore.devonzTerminal;
+          const shell = workbenchStore.wispTerminal;
           await shell.ready();
 
           logger.info('Auto-rebuild: Installing dependencies...');
@@ -488,7 +488,7 @@ export function useChatHistory() {
         /*
          * Search ALL artifacts for one with a meaningful title.
          * The structured mode creates a "Code Changes" placeholder BEFORE the XML parser
-         * extracts the real title from <devonzArtifact title="...">, so firstArtifact
+         * extracts the real title from <wispArtifact title="...">, so firstArtifact
          * always has "Code Changes". We iterate through all artifacts to find the real one.
          * Also filter out file-name-style titles (e.g., "index.css", "App.tsx") since
          * those are not descriptive project names.

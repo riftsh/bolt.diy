@@ -141,26 +141,26 @@ export function BranchSelector({
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            'bg-devonz-elements-bg-depth-1 rounded-xl shadow-xl border border-devonz-elements-borderColor max-w-md w-full max-h-[80vh] flex flex-col',
+            'bg-wisp-elements-bg-depth-1 rounded-xl shadow-xl border border-wisp-elements-borderColor max-w-md w-full max-h-[80vh] flex flex-col',
             className,
           )}
         >
           {/* Header */}
-          <div className="p-6 border-b border-devonz-elements-borderColor flex items-center justify-between">
+          <div className="p-6 border-b border-wisp-elements-borderColor flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
                 <div className="i-ph:git-branch size-6 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-devonz-elements-textPrimary">Select Branch</h3>
-                <p className="text-sm text-devonz-elements-textSecondary">
+                <h3 className="text-lg font-semibold text-wisp-elements-textPrimary">Select Branch</h3>
+                <p className="text-sm text-wisp-elements-textSecondary">
                   {repoOwner}/{repoName}
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-devonz-elements-background-depth-1 text-devonz-elements-textSecondary hover:text-devonz-elements-textPrimary transition-all"
+              className="p-2 rounded-lg hover:bg-wisp-elements-background-depth-1 text-wisp-elements-textSecondary hover:text-wisp-elements-textPrimary transition-all"
             >
               <div className="i-ph:x size-5" />
             </button>
@@ -170,8 +170,8 @@ export function BranchSelector({
           <div className="flex-1 overflow-hidden flex flex-col">
             {isLoading ? (
               <div className="flex flex-col items-center justify-center p-8 space-y-4">
-                <div className="animate-spin w-8 h-8 border-2 border-devonz-elements-borderColorActive border-t-transparent rounded-full" />
-                <p className="text-sm text-devonz-elements-textSecondary">Loading branches...</p>
+                <div className="animate-spin w-8 h-8 border-2 border-wisp-elements-borderColorActive border-t-transparent rounded-full" />
+                <p className="text-sm text-wisp-elements-textSecondary">Loading branches...</p>
               </div>
             ) : error ? (
               <div className="flex flex-col items-center justify-center p-8 space-y-4">
@@ -188,13 +188,13 @@ export function BranchSelector({
               <>
                 {/* Search */}
                 {branches.length > 10 && (
-                  <div className="p-4 border-b border-devonz-elements-borderColor">
+                  <div className="p-4 border-b border-wisp-elements-borderColor">
                     <input
                       type="text"
                       placeholder="Search branches..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full px-3 py-2 rounded-lg bg-devonz-elements-background-depth-1 border border-devonz-elements-borderColor text-devonz-elements-textPrimary placeholder-devonz-elements-textTertiary focus:outline-none focus:ring-1 focus:ring-devonz-elements-borderColorActive"
+                      className="w-full px-3 py-2 rounded-lg bg-wisp-elements-background-depth-1 border border-wisp-elements-borderColor text-wisp-elements-textPrimary placeholder-wisp-elements-textTertiary focus:outline-none focus:ring-1 focus:ring-wisp-elements-borderColorActive"
                     />
                   </div>
                 )}
@@ -211,15 +211,13 @@ export function BranchSelector({
                             'w-full text-left p-3 rounded-lg transition-all duration-200 border',
                             selectedBranch === branch.name
                               ? 'bg-blue-50 border-blue-200 text-blue-900 dark:bg-blue-950 dark:border-blue-800 dark:text-blue-100'
-                              : 'bg-devonz-elements-background-depth-1 border-transparent hover:bg-devonz-elements-background-depth-2',
+                              : 'bg-wisp-elements-background-depth-1 border-transparent hover:bg-wisp-elements-background-depth-2',
                           )}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2 min-w-0">
-                              <div className="i-ph:git-branch size-4 flex-shrink-0 text-devonz-elements-textSecondary" />
-                              <span className="font-medium text-devonz-elements-textPrimary truncate">
-                                {branch.name}
-                              </span>
+                              <div className="i-ph:git-branch size-4 flex-shrink-0 text-wisp-elements-textSecondary" />
+                              <span className="font-medium text-wisp-elements-textPrimary truncate">{branch.name}</span>
                               <div className="flex items-center gap-1 flex-shrink-0">
                                 {branch.isDefault && <div className="i-ph:star size-3 text-yellow-500" />}
                                 {branch.protected && <div className="i-ph:shield size-3 text-red-500" />}
@@ -227,7 +225,7 @@ export function BranchSelector({
                             </div>
                             {selectedBranch === branch.name && <div className="i-ph:check size-4 text-blue-600" />}
                           </div>
-                          <div className="text-xs text-devonz-elements-textSecondary mt-1 truncate">
+                          <div className="text-xs text-wisp-elements-textSecondary mt-1 truncate">
                             {branch.sha.substring(0, 8)}
                           </div>
                         </button>
@@ -235,7 +233,7 @@ export function BranchSelector({
                     </div>
                   ) : (
                     <div className="flex items-center justify-center p-8">
-                      <p className="text-sm text-devonz-elements-textSecondary">
+                      <p className="text-sm text-wisp-elements-textSecondary">
                         {searchQuery ? 'No branches found matching your search.' : 'No branches available.'}
                       </p>
                     </div>
@@ -247,8 +245,8 @@ export function BranchSelector({
 
           {/* Footer */}
           {!isLoading && !error && branches.length > 0 && (
-            <div className="p-6 border-t border-devonz-elements-borderColor flex items-center justify-between">
-              <div className="text-sm text-devonz-elements-textSecondary">
+            <div className="p-6 border-t border-wisp-elements-borderColor flex items-center justify-between">
+              <div className="text-sm text-wisp-elements-textSecondary">
                 {selectedBranch && (
                   <>
                     Selected: <span className="font-medium">{selectedBranch}</span>

@@ -1,7 +1,7 @@
 import type {
   ActionType,
-  DevonzAction,
-  DevonzActionData,
+  WispAction,
+  WispActionData,
   DiffAction,
   FileAction,
   ShellAction,
@@ -9,23 +9,23 @@ import type {
   PlanAction,
   TaskUpdateAction,
 } from '~/types/actions';
-import type { DevonzArtifactData } from '~/types/artifact';
+import type { WispArtifactData } from '~/types/artifact';
 import type { StreamingEvent } from '~/types/streaming-events';
 import { getBufferedContent, clearBufferedContent } from '~/lib/stores/stream-event-router';
 import { parseSearchReplaceDiff } from '~/lib/runtime/diff/search-replace';
 import { createScopedLogger } from '~/utils/logger';
 import { unreachable } from '~/utils/unreachable';
 
-const ARTIFACT_TAG_OPEN = '<devonzArtifact';
-const ARTIFACT_TAG_CLOSE = '</devonzArtifact>';
-const ARTIFACT_ACTION_TAG_OPEN = '<devonzAction';
-const ARTIFACT_ACTION_TAG_CLOSE = '</devonzAction>';
-const DEVONZ_QUICK_ACTIONS_OPEN = '<devonz-quick-actions>';
-const DEVONZ_QUICK_ACTIONS_CLOSE = '</devonz-quick-actions>';
+const ARTIFACT_TAG_OPEN = '<wispArtifact';
+const ARTIFACT_TAG_CLOSE = '</wispArtifact>';
+const ARTIFACT_ACTION_TAG_OPEN = '<wispAction';
+const ARTIFACT_ACTION_TAG_CLOSE = '</wispAction>';
+const WISP_QUICK_ACTIONS_OPEN = '<wisp-quick-actions>';
+const WISP_QUICK_ACTIONS_CLOSE = '</wisp-quick-actions>';
 
 const logger = createScopedLogger('MessageParser');
 
-export interface ArtifactCallbackData extends DevonzArtifactData {
+export interface ArtifactCallbackData extends WispArtifactData {
   messageId: string;
   artifactId?: string;
 }
@@ -34,7 +34,7 @@ export interface ActionCallbackData {
   artifactId: string;
   messageId: string;
   actionId: string;
-  action: DevonzAction;
+  action: WispAction;
 }
 
 export type ArtifactCallback = (data: ArtifactCallbackData) => void;
@@ -65,8 +65,8 @@ interface MessageState {
   insideArtifact: boolean;
   insideAction: boolean;
   artifactCounter: number;
-  currentArtifact?: DevonzArtifactData;
-  currentAction: DevonzActionData;
+  currentArtifact?: WispArtifactData;
+  currentAction: WispActionData;
   actionId: number;
 }
 
@@ -137,14 +137,14 @@ export class StreamingMessageParser {
     let earlyBreak = false;
 
     while (i < input.length) {
-      if (input.startsWith(DEVONZ_QUICK_ACTIONS_OPEN, i)) {
-        const actionsBlockEnd = input.indexOf(DEVONZ_QUICK_ACTIONS_CLOSE, i);
+      if (input.startsWith(WISP_QUICK_ACTIONS_OPEN, i)) {
+        const actionsBlockEnd = input.indexOf(WISP_QUICK_ACTIONS_CLOSE, i);
 
         if (actionsBlockEnd !== -1) {
-          const actionsBlockContent = input.slice(i + DEVONZ_QUICK_ACTIONS_OPEN.length, actionsBlockEnd);
+          const actionsBlockContent = input.slice(i + WISP_QUICK_ACTIONS_OPEN.length, actionsBlockEnd);
 
-          // Find all <devonz-quick-action ...>label</devonz-quick-action> inside
-          const quickActionRegex = /<devonz-quick-action([^>]*)>([\s\S]*?)<\/devonz-quick-action>/g;
+          // Find all <wisp-quick-action ...>label</wisp-quick-action> inside
+          const quickActionRegex = /<wisp-quick-action([^>]*)>([\s\S]*?)<\/wisp-quick-action>/g;
           let match;
           const buttons = [];
 
@@ -163,7 +163,7 @@ export class StreamingMessageParser {
             );
           }
           output += createQuickActionGroup(buttons);
-          i = actionsBlockEnd + DEVONZ_QUICK_ACTIONS_CLOSE.length;
+          i = actionsBlockEnd + WISP_QUICK_ACTIONS_CLOSE.length;
           continue;
         }
       }
@@ -208,7 +208,7 @@ export class StreamingMessageParser {
                */
               actionId: String(state.actionId - 1),
 
-              action: currentAction as DevonzAction,
+              action: currentAction as WispAction,
             });
 
             state.insideAction = false;
@@ -217,15 +217,15 @@ export class StreamingMessageParser {
             i = closeIndex + ARTIFACT_ACTION_TAG_CLOSE.length;
           } else {
             /*
-             * No </devonzAction> found yet. Check if </devonzArtifact> exists — if so,
-             * the LLM omitted the closing </devonzAction> tag. We treat
-             * </devonzArtifact> as the implicit action boundary to prevent the
+             * No </wispAction> found yet. Check if </wispArtifact> exists — if so,
+             * the LLM omitted the closing </wispAction> tag. We treat
+             * </wispArtifact> as the implicit action boundary to prevent the
              * raw tag from leaking into file content.
              */
             const potentialArtifactClose = input.indexOf(ARTIFACT_TAG_CLOSE, i);
 
             if (potentialArtifactClose !== -1) {
-              // Implicit close: LLM omitted </devonzAction> for the last action
+              // Implicit close: LLM omitted </wispAction> for the last action
               currentAction.content += input.slice(i, potentialArtifactClose);
 
               let content = currentAction.content.trim();
@@ -245,13 +245,13 @@ export class StreamingMessageParser {
                 artifactId: currentArtifact.id,
                 messageId,
                 actionId: String(state.actionId - 1),
-                action: currentAction as DevonzAction,
+                action: currentAction as WispAction,
               });
 
               state.insideAction = false;
               state.currentAction = { content: '' };
 
-              // Also close the artifact since the </devonzArtifact> tag is what we found
+              // Also close the artifact since the </wispArtifact> tag is what we found
               this._options.callbacks?.onArtifactClose?.({
                 messageId,
                 artifactId: currentArtifact.id,
@@ -268,10 +268,10 @@ export class StreamingMessageParser {
                 let content = input.slice(i);
 
                 /*
-                 * Strip any partial devonz closing tags at the tail of the stream
-                 * (e.g. "</devonz", "</devonzArti") that haven't fully arrived yet.
+                 * Strip any partial wisp closing tags at the tail of the stream
+                 * (e.g. "</wisp", "</wispArti") that haven't fully arrived yet.
                  */
-                content = content.replace(/<\/devonz[A-Za-z]*$/g, '');
+                content = content.replace(/<\/wisp[A-Za-z]*$/g, '');
 
                 if (!currentAction.filePath.endsWith('.md')) {
                   content = cleanoutMarkdownSyntax(content);
@@ -309,7 +309,7 @@ export class StreamingMessageParser {
                 artifactId: currentArtifact.id,
                 messageId,
                 actionId: String(state.actionId++),
-                action: state.currentAction as DevonzAction,
+                action: state.currentAction as WispAction,
               });
 
               i = actionEndIndex + 1;
@@ -373,7 +373,7 @@ export class StreamingMessageParser {
                 title: artifactTitle,
                 type,
                 preloaded: this.#extractAttribute(artifactTag, 'preloaded') === 'true',
-              } satisfies DevonzArtifactData;
+              } satisfies WispArtifactData;
 
               state.currentArtifact = currentArtifact;
 
@@ -594,7 +594,7 @@ export class StreamingMessageParser {
 
 const createArtifactElement: ElementFactory = (props) => {
   const elementProps = [
-    'class="__devonzArtifact__"',
+    'class="__wispArtifact__"',
     ...Object.entries(props).map(([key, value]) => {
       return `data-${camelToDashCase(key)}=${JSON.stringify(value)}`;
     }),
@@ -609,8 +609,8 @@ function camelToDashCase(input: string) {
 
 function createQuickActionElement(props: Record<string, string>, label: string) {
   const elementProps = [
-    'class="__devonzQuickAction__"',
-    'data-devonz-quick-action="true"',
+    'class="__wispQuickAction__"',
+    'data-wisp-quick-action="true"',
     ...Object.entries(props).map(([key, value]) => `data-${camelToDashCase(key)}=${JSON.stringify(value)}`),
   ];
 
@@ -618,5 +618,5 @@ function createQuickActionElement(props: Record<string, string>, label: string) 
 }
 
 function createQuickActionGroup(buttons: string[]) {
-  return `<div class="__devonzQuickAction__" data-devonz-quick-action="true">${buttons.join('')}</div>`;
+  return `<div class="__wispQuickAction__" data-wisp-quick-action="true">${buttons.join('')}</div>`;
 }

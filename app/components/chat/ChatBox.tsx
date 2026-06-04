@@ -92,11 +92,11 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
     <div
       className={cn('relative p-4 rounded-xl w-full max-w-chat mx-auto z-prompt', 'shadow-xl')}
       style={{
-        background: 'var(--devonz-chat-bg)',
+        background: 'var(--wisp-chat-bg)',
         borderWidth: '1px',
         borderStyle: 'solid',
-        borderColor: 'var(--devonz-chat-border)',
-        boxShadow: '0 20px 25px -5px var(--devonz-chat-shadow)',
+        borderColor: 'var(--wisp-chat-border)',
+        boxShadow: '0 20px 25px -5px var(--wisp-chat-shadow)',
         backdropFilter: 'blur(24px)',
       }}
     >
@@ -165,7 +165,7 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
         }}
       />
       {props.selectedElement && (
-        <div className="flex mx-1.5 gap-2 items-center justify-between rounded-lg rounded-b-none border border-b-none border-devonz-elements-borderColor text-devonz-elements-textPrimary flex py-1 px-2.5 font-medium text-xs">
+        <div className="flex mx-1.5 gap-2 items-center justify-between rounded-lg rounded-b-none border border-b-none border-wisp-elements-borderColor text-wisp-elements-textPrimary flex py-1 px-2.5 font-medium text-xs">
           <div className="flex gap-2 items-center lowercase">
             <code className="bg-accent-500 rounded-4px px-1.5 py-1 mr-0.5 text-white">
               {props?.selectedElement?.tagName}
@@ -181,30 +181,30 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
           </button>
         </div>
       )}
-      <div className={cn('relative shadow-xs border border-devonz-elements-borderColor backdrop-blur rounded-lg')}>
+      <div className={cn('relative shadow-xs border border-wisp-elements-borderColor backdrop-blur rounded-lg')}>
         <textarea
           ref={props.textareaRef}
           aria-label="Chat message input"
           className={cn(
-            'w-full pl-4 pt-4 pr-16 outline-none resize-none text-devonz-elements-textPrimary placeholder-devonz-elements-textTertiary bg-transparent text-sm',
+            'w-full pl-4 pt-4 pr-16 outline-none resize-none text-wisp-elements-textPrimary placeholder-wisp-elements-textTertiary bg-transparent text-sm',
             'transition-all duration-200',
-            'hover:border-devonz-elements-focus',
+            'hover:border-wisp-elements-focus',
           )}
           onDragEnter={(e) => {
             e.preventDefault();
-            e.currentTarget.style.border = '2px solid var(--devonz-elements-borderColorActive)';
+            e.currentTarget.style.border = '2px solid var(--wisp-elements-borderColorActive)';
           }}
           onDragOver={(e) => {
             e.preventDefault();
-            e.currentTarget.style.border = '2px solid var(--devonz-elements-borderColorActive)';
+            e.currentTarget.style.border = '2px solid var(--wisp-elements-borderColorActive)';
           }}
           onDragLeave={(e) => {
             e.preventDefault();
-            e.currentTarget.style.border = '1px solid var(--devonz-elements-borderColor)';
+            e.currentTarget.style.border = '1px solid var(--wisp-elements-borderColor)';
           }}
           onDrop={(e) => {
             e.preventDefault();
-            e.currentTarget.style.border = '1px solid var(--devonz-elements-borderColor)';
+            e.currentTarget.style.border = '1px solid var(--wisp-elements-borderColor)';
 
             const droppedFiles = Array.from(e.dataTransfer.files);
             const imageFiles = droppedFiles.filter((file) => file.type.startsWith('image/'));
@@ -318,9 +318,9 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
                 }}
               >
                 {props.enhancingPrompt ? (
-                  <div className="i-svg-spinners:90-ring-with-bg text-devonz-elements-loader-progress text-xl animate-spin"></div>
+                  <div className="i-svg-spinners:90-ring-with-bg text-wisp-elements-loader-progress text-xl animate-spin"></div>
                 ) : (
-                  <div className="i-devonz:stars text-xl"></div>
+                  <div className="i-wisp:stars text-xl"></div>
                 )}
               </IconButton>
 
@@ -336,9 +336,8 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
                 <IconButton
                   title="Select Model"
                   className={cn('transition-all flex items-center gap-1', {
-                    'bg-devonz-elements-item-backgroundAccent text-devonz-elements-item-contentAccent':
-                      isModelSelectorOpen,
-                    'bg-devonz-elements-item-backgroundDefault text-devonz-elements-item-contentDefault':
+                    'bg-wisp-elements-item-backgroundAccent text-wisp-elements-item-contentAccent': isModelSelectorOpen,
+                    'bg-wisp-elements-item-backgroundDefault text-wisp-elements-item-contentDefault':
                       !isModelSelectorOpen,
                   })}
                   onClick={() => setIsModelSelectorOpen(!isModelSelectorOpen)}
@@ -349,7 +348,7 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
               </div>
 
               {/* Divider */}
-              <div className="w-px h-4 bg-devonz-elements-borderColor mx-0.5" />
+              <div className="w-px h-4 bg-wisp-elements-borderColor mx-0.5" />
 
               {/* More tools toggle */}
               <IconButton
@@ -357,15 +356,15 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
                 className={cn(
                   'transition-all',
                   showMoreTools
-                    ? 'bg-devonz-elements-item-backgroundAccent text-devonz-elements-item-contentAccent'
-                    : 'bg-devonz-elements-item-backgroundDefault text-devonz-elements-item-contentDefault',
+                    ? 'bg-wisp-elements-item-backgroundAccent text-wisp-elements-item-contentAccent'
+                    : 'bg-wisp-elements-item-backgroundDefault text-wisp-elements-item-contentDefault',
                 )}
                 onClick={() => setShowMoreTools((v) => !v)}
               >
                 <div
                   className={cn(
                     'text-lg transition-transform duration-200',
-                    showMoreTools ? 'i-ph:x' : 'i-devonz:expand',
+                    showMoreTools ? 'i-ph:x' : 'i-wisp:expand',
                   )}
                 />
               </IconButton>

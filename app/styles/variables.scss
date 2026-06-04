@@ -1,111 +1,111 @@
 /* Color Tokens Light Theme */
 :root,
 :root[data-theme='light'] {
-  --devonz-elements-borderColor: theme('colors.alpha.gray.10');
-  --devonz-elements-borderColorActive: theme('colors.accent.600');
+  --wisp-elements-borderColor: theme('colors.alpha.gray.10');
+  --wisp-elements-borderColorActive: theme('colors.accent.600');
 
-  --devonz-elements-bg-depth-1: theme('colors.white');
-  --devonz-elements-bg-depth-2: theme('colors.gray.50');
-  --devonz-elements-bg-depth-3: theme('colors.gray.200');
-  --devonz-elements-bg-depth-4: theme('colors.alpha.gray.5');
+  --wisp-elements-bg-depth-1: theme('colors.white');
+  --wisp-elements-bg-depth-2: theme('colors.gray.50');
+  --wisp-elements-bg-depth-3: theme('colors.gray.200');
+  --wisp-elements-bg-depth-4: theme('colors.alpha.gray.5');
 
-  --devonz-elements-textPrimary: theme('colors.gray.950');
-  --devonz-elements-textSecondary: theme('colors.gray.600');
-  --devonz-elements-textTertiary: theme('colors.gray.500');
+  --wisp-elements-textPrimary: theme('colors.gray.950');
+  --wisp-elements-textSecondary: theme('colors.gray.600');
+  --wisp-elements-textTertiary: theme('colors.gray.500');
 
-  --devonz-elements-code-background: theme('colors.gray.100');
-  --devonz-elements-code-text: theme('colors.gray.950');
+  --wisp-elements-code-background: theme('colors.gray.100');
+  --wisp-elements-code-text: theme('colors.gray.950');
 
-  --devonz-elements-button-primary-background: theme('colors.alpha.accent.10');
-  --devonz-elements-button-primary-backgroundHover: theme('colors.alpha.accent.20');
-  --devonz-elements-button-primary-text: theme('colors.accent.500');
+  --wisp-elements-button-primary-background: theme('colors.alpha.accent.10');
+  --wisp-elements-button-primary-backgroundHover: theme('colors.alpha.accent.20');
+  --wisp-elements-button-primary-text: theme('colors.accent.500');
 
-  --devonz-elements-button-secondary-background: theme('colors.alpha.gray.5');
-  --devonz-elements-button-secondary-backgroundHover: theme('colors.alpha.gray.10');
-  --devonz-elements-button-secondary-text: theme('colors.gray.950');
+  --wisp-elements-button-secondary-background: theme('colors.alpha.gray.5');
+  --wisp-elements-button-secondary-backgroundHover: theme('colors.alpha.gray.10');
+  --wisp-elements-button-secondary-text: theme('colors.gray.950');
 
-  --devonz-elements-button-danger-background: theme('colors.alpha.red.10');
-  --devonz-elements-button-danger-backgroundHover: theme('colors.alpha.red.20');
-  --devonz-elements-button-danger-text: theme('colors.red.500');
+  --wisp-elements-button-danger-background: theme('colors.alpha.red.10');
+  --wisp-elements-button-danger-backgroundHover: theme('colors.alpha.red.20');
+  --wisp-elements-button-danger-text: theme('colors.red.500');
 
-  --devonz-elements-item-contentDefault: theme('colors.alpha.gray.50');
-  --devonz-elements-item-contentActive: theme('colors.gray.950');
-  --devonz-elements-item-contentAccent: theme('colors.accent.700');
-  --devonz-elements-item-contentDanger: theme('colors.red.500');
-  --devonz-elements-item-backgroundDefault: rgba(0, 0, 0, 0);
-  --devonz-elements-item-backgroundActive: theme('colors.alpha.gray.5');
-  --devonz-elements-item-backgroundAccent: theme('colors.alpha.accent.10');
-  --devonz-elements-item-backgroundDanger: theme('colors.alpha.red.10');
+  --wisp-elements-item-contentDefault: theme('colors.alpha.gray.50');
+  --wisp-elements-item-contentActive: theme('colors.gray.950');
+  --wisp-elements-item-contentAccent: theme('colors.accent.700');
+  --wisp-elements-item-contentDanger: theme('colors.red.500');
+  --wisp-elements-item-backgroundDefault: rgba(0, 0, 0, 0);
+  --wisp-elements-item-backgroundActive: theme('colors.alpha.gray.5');
+  --wisp-elements-item-backgroundAccent: theme('colors.alpha.accent.10');
+  --wisp-elements-item-backgroundDanger: theme('colors.alpha.red.10');
 
-  --devonz-elements-loader-background: theme('colors.alpha.gray.10');
-  --devonz-elements-loader-progress: theme('colors.accent.500');
+  --wisp-elements-loader-background: theme('colors.alpha.gray.10');
+  --wisp-elements-loader-progress: theme('colors.accent.500');
 
-  --devonz-elements-artifacts-background: theme('colors.white');
-  --devonz-elements-artifacts-backgroundHover: theme('colors.alpha.gray.2');
-  --devonz-elements-artifacts-borderColor: var(--devonz-elements-borderColor);
-  --devonz-elements-artifacts-inlineCode-background: theme('colors.gray.100');
-  --devonz-elements-artifacts-inlineCode-text: var(--devonz-elements-textPrimary);
+  --wisp-elements-artifacts-background: theme('colors.white');
+  --wisp-elements-artifacts-backgroundHover: theme('colors.alpha.gray.2');
+  --wisp-elements-artifacts-borderColor: var(--wisp-elements-borderColor);
+  --wisp-elements-artifacts-inlineCode-background: theme('colors.gray.100');
+  --wisp-elements-artifacts-inlineCode-text: var(--wisp-elements-textPrimary);
 
-  --devonz-elements-actions-background: theme('colors.white');
-  --devonz-elements-actions-code-background: theme('colors.gray.800');
+  --wisp-elements-actions-background: theme('colors.white');
+  --wisp-elements-actions-code-background: theme('colors.gray.800');
 
-  --devonz-elements-messages-background: theme('colors.gray.100');
-  --devonz-elements-messages-linkColor: theme('colors.accent.500');
-  --devonz-elements-messages-code-background: theme('colors.gray.800');
-  --devonz-elements-messages-inlineCode-background: theme('colors.gray.200');
-  --devonz-elements-messages-inlineCode-text: theme('colors.gray.800');
+  --wisp-elements-messages-background: theme('colors.gray.100');
+  --wisp-elements-messages-linkColor: theme('colors.accent.500');
+  --wisp-elements-messages-code-background: theme('colors.gray.800');
+  --wisp-elements-messages-inlineCode-background: theme('colors.gray.200');
+  --wisp-elements-messages-inlineCode-text: theme('colors.gray.800');
 
-  --devonz-elements-icon-success: theme('colors.green.500');
-  --devonz-elements-icon-error: theme('colors.red.500');
-  --devonz-elements-icon-primary: theme('colors.gray.950');
-  --devonz-elements-icon-secondary: theme('colors.gray.600');
-  --devonz-elements-icon-tertiary: theme('colors.gray.500');
+  --wisp-elements-icon-success: theme('colors.green.500');
+  --wisp-elements-icon-error: theme('colors.red.500');
+  --wisp-elements-icon-primary: theme('colors.gray.950');
+  --wisp-elements-icon-secondary: theme('colors.gray.600');
+  --wisp-elements-icon-tertiary: theme('colors.gray.500');
 
-  --devonz-elements-dividerColor: theme('colors.gray.100');
+  --wisp-elements-dividerColor: theme('colors.gray.100');
 
-  --devonz-elements-prompt-background: theme('colors.alpha.white.80');
+  --wisp-elements-prompt-background: theme('colors.alpha.white.80');
 
-  --devonz-chat-bg: linear-gradient(145deg, rgba(200, 215, 235, 0.3), rgba(245, 245, 245, 0.95));
-  --devonz-chat-border: rgba(180, 195, 215, 0.5);
-  --devonz-chat-shadow: rgba(180, 195, 215, 0.2);
+  --wisp-chat-bg: linear-gradient(145deg, rgba(200, 215, 235, 0.3), rgba(245, 245, 245, 0.95));
+  --wisp-chat-border: rgba(180, 195, 215, 0.5);
+  --wisp-chat-shadow: rgba(180, 195, 215, 0.2);
 
-  --devonz-elements-sidebar-dropdownShadow: theme('colors.alpha.gray.10');
-  --devonz-elements-sidebar-buttonBackgroundDefault: theme('colors.alpha.accent.10');
-  --devonz-elements-sidebar-buttonBackgroundHover: theme('colors.alpha.accent.20');
-  --devonz-elements-sidebar-buttonText: theme('colors.accent.700');
+  --wisp-elements-sidebar-dropdownShadow: theme('colors.alpha.gray.10');
+  --wisp-elements-sidebar-buttonBackgroundDefault: theme('colors.alpha.accent.10');
+  --wisp-elements-sidebar-buttonBackgroundHover: theme('colors.alpha.accent.20');
+  --wisp-elements-sidebar-buttonText: theme('colors.accent.700');
 
-  --devonz-elements-preview-addressBar-background: theme('colors.gray.100');
-  --devonz-elements-preview-addressBar-backgroundHover: theme('colors.alpha.gray.5');
-  --devonz-elements-preview-addressBar-backgroundActive: theme('colors.white');
-  --devonz-elements-preview-addressBar-text: var(--devonz-elements-textSecondary);
-  --devonz-elements-preview-addressBar-textActive: var(--devonz-elements-textPrimary);
+  --wisp-elements-preview-addressBar-background: theme('colors.gray.100');
+  --wisp-elements-preview-addressBar-backgroundHover: theme('colors.alpha.gray.5');
+  --wisp-elements-preview-addressBar-backgroundActive: theme('colors.white');
+  --wisp-elements-preview-addressBar-text: var(--wisp-elements-textSecondary);
+  --wisp-elements-preview-addressBar-textActive: var(--wisp-elements-textPrimary);
 
-  --devonz-elements-terminals-background: theme('colors.white');
-  --devonz-elements-terminals-buttonBackground: var(--devonz-elements-bg-depth-4);
+  --wisp-elements-terminals-background: theme('colors.white');
+  --wisp-elements-terminals-buttonBackground: var(--wisp-elements-bg-depth-4);
 
-  --devonz-elements-cta-background: theme('colors.gray.100');
-  --devonz-elements-cta-text: theme('colors.gray.950');
+  --wisp-elements-cta-background: theme('colors.gray.100');
+  --wisp-elements-cta-text: theme('colors.gray.950');
 
   /* Terminal Colors */
-  --devonz-terminal-background: var(--devonz-elements-terminals-background);
-  --devonz-terminal-foreground: #333333;
-  --devonz-terminal-selection-background: #00000040;
-  --devonz-terminal-black: #000000;
-  --devonz-terminal-red: #cd3131;
-  --devonz-terminal-green: #00bc00;
-  --devonz-terminal-yellow: #949800;
-  --devonz-terminal-blue: #0451a5;
-  --devonz-terminal-magenta: #bc05bc;
-  --devonz-terminal-cyan: #0598bc;
-  --devonz-terminal-white: #555555;
-  --devonz-terminal-brightBlack: #686868;
-  --devonz-terminal-brightRed: #cd3131;
-  --devonz-terminal-brightGreen: #00bc00;
-  --devonz-terminal-brightYellow: #949800;
-  --devonz-terminal-brightBlue: #0451a5;
-  --devonz-terminal-brightMagenta: #bc05bc;
-  --devonz-terminal-brightCyan: #0598bc;
-  --devonz-terminal-brightWhite: #a5a5a5;
+  --wisp-terminal-background: var(--wisp-elements-terminals-background);
+  --wisp-terminal-foreground: #333333;
+  --wisp-terminal-selection-background: #00000040;
+  --wisp-terminal-black: #000000;
+  --wisp-terminal-red: #cd3131;
+  --wisp-terminal-green: #00bc00;
+  --wisp-terminal-yellow: #949800;
+  --wisp-terminal-blue: #0451a5;
+  --wisp-terminal-magenta: #bc05bc;
+  --wisp-terminal-cyan: #0598bc;
+  --wisp-terminal-white: #555555;
+  --wisp-terminal-brightBlack: #686868;
+  --wisp-terminal-brightRed: #cd3131;
+  --wisp-terminal-brightGreen: #00bc00;
+  --wisp-terminal-brightYellow: #949800;
+  --wisp-terminal-brightBlue: #0451a5;
+  --wisp-terminal-brightMagenta: #bc05bc;
+  --wisp-terminal-brightCyan: #0598bc;
+  --wisp-terminal-brightWhite: #a5a5a5;
   --modern-scrollbar-thumb-background: rgba(100, 100, 100, 0.3); // Example light theme color
   --modern-scrollbar-thumb-backgroundHover: rgba(74, 74, 74, 0.8);
 }
@@ -113,113 +113,113 @@
 /* Color Tokens Dark Theme - Blink.new Inspired */
 :root,
 :root[data-theme='dark'] {
-  --devonz-elements-borderColor: rgba(255, 255, 255, 0.08);
-  --devonz-elements-borderColorActive: theme('colors.accent.500');
+  --wisp-elements-borderColor: rgba(255, 255, 255, 0.08);
+  --wisp-elements-borderColorActive: theme('colors.accent.500');
 
   /* Liquid Glass backgrounds */
-  --devonz-elements-bg-depth-1: #0b0d13;
-  --devonz-elements-bg-depth-2: #0b0d13;
-  --devonz-elements-bg-depth-3: #1a2332;
-  --devonz-elements-bg-depth-4: rgba(255, 255, 255, 0.03);
+  --wisp-elements-bg-depth-1: #0b0d13;
+  --wisp-elements-bg-depth-2: #0b0d13;
+  --wisp-elements-bg-depth-3: #1a2332;
+  --wisp-elements-bg-depth-4: rgba(255, 255, 255, 0.03);
 
-  --devonz-elements-textPrimary: #e6edf3;
-  --devonz-elements-textSecondary: #8b949e;
-  --devonz-elements-textTertiary: #6e7681;
+  --wisp-elements-textPrimary: #e6edf3;
+  --wisp-elements-textSecondary: #8b949e;
+  --wisp-elements-textTertiary: #6e7681;
 
-  --devonz-elements-editor-backgroundColor: #0d1117;
-  --devonz-elements-code-background: #161b22;
-  --devonz-elements-code-text: #e6edf3;
+  --wisp-elements-editor-backgroundColor: #0d1117;
+  --wisp-elements-code-background: #161b22;
+  --wisp-elements-code-text: #e6edf3;
 
-  --devonz-elements-button-primary-background: rgba(59, 130, 246, 0.15);
-  --devonz-elements-button-primary-backgroundHover: rgba(59, 130, 246, 0.25);
-  --devonz-elements-button-primary-text: #60a5fa;
+  --wisp-elements-button-primary-background: rgba(59, 130, 246, 0.15);
+  --wisp-elements-button-primary-backgroundHover: rgba(59, 130, 246, 0.25);
+  --wisp-elements-button-primary-text: #60a5fa;
 
-  --devonz-elements-button-secondary-background: rgba(255, 255, 255, 0.05);
-  --devonz-elements-button-secondary-backgroundHover: rgba(255, 255, 255, 0.1);
-  --devonz-elements-button-secondary-text: #e6edf3;
+  --wisp-elements-button-secondary-background: rgba(255, 255, 255, 0.05);
+  --wisp-elements-button-secondary-backgroundHover: rgba(255, 255, 255, 0.1);
+  --wisp-elements-button-secondary-text: #e6edf3;
 
-  --devonz-elements-button-danger-background: rgba(239, 68, 68, 0.1);
-  --devonz-elements-button-danger-backgroundHover: rgba(239, 68, 68, 0.2);
-  --devonz-elements-button-danger-text: #f87171;
+  --wisp-elements-button-danger-background: rgba(239, 68, 68, 0.1);
+  --wisp-elements-button-danger-backgroundHover: rgba(239, 68, 68, 0.2);
+  --wisp-elements-button-danger-text: #f87171;
 
-  --devonz-elements-item-contentDefault: rgba(255, 255, 255, 0.5);
-  --devonz-elements-item-contentActive: #e6edf3;
-  --devonz-elements-item-contentAccent: #06b6d4;
-  --devonz-elements-item-contentDanger: #f87171;
-  --devonz-elements-item-backgroundDefault: rgba(255, 255, 255, 0);
-  --devonz-elements-item-backgroundActive: rgba(255, 255, 255, 0.08);
-  --devonz-elements-item-backgroundAccent: rgba(6, 182, 212, 0.15);
-  --devonz-elements-item-backgroundDanger: rgba(239, 68, 68, 0.1);
+  --wisp-elements-item-contentDefault: rgba(255, 255, 255, 0.5);
+  --wisp-elements-item-contentActive: #e6edf3;
+  --wisp-elements-item-contentAccent: #06b6d4;
+  --wisp-elements-item-contentDanger: #f87171;
+  --wisp-elements-item-backgroundDefault: rgba(255, 255, 255, 0);
+  --wisp-elements-item-backgroundActive: rgba(255, 255, 255, 0.08);
+  --wisp-elements-item-backgroundAccent: rgba(6, 182, 212, 0.15);
+  --wisp-elements-item-backgroundDanger: rgba(239, 68, 68, 0.1);
 
-  --devonz-elements-loader-background: rgba(255, 255, 255, 0.05);
-  --devonz-elements-loader-progress: #3b82f6;
+  --wisp-elements-loader-background: rgba(255, 255, 255, 0.05);
+  --wisp-elements-loader-progress: #3b82f6;
 
-  --devonz-elements-artifacts-background: #131a24;
-  --devonz-elements-artifacts-backgroundHover: rgba(255, 255, 255, 0.05);
-  --devonz-elements-artifacts-borderColor: var(--devonz-elements-borderColor);
-  --devonz-elements-artifacts-inlineCode-background: #1a2332;
-  --devonz-elements-artifacts-inlineCode-text: #e6edf3;
+  --wisp-elements-artifacts-background: #131a24;
+  --wisp-elements-artifacts-backgroundHover: rgba(255, 255, 255, 0.05);
+  --wisp-elements-artifacts-borderColor: var(--wisp-elements-borderColor);
+  --wisp-elements-artifacts-inlineCode-background: #1a2332;
+  --wisp-elements-artifacts-inlineCode-text: #e6edf3;
 
-  --devonz-elements-actions-background: #131a24;
-  --devonz-elements-actions-code-background: #161b22;
+  --wisp-elements-actions-background: #131a24;
+  --wisp-elements-actions-code-background: #161b22;
 
-  --devonz-elements-messages-background: #1a2332;
-  --devonz-elements-messages-linkColor: #60a5fa;
-  --devonz-elements-messages-code-background: #0d1117;
-  --devonz-elements-messages-inlineCode-background: #21262d;
-  --devonz-elements-messages-inlineCode-text: var(--devonz-elements-textPrimary);
+  --wisp-elements-messages-background: #1a2332;
+  --wisp-elements-messages-linkColor: #60a5fa;
+  --wisp-elements-messages-code-background: #0d1117;
+  --wisp-elements-messages-inlineCode-background: #21262d;
+  --wisp-elements-messages-inlineCode-text: var(--wisp-elements-textPrimary);
 
-  --devonz-elements-icon-success: #4ade80;
-  --devonz-elements-icon-error: #f87171;
-  --devonz-elements-icon-primary: #e6edf3;
-  --devonz-elements-icon-secondary: #8b949e;
-  --devonz-elements-icon-tertiary: #6e7681;
+  --wisp-elements-icon-success: #4ade80;
+  --wisp-elements-icon-error: #f87171;
+  --wisp-elements-icon-primary: #e6edf3;
+  --wisp-elements-icon-secondary: #8b949e;
+  --wisp-elements-icon-tertiary: #6e7681;
 
-  --devonz-elements-dividerColor: rgba(255, 255, 255, 0.08);
+  --wisp-elements-dividerColor: rgba(255, 255, 255, 0.08);
 
-  --devonz-elements-prompt-background: rgba(19, 26, 36, 0.9);
+  --wisp-elements-prompt-background: rgba(19, 26, 36, 0.9);
 
-  --devonz-chat-bg: linear-gradient(145deg, rgba(30, 58, 95, 0.15), rgba(26, 26, 26, 0.95));
-  --devonz-chat-border: rgba(61, 90, 127, 0.4);
-  --devonz-chat-shadow: rgba(30, 58, 95, 0.2);
+  --wisp-chat-bg: linear-gradient(145deg, rgba(30, 58, 95, 0.15), rgba(26, 26, 26, 0.95));
+  --wisp-chat-border: rgba(61, 90, 127, 0.4);
+  --wisp-chat-shadow: rgba(30, 58, 95, 0.2);
 
-  --devonz-elements-sidebar-dropdownShadow: rgba(0, 0, 0, 0.3);
-  --devonz-elements-sidebar-buttonBackgroundDefault: rgba(59, 130, 246, 0.1);
-  --devonz-elements-sidebar-buttonBackgroundHover: rgba(59, 130, 246, 0.2);
-  --devonz-elements-sidebar-buttonText: #60a5fa;
+  --wisp-elements-sidebar-dropdownShadow: rgba(0, 0, 0, 0.3);
+  --wisp-elements-sidebar-buttonBackgroundDefault: rgba(59, 130, 246, 0.1);
+  --wisp-elements-sidebar-buttonBackgroundHover: rgba(59, 130, 246, 0.2);
+  --wisp-elements-sidebar-buttonText: #60a5fa;
 
-  --devonz-elements-preview-addressBar-background: #0d1117;
-  --devonz-elements-preview-addressBar-backgroundHover: rgba(255, 255, 255, 0.05);
-  --devonz-elements-preview-addressBar-backgroundActive: #0d1117;
-  --devonz-elements-preview-addressBar-text: var(--devonz-elements-textSecondary);
-  --devonz-elements-preview-addressBar-textActive: var(--devonz-elements-textPrimary);
+  --wisp-elements-preview-addressBar-background: #0d1117;
+  --wisp-elements-preview-addressBar-backgroundHover: rgba(255, 255, 255, 0.05);
+  --wisp-elements-preview-addressBar-backgroundActive: #0d1117;
+  --wisp-elements-preview-addressBar-text: var(--wisp-elements-textSecondary);
+  --wisp-elements-preview-addressBar-textActive: var(--wisp-elements-textPrimary);
 
-  --devonz-elements-terminals-background: #0b0d13;
-  --devonz-elements-terminals-buttonBackground: #1a2332;
+  --wisp-elements-terminals-background: #0b0d13;
+  --wisp-elements-terminals-buttonBackground: #1a2332;
 
-  --devonz-elements-cta-background: rgba(255, 255, 255, 0.08);
-  --devonz-elements-cta-text: #e6edf3;
+  --wisp-elements-cta-background: rgba(255, 255, 255, 0.08);
+  --wisp-elements-cta-text: #e6edf3;
 
   /* Terminal Colors */
-  --devonz-terminal-background: #0b0d13;
-  --devonz-terminal-foreground: #e6edf3;
-  --devonz-terminal-selection-background: #264f78;
-  --devonz-terminal-black: #0d1117;
-  --devonz-terminal-red: #f87171;
-  --devonz-terminal-green: #4ade80;
-  --devonz-terminal-yellow: #fcd34d;
-  --devonz-terminal-blue: #60a5fa;
-  --devonz-terminal-magenta: #c084fc;
-  --devonz-terminal-cyan: #22d3ee;
-  --devonz-terminal-white: #e6edf3;
-  --devonz-terminal-brightBlack: #6e7681;
-  --devonz-terminal-brightRed: #fca5a5;
-  --devonz-terminal-brightGreen: #86efac;
-  --devonz-terminal-brightYellow: #fde68a;
-  --devonz-terminal-brightBlue: #93c5fd;
-  --devonz-terminal-brightMagenta: #d8b4fe;
-  --devonz-terminal-brightCyan: #67e8f9;
-  --devonz-terminal-brightWhite: #ffffff;
+  --wisp-terminal-background: #0b0d13;
+  --wisp-terminal-foreground: #e6edf3;
+  --wisp-terminal-selection-background: #264f78;
+  --wisp-terminal-black: #0d1117;
+  --wisp-terminal-red: #f87171;
+  --wisp-terminal-green: #4ade80;
+  --wisp-terminal-yellow: #fcd34d;
+  --wisp-terminal-blue: #60a5fa;
+  --wisp-terminal-magenta: #c084fc;
+  --wisp-terminal-cyan: #22d3ee;
+  --wisp-terminal-white: #e6edf3;
+  --wisp-terminal-brightBlack: #6e7681;
+  --wisp-terminal-brightRed: #fca5a5;
+  --wisp-terminal-brightGreen: #86efac;
+  --wisp-terminal-brightYellow: #fde68a;
+  --wisp-terminal-brightBlue: #93c5fd;
+  --wisp-terminal-brightMagenta: #d8b4fe;
+  --wisp-terminal-brightCyan: #67e8f9;
+  --wisp-terminal-brightWhite: #ffffff;
   --modern-scrollbar-thumb-background: #444444;
   --modern-scrollbar-thumb-backgroundHover: #555555;
   --modern-scrollbar-track-background: #131a24;
@@ -239,24 +239,24 @@
   --workbench-left: calc(100% - var(--workbench-width));
 
   /* Terminal */
-  --devonz-elements-terminal-backgroundColor: var(--devonz-terminal-background);
-  --devonz-elements-terminal-textColor: var(--devonz-terminal-foreground);
-  --devonz-elements-terminal-cursorColor: var(--devonz-terminal-foreground);
-  --devonz-elements-terminal-selection-backgroundColor: var(--devonz-terminal-selection-background);
-  --devonz-elements-terminal-color-black: var(--devonz-terminal-black);
-  --devonz-elements-terminal-color-red: var(--devonz-terminal-red);
-  --devonz-elements-terminal-color-green: var(--devonz-terminal-green);
-  --devonz-elements-terminal-color-yellow: var(--devonz-terminal-yellow);
-  --devonz-elements-terminal-color-blue: var(--devonz-terminal-blue);
-  --devonz-elements-terminal-color-magenta: var(--devonz-terminal-magenta);
-  --devonz-elements-terminal-color-cyan: var(--devonz-terminal-cyan);
-  --devonz-elements-terminal-color-white: var(--devonz-terminal-white);
-  --devonz-elements-terminal-color-brightBlack: var(--devonz-terminal-brightBlack);
-  --devonz-elements-terminal-color-brightRed: var(--devonz-terminal-brightRed);
-  --devonz-elements-terminal-color-brightGreen: var(--devonz-terminal-brightGreen);
-  --devonz-elements-terminal-color-brightYellow: var(--devonz-terminal-brightYellow);
-  --devonz-elements-terminal-color-brightBlue: var(--devonz-terminal-brightBlue);
-  --devonz-elements-terminal-color-brightMagenta: var(--devonz-terminal-brightMagenta);
-  --devonz-elements-terminal-color-brightCyan: var(--devonz-terminal-brightCyan);
-  --devonz-elements-terminal-color-brightWhite: var(--devonz-terminal-brightWhite);
+  --wisp-elements-terminal-backgroundColor: var(--wisp-terminal-background);
+  --wisp-elements-terminal-textColor: var(--wisp-terminal-foreground);
+  --wisp-elements-terminal-cursorColor: var(--wisp-terminal-foreground);
+  --wisp-elements-terminal-selection-backgroundColor: var(--wisp-terminal-selection-background);
+  --wisp-elements-terminal-color-black: var(--wisp-terminal-black);
+  --wisp-elements-terminal-color-red: var(--wisp-terminal-red);
+  --wisp-elements-terminal-color-green: var(--wisp-terminal-green);
+  --wisp-elements-terminal-color-yellow: var(--wisp-terminal-yellow);
+  --wisp-elements-terminal-color-blue: var(--wisp-terminal-blue);
+  --wisp-elements-terminal-color-magenta: var(--wisp-terminal-magenta);
+  --wisp-elements-terminal-color-cyan: var(--wisp-terminal-cyan);
+  --wisp-elements-terminal-color-white: var(--wisp-terminal-white);
+  --wisp-elements-terminal-color-brightBlack: var(--wisp-terminal-brightBlack);
+  --wisp-elements-terminal-color-brightRed: var(--wisp-terminal-brightRed);
+  --wisp-elements-terminal-color-brightGreen: var(--wisp-terminal-brightGreen);
+  --wisp-elements-terminal-color-brightYellow: var(--wisp-terminal-brightYellow);
+  --wisp-elements-terminal-color-brightBlue: var(--wisp-terminal-brightBlue);
+  --wisp-elements-terminal-color-brightMagenta: var(--wisp-terminal-brightMagenta);
+  --wisp-elements-terminal-color-brightCyan: var(--wisp-terminal-brightCyan);
+  --wisp-elements-terminal-color-brightWhite: var(--wisp-terminal-brightWhite);
 }

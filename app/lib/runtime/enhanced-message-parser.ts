@@ -67,9 +67,11 @@ export class EnhancedStreamingMessageParser extends StreamingMessageParser {
         logger.debug('After reset, output length:', output.length, 'resetFlag:', this._lastResetOccurred);
       }
     } else {
-      // Artifacts ARE present — strip any markdown code blocks that leaked
-      // outside artifact tags. These are file contents the AI included in
-      // explanation text instead of inside <devonzArtifact> actions.
+      /*
+       * Artifacts ARE present — strip any markdown code blocks that leaked
+       * outside artifact tags. These are file contents the AI included in
+       * explanation text instead of inside <wispArtifact> actions.
+       */
       const stripped = this._stripLeakedCodeBlocks(output);
 
       if (stripped !== output) {
@@ -82,7 +84,7 @@ export class EnhancedStreamingMessageParser extends StreamingMessageParser {
   }
 
   private _hasDetectedArtifacts(input: string): boolean {
-    return input.includes('<devonzArtifact') || input.includes('</devonzArtifact>');
+    return input.includes('<wispArtifact') || input.includes('</wispArtifact>');
   }
 
   private _detectAndWrapCodeBlocks(messageId: string, input: string): string {
@@ -235,21 +237,21 @@ export class EnhancedStreamingMessageParser extends StreamingMessageParser {
   private _wrapInArtifact(artifactId: string, filePath: string, content: string): string {
     const title = filePath.split('/').pop() || 'File';
 
-    return `<devonzArtifact id="${artifactId}" title="${title}" type="bundled">
-<devonzAction type="file" filePath="${filePath}">
+    return `<wispArtifact id="${artifactId}" title="${title}" type="bundled">
+<wispAction type="file" filePath="${filePath}">
 ${content}
-</devonzAction>
-</devonzArtifact>`;
+</wispAction>
+</wispArtifact>`;
   }
 
   private _wrapInShellAction(content: string, messageId: string): string {
     const artifactId = `artifact-${messageId}-${this._artifactCounter++}`;
 
-    return `<devonzArtifact id="${artifactId}" title="Shell Command" type="shell">
-<devonzAction type="shell">
+    return `<wispArtifact id="${artifactId}" title="Shell Command" type="shell">
+<wispAction type="shell">
 ${content.trim()}
-</devonzAction>
-</devonzArtifact>`;
+</wispAction>
+</wispArtifact>`;
   }
 
   private _normalizeFilePath(filePath: string): string {

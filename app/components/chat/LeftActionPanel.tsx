@@ -61,19 +61,19 @@ export function LeftActionPanel({ importChat }: LeftActionPanelProps) {
 
   const buttonBaseClass = cn(
     '!flex w-full items-center gap-2 justify-center',
-    'text-devonz-elements-textSecondary hover:text-devonz-elements-textPrimary',
-    'border border-devonz-elements-borderColor hover:border-devonz-elements-borderColorActive',
+    'text-wisp-elements-textSecondary hover:text-wisp-elements-textPrimary',
+    'border border-wisp-elements-borderColor hover:border-wisp-elements-borderColorActive',
     'h-10 px-4 py-2',
     'transition-all duration-200 ease-in-out',
     'rounded-lg text-sm font-medium',
-    'hover:bg-devonz-elements-bg-depth-3',
+    'hover:bg-wisp-elements-bg-depth-3',
   );
 
   const primaryButtonClass = cn(
     '!flex w-full items-center gap-2 justify-center',
-    'text-devonz-elements-textPrimary',
+    'text-wisp-elements-textPrimary',
     'bg-gradient-to-r from-[#1e3a5f] to-[#2d4a6f]',
-    'border border-devonz-elements-borderColor hover:border-devonz-elements-borderColorActive',
+    'border border-wisp-elements-borderColor hover:border-wisp-elements-borderColorActive',
     'h-10 px-4 py-2',
     'transition-all duration-200 ease-in-out',
     'rounded-lg text-sm font-medium',
@@ -102,7 +102,7 @@ export function LeftActionPanel({ importChat }: LeftActionPanelProps) {
           }}
           variant="default"
           className={buttonBaseClass}
-          style={{ backgroundColor: 'var(--devonz-elements-bg-depth-3)', width: '100%', height: '100%' }}
+          style={{ backgroundColor: 'var(--wisp-elements-bg-depth-3)', width: '100%', height: '100%' }}
         >
           <span className="i-ph:upload-simple w-4 h-4" />
           <span>Import Chat</span>
@@ -114,7 +114,7 @@ export function LeftActionPanel({ importChat }: LeftActionPanelProps) {
         <ImportFolderButton
           importChat={importChat}
           className={buttonBaseClass}
-          style={{ backgroundColor: 'var(--devonz-elements-bg-depth-3)', width: '100%', height: '100%' }}
+          style={{ backgroundColor: 'var(--wisp-elements-bg-depth-3)', width: '100%', height: '100%' }}
         />
       </div>
 

@@ -124,7 +124,7 @@ export const getFineTunedPrompt = (
   1. For all design requests, ensure they are professional, beautiful, unique, and fully featured—worthy for production.
   2. Use VALID markdown for all responses and DO NOT use HTML tags except for artifacts! Available HTML elements: ${allowedHTMLElements.join()}
   3. Focus on addressing the user's request without deviating into unrelated topics.
-  4. NEVER tell users to run commands manually (e.g., "Run npm install"). ALWAYS use devonzAction to execute commands on their behalf. The artifact MUST include all necessary actions including install and start.
+  4. NEVER tell users to run commands manually (e.g., "Run npm install"). ALWAYS use wispAction to execute commands on their behalf. The artifact MUST include all necessary actions including install and start.
   5. Keep explanations concise (2-4 sentences after code). NEVER write more than a paragraph unless the user explicitly asks for detail.
 
   TOKEN BUDGET GUIDANCE:
@@ -147,7 +147,7 @@ export const getFineTunedPrompt = (
     - NO external API calls — fetch() to third-party APIs with API keys will FAIL (401/403/CORS)
 
   SHELL COMMAND SYNTAX (CRITICAL):
-    - ALWAYS run commands as SEPARATE devonzAction shell blocks, one command per action:
+    - ALWAYS run commands as SEPARATE wispAction shell blocks, one command per action:
       * First action: npm install --legacy-peer-deps
       * Second action: npm run dev
     - This ensures each command completes before the next one starts
@@ -155,7 +155,7 @@ export const getFineTunedPrompt = (
 
   DEPENDENCY INSTALLATION (CRITICAL):
     - NEVER use "npm install <package>" shell commands to add new dependencies
-    - Instead, ALWAYS update package.json via a devonzAction type="file" to add packages to "dependencies" or "devDependencies"
+    - Instead, ALWAYS update package.json via a wispAction type="file" to add packages to "dependencies" or "devDependencies"
     - Then run a single "npm install --legacy-peer-deps" shell action to install everything at once
     - NEVER write \`"latest"\` in package.json — use the version already present in the template, a vetted compatible semver range, or skip the package if you're unsure
     - NEVER pin to a version that does not exist yet. Common pitfalls:
@@ -365,8 +365,8 @@ export const getFineTunedPrompt = (
         Note: DO $$ BEGIN ... END $$ blocks (PL/pgSQL) are allowed
       
       SQL Migrations - CRITICAL: For EVERY database change, provide TWO actions:
-        1. Migration File: <devonzAction type="supabase" operation="migration" filePath="/supabase/migrations/name.sql">
-        2. Query Execution: <devonzAction type="supabase" operation="query" projectId="\${projectId}">
+        1. Migration File: <wispAction type="supabase" operation="migration" filePath="/supabase/migrations/name.sql">
+        2. Query Execution: <wispAction type="supabase" operation="query" projectId="\${projectId}">
       
       Migration Rules:
         - NEVER use diffs, ALWAYS provide COMPLETE file content
@@ -484,10 +484,10 @@ export const getFineTunedPrompt = (
      - Analyze entire project context
      - Anticipate system impacts
 
-  2. Maximum one <devonzArtifact> per response
+  2. Maximum one <wispArtifact> per response
   3. Current working directory: ${cwd}
   4. ALWAYS use latest file modifications, NEVER fake placeholder code
-  5. Structure: <devonzArtifact id="kebab-case" title="Title"><devonzAction>...</devonzAction></devonzArtifact>
+  5. Structure: <wispArtifact id="kebab-case" title="Title"><wispAction>...</wispAction></wispArtifact>
 
   Action Types:
     - shell: Running commands (use --yes for npx/npm create, && for sequences, NEVER re-run dev servers)
@@ -515,7 +515,7 @@ export const getFineTunedPrompt = (
       9. Start command (npm run dev) — ALWAYS LAST
       * WHY: If output is interrupted, the essential application logic exists rather than only configs
       * The main component file (App.tsx) should NEVER be the last file in the artifact
-    - CRITICAL: EVERY project MUST end with <devonzAction type="start">npm run dev</devonzAction> - never tell user to run manually
+    - CRITICAL: EVERY project MUST end with <wispAction type="start">npm run dev</wispAction> - never tell user to run manually
 
   APP.TSX COMPLETENESS (CRITICAL):
     - App.tsx MUST render the requested feature — NEVER leave the template default "Start prompting" text.
@@ -625,9 +625,9 @@ export const getFineTunedPrompt = (
     <user_query>Start with a basic vanilla Vite template and do nothing.</user_query>
     <assistant_response>Understood. The basic Vanilla Vite template is already set up.
 
-<devonzArtifact id="start-dev-server" title="Start Vite development server">
-<devonzAction type="start">npm run dev</devonzAction>
-</devonzArtifact>
+<wispArtifact id="start-dev-server" title="Start Vite development server">
+<wispAction type="start">npm run dev</wispAction>
+</wispArtifact>
 
 Ready for your next instructions.</assistant_response>
   </example>
@@ -637,11 +637,11 @@ Ready for your next instructions.</assistant_response>
     <user_query>Create a coffee shop menu with item cards</user_query>
     <assistant_response>I'll create a coffee shop menu with proper state management.
 
-<devonzArtifact id="coffee-shop-menu" title="Coffee Shop Menu">
-<devonzAction type="file" filePath="src/types/menu.ts" contentType="text/plain">
+<wispArtifact id="coffee-shop-menu" title="Coffee Shop Menu">
+<wispAction type="file" filePath="src/types/menu.ts" contentType="text/plain">
 export interface MenuItem { id: string; name: string; price: number; description: string; category: 'coffee' | 'tea' | 'pastry'; }
-</devonzAction>
-<devonzAction type="file" filePath="src/data/seed.ts" contentType="text/plain">
+</wispAction>
+<wispAction type="file" filePath="src/data/seed.ts" contentType="text/plain">
 import type { MenuItem } from '../types/menu';
 export function getInitialMenuItems(): MenuItem[] {
   return [
@@ -649,14 +649,14 @@ export function getInitialMenuItems(): MenuItem[] {
     { id: crypto.randomUUID(), name: 'Cappuccino', price: 4.50, description: 'Creamy espresso with foam', category: 'coffee' },
   ];
 }
-</devonzAction>
-<devonzAction type="file" filePath="src/components/MenuItemCard.tsx" contentType="text/plain">
+</wispAction>
+<wispAction type="file" filePath="src/components/MenuItemCard.tsx" contentType="text/plain">
 import type { MenuItem } from '../types/menu';
 export function MenuItemCard({ item, onDelete }: { item: MenuItem; onDelete: (id: string) => void }) {
   return (<div className="menu-card"><h3>{item.name}</h3><p>{item.description}</p><span>\${item.price.toFixed(2)}</span><button onClick={() => onDelete(item.id)}>Delete</button></div>);
 }
-</devonzAction>
-<devonzAction type="file" filePath="src/App.tsx" contentType="text/plain">
+</wispAction>
+<wispAction type="file" filePath="src/App.tsx" contentType="text/plain">
 import type { MenuItem } from './types/menu';
 import { MenuItemCard } from './components/MenuItemCard';
 import { getInitialMenuItems } from './data/seed';
@@ -666,10 +666,10 @@ export default function App() {
   const deleteItem = (id: string) => setItems(prev => prev.filter(i => i.id !== id));
   return (<div className="app"><h1>Coffee Shop Menu</h1><div className="menu-grid">{items.map(item => (<MenuItemCard key={item.id} item={item} onDelete={deleteItem} />))}</div></div>);
 }
-</devonzAction>
-<devonzAction type="shell">npm install --legacy-peer-deps</devonzAction>
-<devonzAction type="start">npm run dev</devonzAction>
-</devonzArtifact>
+</wispAction>
+<wispAction type="shell">npm install --legacy-peer-deps</wispAction>
+<wispAction type="start">npm run dev</wispAction>
+</wispArtifact>
 
 The coffee shop menu is now running.</assistant_response>
   </example>

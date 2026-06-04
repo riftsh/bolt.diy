@@ -5,25 +5,20 @@
 
 /** Read-only agent tools that never require approval */
 export const AGENT_READ_ONLY_TOOLS = new Set([
-  'devonz_read_file',
-  'devonz_list_directory',
-  'devonz_get_errors',
-  'devonz_search_code',
+  'wisp_read_file',
+  'wisp_list_directory',
+  'wisp_get_errors',
+  'wisp_search_code',
 ]);
 
 /** Agent tools that perform file operations */
-export const AGENT_FILE_TOOLS = new Set([
-  'devonz_write_file',
-  'devonz_delete_file',
-  'devonz_rename_file',
-  'devonz_patch_file',
-]);
+export const AGENT_FILE_TOOLS = new Set(['wisp_write_file', 'wisp_delete_file', 'wisp_rename_file', 'wisp_patch_file']);
 
 /** Agent tools that manage agent state (plan, memory) */
-export const AGENT_STATE_TOOLS = new Set(['devonz_update_plan', 'devonz_save_memory']);
+export const AGENT_STATE_TOOLS = new Set(['wisp_update_plan', 'wisp_save_memory']);
 
 /** Agent tools that run commands */
-export const AGENT_COMMAND_TOOLS = new Set(['devonz_run_command']);
+export const AGENT_COMMAND_TOOLS = new Set(['wisp_run_command']);
 
 export interface AgentApprovalSettings {
   autoApproveFileCreation: boolean;

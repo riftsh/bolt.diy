@@ -1,7 +1,7 @@
 /**
  * Agent Tools Type Definitions
  *
- * Type definitions for the Devonz AI Agent Mode tools and execution.
+ * Type definitions for the wisp AI Agent Mode tools and execution.
  */
 
 /**
@@ -213,7 +213,7 @@ export interface SearchCodeResult {
  * Agent tool definition
  */
 export interface AgentToolDefinition<TParams = Record<string, unknown>, TResult = unknown> {
-  /** Tool name (devonz_* namespace) */
+  /** Tool name (wisp_* namespace) */
   name: string;
 
   /** Human-readable description for LLM */
@@ -660,7 +660,7 @@ export type ParallelToolBatchStatus = 'pending' | 'executing' | 'complete' | 'fa
  * Single tool invocation within a parallel batch
  */
 export interface ParallelToolCall {
-  /** Tool name (devonz_* namespace) */
+  /** Tool name (wisp_* namespace) */
   readonly name: string;
 
   /** Tool parameters */

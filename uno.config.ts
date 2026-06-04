@@ -5,7 +5,7 @@ import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'uno
 
 const iconPaths = globSync('./icons/*.svg');
 
-const collectionName = 'devonz';
+const collectionName = 'wisp';
 
 const customIconCollection = iconPaths.reduce(
   (acc, iconPath) => {
@@ -113,11 +113,11 @@ const COLOR_PRIMITIVES = {
 };
 
 export default defineConfig({
-  safelist: [...Object.keys(customIconCollection[collectionName] || {}).map((x) => `i-devonz:${x}`)],
+  safelist: [...Object.keys(customIconCollection[collectionName] || {}).map((x) => `i-wisp:${x}`)],
   shortcuts: {
-    'devonz-ease-cubic-bezier': 'ease-[cubic-bezier(0.4,0,0.2,1)]',
-    'transition-theme': 'transition-[background-color,border-color,color] duration-150 devonz-ease-cubic-bezier',
-    kdb: 'bg-devonz-elements-code-background text-devonz-elements-code-text py-1 px-1.5 rounded-md',
+    'wisp-ease-cubic-bezier': 'ease-[cubic-bezier(0.4,0,0.2,1)]',
+    'transition-theme': 'transition-[background-color,border-color,color] duration-150 wisp-ease-cubic-bezier',
+    kdb: 'bg-wisp-elements-code-background text-wisp-elements-code-text py-1 px-1.5 rounded-md',
     'max-w-chat': 'max-w-[var(--chat-max-width)]',
   },
   rules: [
@@ -130,115 +130,115 @@ export default defineConfig({
   theme: {
     colors: {
       ...COLOR_PRIMITIVES,
-      devonz: {
+      wisp: {
         elements: {
-          borderColor: 'var(--devonz-elements-borderColor)',
-          borderColorActive: 'var(--devonz-elements-borderColorActive)',
+          borderColor: 'var(--wisp-elements-borderColor)',
+          borderColorActive: 'var(--wisp-elements-borderColorActive)',
           background: {
             depth: {
-              1: 'var(--devonz-elements-bg-depth-1)',
-              2: 'var(--devonz-elements-bg-depth-2)',
-              3: 'var(--devonz-elements-bg-depth-3)',
-              4: 'var(--devonz-elements-bg-depth-4)',
+              1: 'var(--wisp-elements-bg-depth-1)',
+              2: 'var(--wisp-elements-bg-depth-2)',
+              3: 'var(--wisp-elements-bg-depth-3)',
+              4: 'var(--wisp-elements-bg-depth-4)',
             },
           },
-          textPrimary: 'var(--devonz-elements-textPrimary)',
-          textSecondary: 'var(--devonz-elements-textSecondary)',
-          textTertiary: 'var(--devonz-elements-textTertiary)',
+          textPrimary: 'var(--wisp-elements-textPrimary)',
+          textSecondary: 'var(--wisp-elements-textSecondary)',
+          textTertiary: 'var(--wisp-elements-textTertiary)',
           code: {
-            background: 'var(--devonz-elements-code-background)',
-            text: 'var(--devonz-elements-code-text)',
+            background: 'var(--wisp-elements-code-background)',
+            text: 'var(--wisp-elements-code-text)',
           },
           button: {
             primary: {
-              background: 'var(--devonz-elements-button-primary-background)',
-              backgroundHover: 'var(--devonz-elements-button-primary-backgroundHover)',
-              text: 'var(--devonz-elements-button-primary-text)',
+              background: 'var(--wisp-elements-button-primary-background)',
+              backgroundHover: 'var(--wisp-elements-button-primary-backgroundHover)',
+              text: 'var(--wisp-elements-button-primary-text)',
             },
             secondary: {
-              background: 'var(--devonz-elements-button-secondary-background)',
-              backgroundHover: 'var(--devonz-elements-button-secondary-backgroundHover)',
-              text: 'var(--devonz-elements-button-secondary-text)',
+              background: 'var(--wisp-elements-button-secondary-background)',
+              backgroundHover: 'var(--wisp-elements-button-secondary-backgroundHover)',
+              text: 'var(--wisp-elements-button-secondary-text)',
             },
             danger: {
-              background: 'var(--devonz-elements-button-danger-background)',
-              backgroundHover: 'var(--devonz-elements-button-danger-backgroundHover)',
-              text: 'var(--devonz-elements-button-danger-text)',
+              background: 'var(--wisp-elements-button-danger-background)',
+              backgroundHover: 'var(--wisp-elements-button-danger-backgroundHover)',
+              text: 'var(--wisp-elements-button-danger-text)',
             },
           },
           item: {
-            contentDefault: 'var(--devonz-elements-item-contentDefault)',
-            contentActive: 'var(--devonz-elements-item-contentActive)',
-            contentAccent: 'var(--devonz-elements-item-contentAccent)',
-            contentDanger: 'var(--devonz-elements-item-contentDanger)',
-            backgroundDefault: 'var(--devonz-elements-item-backgroundDefault)',
-            backgroundActive: 'var(--devonz-elements-item-backgroundActive)',
-            backgroundAccent: 'var(--devonz-elements-item-backgroundAccent)',
-            backgroundDanger: 'var(--devonz-elements-item-backgroundDanger)',
+            contentDefault: 'var(--wisp-elements-item-contentDefault)',
+            contentActive: 'var(--wisp-elements-item-contentActive)',
+            contentAccent: 'var(--wisp-elements-item-contentAccent)',
+            contentDanger: 'var(--wisp-elements-item-contentDanger)',
+            backgroundDefault: 'var(--wisp-elements-item-backgroundDefault)',
+            backgroundActive: 'var(--wisp-elements-item-backgroundActive)',
+            backgroundAccent: 'var(--wisp-elements-item-backgroundAccent)',
+            backgroundDanger: 'var(--wisp-elements-item-backgroundDanger)',
           },
           actions: {
-            background: 'var(--devonz-elements-actions-background)',
+            background: 'var(--wisp-elements-actions-background)',
             code: {
-              background: 'var(--devonz-elements-actions-code-background)',
+              background: 'var(--wisp-elements-actions-code-background)',
             },
           },
           artifacts: {
-            background: 'var(--devonz-elements-artifacts-background)',
-            backgroundHover: 'var(--devonz-elements-artifacts-backgroundHover)',
-            borderColor: 'var(--devonz-elements-artifacts-borderColor)',
+            background: 'var(--wisp-elements-artifacts-background)',
+            backgroundHover: 'var(--wisp-elements-artifacts-backgroundHover)',
+            borderColor: 'var(--wisp-elements-artifacts-borderColor)',
             inlineCode: {
-              background: 'var(--devonz-elements-artifacts-inlineCode-background)',
-              text: 'var(--devonz-elements-artifacts-inlineCode-text)',
+              background: 'var(--wisp-elements-artifacts-inlineCode-background)',
+              text: 'var(--wisp-elements-artifacts-inlineCode-text)',
             },
           },
           messages: {
-            background: 'var(--devonz-elements-messages-background)',
-            linkColor: 'var(--devonz-elements-messages-linkColor)',
+            background: 'var(--wisp-elements-messages-background)',
+            linkColor: 'var(--wisp-elements-messages-linkColor)',
             code: {
-              background: 'var(--devonz-elements-messages-code-background)',
+              background: 'var(--wisp-elements-messages-code-background)',
             },
             inlineCode: {
-              background: 'var(--devonz-elements-messages-inlineCode-background)',
-              text: 'var(--devonz-elements-messages-inlineCode-text)',
+              background: 'var(--wisp-elements-messages-inlineCode-background)',
+              text: 'var(--wisp-elements-messages-inlineCode-text)',
             },
           },
           icon: {
-            success: 'var(--devonz-elements-icon-success)',
-            error: 'var(--devonz-elements-icon-error)',
-            primary: 'var(--devonz-elements-icon-primary)',
-            secondary: 'var(--devonz-elements-icon-secondary)',
-            tertiary: 'var(--devonz-elements-icon-tertiary)',
+            success: 'var(--wisp-elements-icon-success)',
+            error: 'var(--wisp-elements-icon-error)',
+            primary: 'var(--wisp-elements-icon-primary)',
+            secondary: 'var(--wisp-elements-icon-secondary)',
+            tertiary: 'var(--wisp-elements-icon-tertiary)',
           },
           preview: {
             addressBar: {
-              background: 'var(--devonz-elements-preview-addressBar-background)',
-              backgroundHover: 'var(--devonz-elements-preview-addressBar-backgroundHover)',
-              backgroundActive: 'var(--devonz-elements-preview-addressBar-backgroundActive)',
-              text: 'var(--devonz-elements-preview-addressBar-text)',
-              textActive: 'var(--devonz-elements-preview-addressBar-textActive)',
+              background: 'var(--wisp-elements-preview-addressBar-background)',
+              backgroundHover: 'var(--wisp-elements-preview-addressBar-backgroundHover)',
+              backgroundActive: 'var(--wisp-elements-preview-addressBar-backgroundActive)',
+              text: 'var(--wisp-elements-preview-addressBar-text)',
+              textActive: 'var(--wisp-elements-preview-addressBar-textActive)',
             },
           },
           terminals: {
-            background: 'var(--devonz-elements-terminals-background)',
-            buttonBackground: 'var(--devonz-elements-terminals-buttonBackground)',
+            background: 'var(--wisp-elements-terminals-background)',
+            buttonBackground: 'var(--wisp-elements-terminals-buttonBackground)',
           },
-          dividerColor: 'var(--devonz-elements-dividerColor)',
+          dividerColor: 'var(--wisp-elements-dividerColor)',
           loader: {
-            background: 'var(--devonz-elements-loader-background)',
-            progress: 'var(--devonz-elements-loader-progress)',
+            background: 'var(--wisp-elements-loader-background)',
+            progress: 'var(--wisp-elements-loader-progress)',
           },
           prompt: {
-            background: 'var(--devonz-elements-prompt-background)',
+            background: 'var(--wisp-elements-prompt-background)',
           },
           sidebar: {
-            dropdownShadow: 'var(--devonz-elements-sidebar-dropdownShadow)',
-            buttonBackgroundDefault: 'var(--devonz-elements-sidebar-buttonBackgroundDefault)',
-            buttonBackgroundHover: 'var(--devonz-elements-sidebar-buttonBackgroundHover)',
-            buttonText: 'var(--devonz-elements-sidebar-buttonText)',
+            dropdownShadow: 'var(--wisp-elements-sidebar-dropdownShadow)',
+            buttonBackgroundDefault: 'var(--wisp-elements-sidebar-buttonBackgroundDefault)',
+            buttonBackgroundHover: 'var(--wisp-elements-sidebar-buttonBackgroundHover)',
+            buttonText: 'var(--wisp-elements-sidebar-buttonText)',
           },
           cta: {
-            background: 'var(--devonz-elements-cta-background)',
-            text: 'var(--devonz-elements-cta-text)',
+            background: 'var(--wisp-elements-cta-background)',
+            text: 'var(--wisp-elements-cta-text)',
           },
         },
       },

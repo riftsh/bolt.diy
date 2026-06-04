@@ -94,8 +94,8 @@ export const FileBreadcrumb = memo<FileBreadcrumbProps>(({ files, pathSegments =
                     segmentRefs.current[index] = ref;
                   }}
                   className={cn('flex items-center gap-1.5 cursor-pointer shrink-0', {
-                    'text-devonz-elements-textTertiary hover:text-devonz-elements-textPrimary': !isActive,
-                    'text-devonz-elements-textPrimary underline': isActive,
+                    'text-wisp-elements-textTertiary hover:text-wisp-elements-textPrimary': !isActive,
+                    'text-wisp-elements-textPrimary underline': isActive,
                     'pr-4': isLast,
                   })}
                   onClick={() => handleSegmentClick(index)}
@@ -123,7 +123,7 @@ export const FileBreadcrumb = memo<FileBreadcrumbProps>(({ files, pathSegments =
                         variants={contextMenuVariants}
                       >
                         <div className="rounded-lg overflow-hidden">
-                          <div className="max-h-[50vh] min-w-[300px] overflow-scroll bg-devonz-elements-background-depth-1 border border-devonz-elements-borderColor shadow-sm rounded-lg">
+                          <div className="max-h-[50vh] min-w-[300px] overflow-scroll bg-wisp-elements-background-depth-1 border border-wisp-elements-borderColor shadow-sm rounded-lg">
                             <FileTree
                               files={files}
                               hideRoot
@@ -138,7 +138,7 @@ export const FileBreadcrumb = memo<FileBreadcrumbProps>(({ files, pathSegments =
                             />
                           </div>
                         </div>
-                        <DropdownMenu.Arrow className="fill-devonz-elements-borderColor" />
+                        <DropdownMenu.Arrow className="fill-wisp-elements-borderColor" />
                       </motion.div>
                     </DropdownMenu.Content>
                   </DropdownMenu.Portal>

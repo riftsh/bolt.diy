@@ -26,7 +26,7 @@ export const DialogButton = memo(({ type, children, onClick, disabled }: DialogB
         type === 'primary'
           ? 'bg-accent-600 text-white hover:bg-accent-700'
           : type === 'secondary'
-            ? 'bg-transparent text-devonz-elements-textSecondary hover:bg-devonz-elements-bg-depth-3 hover:text-devonz-elements-textPrimary'
+            ? 'bg-transparent text-wisp-elements-textSecondary hover:bg-wisp-elements-bg-depth-3 hover:text-wisp-elements-textPrimary'
             : 'bg-transparent text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10',
       )}
       onClick={onClick}
@@ -40,7 +40,7 @@ export const DialogButton = memo(({ type, children, onClick, disabled }: DialogB
 export const DialogTitle = memo(({ className, children, ...props }: RadixDialog.DialogTitleProps) => {
   return (
     <RadixDialog.Title
-      className={cn('text-lg font-medium text-devonz-elements-textPrimary flex items-center gap-2', className)}
+      className={cn('text-lg font-medium text-wisp-elements-textPrimary flex items-center gap-2', className)}
       {...props}
     >
       {children}
@@ -50,7 +50,7 @@ export const DialogTitle = memo(({ className, children, ...props }: RadixDialog.
 
 export const DialogDescription = memo(({ className, children, ...props }: RadixDialog.DialogDescriptionProps) => {
   return (
-    <RadixDialog.Description className={cn('text-sm text-devonz-elements-textSecondary mt-1', className)} {...props}>
+    <RadixDialog.Description className={cn('text-sm text-wisp-elements-textSecondary mt-1', className)} {...props}>
       {children}
     </RadixDialog.Description>
   );
@@ -113,7 +113,7 @@ export const Dialog = memo(({ children, className, showCloseButton = true, onClo
       <RadixDialog.Content asChild>
         <motion.div
           className={cn(
-            'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-devonz-elements-bg-depth-1 rounded-lg shadow-xl border border-devonz-elements-borderColor z-[9999] w-[520px] focus:outline-none',
+            'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-wisp-elements-bg-depth-1 rounded-lg shadow-xl border border-wisp-elements-borderColor z-[9999] w-[520px] focus:outline-none',
             className,
           )}
           initial="closed"
@@ -128,7 +128,7 @@ export const Dialog = memo(({ children, className, showCloseButton = true, onClo
                 <IconButton
                   icon="i-ph:x"
                   aria-label="Close dialog"
-                  className="absolute top-3 right-3 text-devonz-elements-textTertiary hover:text-devonz-elements-textSecondary"
+                  className="absolute top-3 right-3 text-wisp-elements-textTertiary hover:text-wisp-elements-textSecondary"
                 />
               </RadixDialog.Close>
             )}
@@ -206,7 +206,7 @@ export function ConfirmationDialog({
   return (
     <RadixDialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog showCloseButton={false}>
-        <div className="p-6 bg-devonz-elements-bg-depth-1 relative z-10">
+        <div className="p-6 bg-wisp-elements-bg-depth-1 relative z-10">
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription className="mb-4">{description}</DialogDescription>
           <div className="flex justify-end space-x-2">
@@ -220,7 +220,7 @@ export function ConfirmationDialog({
               className={
                 variant === 'destructive'
                   ? 'bg-red-500 text-white hover:bg-red-600'
-                  : 'bg-devonz-elements-item-backgroundAccent text-devonz-elements-item-contentAccent hover:bg-devonz-elements-button-primary-backgroundHover'
+                  : 'bg-wisp-elements-item-backgroundAccent text-wisp-elements-item-contentAccent hover:bg-wisp-elements-button-primary-backgroundHover'
               }
             >
               {isLoading ? (
@@ -346,8 +346,8 @@ export function SelectionDialog({
         className={cn(
           'flex items-start space-x-3 p-2 rounded-md transition-colors',
           selectedItems.includes(item.id)
-            ? 'bg-devonz-elements-item-backgroundAccent'
-            : 'bg-devonz-elements-bg-depth-2 hover:bg-devonz-elements-item-backgroundActive',
+            ? 'bg-wisp-elements-item-backgroundAccent'
+            : 'bg-wisp-elements-bg-depth-2 hover:bg-wisp-elements-item-backgroundActive',
         )}
         style={{
           ...style,
@@ -366,13 +366,13 @@ export function SelectionDialog({
             className={cn(
               'text-sm font-medium cursor-pointer',
               selectedItems.includes(item.id)
-                ? 'text-devonz-elements-item-contentAccent'
-                : 'text-devonz-elements-textPrimary',
+                ? 'text-wisp-elements-item-contentAccent'
+                : 'text-wisp-elements-textPrimary',
             )}
           >
             {item.label}
           </Label>
-          {item.description && <p className="text-xs text-devonz-elements-textSecondary">{item.description}</p>}
+          {item.description && <p className="text-xs text-wisp-elements-textSecondary">{item.description}</p>}
         </div>
       </div>
     );
@@ -381,30 +381,30 @@ export function SelectionDialog({
   return (
     <RadixDialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog showCloseButton={false}>
-        <div className="p-6 bg-devonz-elements-bg-depth-1 relative z-10">
+        <div className="p-6 bg-wisp-elements-bg-depth-1 relative z-10">
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription className="mt-2 mb-4">
             Select the items you want to include and click{' '}
-            <span className="text-devonz-elements-item-contentAccent font-medium">{confirmLabel}</span>.
+            <span className="text-wisp-elements-item-contentAccent font-medium">{confirmLabel}</span>.
           </DialogDescription>
 
           <div className="py-4">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-sm font-medium text-devonz-elements-textSecondary">
+              <span className="text-sm font-medium text-wisp-elements-textSecondary">
                 {selectedItems.length} of {items.length} selected
               </span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleSelectAll}
-                className="text-xs h-8 px-2 text-devonz-elements-textPrimary hover:text-devonz-elements-item-contentAccent hover:bg-devonz-elements-item-backgroundAccent bg-devonz-elements-bg-depth-2 dark:bg-transparent"
+                className="text-xs h-8 px-2 text-wisp-elements-textPrimary hover:text-wisp-elements-item-contentAccent hover:bg-wisp-elements-item-backgroundAccent bg-wisp-elements-bg-depth-2 dark:bg-transparent"
               >
                 {selectAll ? 'Deselect All' : 'Select All'}
               </Button>
             </div>
 
             <div
-              className="pr-2 border rounded-md border-devonz-elements-borderColor bg-devonz-elements-bg-depth-2"
+              className="pr-2 border rounded-md border-wisp-elements-borderColor bg-wisp-elements-bg-depth-2"
               style={{
                 maxHeight,
               }}
@@ -413,13 +413,13 @@ export function SelectionDialog({
                 <FixedSizeList<object>
                   rowCount={items.length}
                   rowHeight={60}
-                  className="scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-devonz-elements-bg-depth-3"
+                  className="scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-wisp-elements-bg-depth-3"
                   rowComponent={ItemRenderer}
                   rowProps={{} as object}
                   style={{ height: listHeight, width: '100%' }}
                 />
               ) : (
-                <div className="text-center py-4 text-sm text-devonz-elements-textTertiary">No items to display</div>
+                <div className="text-center py-4 text-sm text-wisp-elements-textTertiary">No items to display</div>
               )}
             </div>
           </div>
@@ -428,7 +428,7 @@ export function SelectionDialog({
             <Button
               variant="outline"
               onClick={onClose}
-              className="border-devonz-elements-borderColor text-devonz-elements-textPrimary hover:bg-devonz-elements-item-backgroundActive"
+              className="border-wisp-elements-borderColor text-wisp-elements-textPrimary hover:bg-wisp-elements-item-backgroundActive"
             >
               Cancel
             </Button>

@@ -1,4 +1,4 @@
-export interface DevonzArtifactData {
+export interface WispArtifactData {
   id: string;
   title: string;
   type?: string | undefined;

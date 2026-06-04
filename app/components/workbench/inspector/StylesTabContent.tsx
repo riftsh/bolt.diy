@@ -100,7 +100,7 @@ export const StylesTabContent = memo(
       <div>
         {/* Image Editor */}
         {selectedElement.isImage && selectedElement.imageSrc && (
-          <div className="p-3 border-b border-devonz-elements-borderColor">
+          <div className="p-3 border-b border-wisp-elements-borderColor">
             <ImageEditor
               src={selectedElement.imageSrc}
               alt={selectedElement.imageAlt}
@@ -116,7 +116,7 @@ export const StylesTabContent = memo(
 
         {/* Background-image only (non-img elements) */}
         {!selectedElement.isImage && selectedElement.backgroundImage && (
-          <div className="p-3 border-b border-devonz-elements-borderColor">
+          <div className="p-3 border-b border-wisp-elements-borderColor">
             <ImageEditor
               src=""
               backgroundImage={selectedElement.backgroundImage}
@@ -129,10 +129,10 @@ export const StylesTabContent = memo(
 
         {/* Text Content section */}
         {selectedElement.textContent && (
-          <div className="p-3 border-b border-devonz-elements-borderColor">
+          <div className="p-3 border-b border-wisp-elements-borderColor">
             <label
               htmlFor="inspector-text-content"
-              className="text-xs font-medium text-devonz-elements-textSecondary block mb-1.5"
+              className="text-xs font-medium text-wisp-elements-textSecondary block mb-1.5"
             >
               Text Content
             </label>
@@ -141,12 +141,12 @@ export const StylesTabContent = memo(
               value={pendingTextEdit || selectedElement.textContent}
               onChange={(e) => onTextContentChange(e.target.value)}
               maxLength={TEXT_MAX_LENGTH}
-              className="w-full bg-devonz-elements-background-depth-3 border border-devonz-elements-borderColor rounded px-2 py-2 text-devonz-elements-textPrimary text-sm focus:outline-none focus:border-accent-400 resize-none"
+              className="w-full bg-wisp-elements-background-depth-3 border border-wisp-elements-borderColor rounded px-2 py-2 text-wisp-elements-textPrimary text-sm focus:outline-none focus:border-accent-400 resize-none"
               rows={2}
               placeholder="Enter text content..."
             />
             {(pendingTextEdit || selectedElement.textContent || '').length > 100 && (
-              <span className="text-[10px] text-devonz-elements-textTertiary mt-1 block text-right">
+              <span className="text-[10px] text-wisp-elements-textTertiary mt-1 block text-right">
                 {(pendingTextEdit || selectedElement.textContent || '').length}/{TEXT_MAX_LENGTH}
               </span>
             )}
@@ -154,10 +154,10 @@ export const StylesTabContent = memo(
         )}
 
         {/* Copy all styles */}
-        <div className="p-3 border-b border-devonz-elements-borderColor">
+        <div className="p-3 border-b border-wisp-elements-borderColor">
           <button
             onClick={onCopyAllStyles}
-            className="w-full flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs font-medium rounded border border-devonz-elements-borderColor bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary hover:bg-devonz-elements-background-depth-4 hover:text-devonz-elements-textPrimary transition-colors"
+            className="w-full flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs font-medium rounded border border-wisp-elements-borderColor bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary hover:bg-wisp-elements-background-depth-4 hover:text-wisp-elements-textPrimary transition-colors"
           >
             <span className="i-ph:clipboard w-3.5 h-3.5" aria-hidden="true" />
             <span aria-live="polite">{copyFeedback || 'Copy All Styles'}</span>
@@ -189,7 +189,7 @@ export const StylesTabContent = memo(
 
         {/* Page Color Palette */}
         {selectedElement.colors && selectedElement.colors.length > 0 && (
-          <div className="p-3 border-t border-devonz-elements-borderColor">
+          <div className="p-3 border-t border-wisp-elements-borderColor">
             <PageColorPalette
               colors={selectedElement.colors}
               onColorSelect={(color) => onStyleChange('background-color', color)}

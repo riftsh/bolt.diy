@@ -93,7 +93,7 @@ export default function GitHubTab() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <GithubLogo />
-          <h2 className="text-lg font-medium text-devonz-elements-textPrimary">GitHub Integration</h2>
+          <h2 className="text-lg font-medium text-wisp-elements-textPrimary">GitHub Integration</h2>
         </div>
         <LoadingState message="Checking GitHub connection..." />
       </div>
@@ -106,7 +106,7 @@ export default function GitHubTab() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <GithubLogo />
-          <h2 className="text-lg font-medium text-devonz-elements-textPrimary">GitHub Integration</h2>
+          <h2 className="text-lg font-medium text-wisp-elements-textPrimary">GitHub Integration</h2>
         </div>
         <ErrorState
           title="Connection Error"
@@ -124,9 +124,9 @@ export default function GitHubTab() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <GithubLogo />
-          <h2 className="text-lg font-medium text-devonz-elements-textPrimary">GitHub Integration</h2>
+          <h2 className="text-lg font-medium text-wisp-elements-textPrimary">GitHub Integration</h2>
         </div>
-        <p className="text-sm text-devonz-elements-textSecondary">
+        <p className="text-sm text-wisp-elements-textSecondary">
           Connect your GitHub account to enable advanced repository management features, statistics, and seamless
           integration.
         </p>
@@ -147,15 +147,15 @@ export default function GitHubTab() {
         >
           <div className="flex items-center gap-2">
             <GithubLogo />
-            <h2 className="text-lg font-medium text-devonz-elements-textPrimary dark:text-devonz-elements-textPrimary">
+            <h2 className="text-lg font-medium text-wisp-elements-textPrimary dark:text-wisp-elements-textPrimary">
               GitHub Integration
             </h2>
           </div>
           <div className="flex items-center gap-2">
             {connection?.rateLimit && (
-              <div className="flex items-center gap-2 px-3 py-1 bg-devonz-elements-background-depth-1 rounded-lg text-xs">
-                <div className="i-ph:cloud w-4 h-4 text-devonz-elements-textSecondary" />
-                <span className="text-devonz-elements-textSecondary">
+              <div className="flex items-center gap-2 px-3 py-1 bg-wisp-elements-background-depth-1 rounded-lg text-xs">
+                <div className="i-ph:cloud w-4 h-4 text-wisp-elements-textSecondary" />
+                <span className="text-wisp-elements-textSecondary">
                   API: {connection.rateLimit.remaining}/{connection.rateLimit.limit}
                 </span>
               </div>
@@ -163,7 +163,7 @@ export default function GitHubTab() {
           </div>
         </motion.div>
 
-        <p className="text-sm text-devonz-elements-textSecondary dark:text-devonz-elements-textSecondary">
+        <p className="text-sm text-wisp-elements-textSecondary dark:text-wisp-elements-textSecondary">
           Manage your GitHub integration with advanced repository features and comprehensive statistics
         </p>
 
@@ -189,20 +189,20 @@ export default function GitHubTab() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="border-t border-devonz-elements-borderColor pt-6"
+            className="border-t border-wisp-elements-borderColor pt-6"
           >
             <Collapsible open={isReposExpanded} onOpenChange={setIsReposExpanded}>
               <CollapsibleTrigger asChild>
-                <div className="flex items-center justify-between p-4 rounded-lg bg-devonz-elements-background dark:bg-devonz-elements-background-depth-2 border border-devonz-elements-borderColor dark:border-devonz-elements-borderColor hover:border-devonz-elements-borderColorActive/70 dark:hover:border-devonz-elements-borderColorActive/70 transition-all duration-200">
+                <div className="flex items-center justify-between p-4 rounded-lg bg-wisp-elements-background dark:bg-wisp-elements-background-depth-2 border border-wisp-elements-borderColor dark:border-wisp-elements-borderColor hover:border-wisp-elements-borderColorActive/70 dark:hover:border-wisp-elements-borderColorActive/70 transition-all duration-200">
                   <div className="flex items-center gap-2">
-                    <div className="i-ph:folder w-4 h-4 text-devonz-elements-item-contentAccent" />
-                    <span className="text-sm font-medium text-devonz-elements-textPrimary">
+                    <div className="i-ph:folder w-4 h-4 text-wisp-elements-item-contentAccent" />
+                    <span className="text-sm font-medium text-wisp-elements-textPrimary">
                       All Repositories ({stats.repos.length})
                     </span>
                   </div>
                   <div
                     className={cn(
-                      'i-ph:caret-down w-4 h-4 transform transition-transform duration-200 text-devonz-elements-textSecondary',
+                      'i-ph:caret-down w-4 h-4 transform transition-transform duration-200 text-wisp-elements-textSecondary',
                       isReposExpanded ? 'rotate-180' : '',
                     )}
                   />
@@ -229,7 +229,7 @@ export default function GitHubTab() {
                       <Button
                         variant="outline"
                         onClick={() => setIsReposExpanded(true)}
-                        className="text-devonz-elements-textSecondary hover:text-devonz-elements-textPrimary"
+                        className="text-wisp-elements-textSecondary hover:text-wisp-elements-textPrimary"
                       >
                         Show {stats.repos.length - 12} more repositories
                       </Button>
@@ -270,7 +270,7 @@ export default function GitHubTab() {
 
         {/* Cache Management Section - Only show when connected */}
         {isConnected && connection && (
-          <div className="mt-8 pt-6 border-t border-devonz-elements-borderColor">
+          <div className="mt-8 pt-6 border-t border-wisp-elements-borderColor">
             <GitHubCacheManager showStats={true} />
           </div>
         )}

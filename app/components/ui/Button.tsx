@@ -7,13 +7,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-devonz-elements-bg-depth-3 text-devonz-elements-textPrimary hover:bg-devonz-elements-bg-depth-4',
+        default: 'bg-wisp-elements-bg-depth-3 text-wisp-elements-textPrimary hover:bg-wisp-elements-bg-depth-4',
         destructive: 'bg-red-600 text-white hover:bg-red-700',
         outline:
-          'border border-devonz-elements-borderColor bg-transparent hover:bg-devonz-elements-bg-depth-3 text-devonz-elements-textPrimary',
-        secondary: 'bg-devonz-elements-bg-depth-3 text-devonz-elements-textPrimary hover:bg-devonz-elements-bg-depth-4',
-        ghost: 'hover:bg-devonz-elements-bg-depth-3 text-devonz-elements-textPrimary',
-        link: 'text-devonz-elements-textPrimary underline-offset-4 hover:underline',
+          'border border-wisp-elements-borderColor bg-transparent hover:bg-wisp-elements-bg-depth-3 text-wisp-elements-textPrimary',
+        secondary: 'bg-wisp-elements-bg-depth-3 text-wisp-elements-textPrimary hover:bg-wisp-elements-bg-depth-4',
+        ghost: 'hover:bg-wisp-elements-bg-depth-3 text-wisp-elements-textPrimary',
+        link: 'text-wisp-elements-textPrimary underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-9 px-4 py-2',

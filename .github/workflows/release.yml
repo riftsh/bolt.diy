@@ -90,7 +90,7 @@ jobs:
           echo "### From Source" >> release-notes.md
           echo "" >> release-notes.md
           echo '```bash' >> release-notes.md
-          echo "git clone https://https://github.com/riftsh/wisp.dev/.git && cd Devonz" >> release-notes.md
+          echo "git clone https://https://github.com/riftsh/wisp.dev/.git && cd wisp" >> release-notes.md
           echo "git checkout v${{ steps.version.outputs.version }}" >> release-notes.md
           echo "pnpm install && pnpm build && pnpm start" >> release-notes.md
           echo '```' >> release-notes.md

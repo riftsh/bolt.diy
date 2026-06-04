@@ -155,7 +155,7 @@ export const AiQuickActions = ({ selectedElement, onAIAction }: AiQuickActionsPr
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-2 text-xs text-devonz-elements-textSecondary">
+      <div className="flex items-center gap-2 text-xs text-wisp-elements-textSecondary">
         <div className="i-ph:magic-wand w-3.5 h-3.5 text-accent-400" />
         <span>Quick AI Actions</span>
       </div>
@@ -166,20 +166,20 @@ export const AiQuickActions = ({ selectedElement, onAIAction }: AiQuickActionsPr
             key={action.id}
             onClick={() => handleAction(action)}
             disabled={clickedActionId === action.id}
-            className={`flex flex-col items-center gap-1 p-2 rounded-lg bg-devonz-elements-bg-depth-3 border border-devonz-elements-borderColor hover:border-accent-500/50 hover:bg-devonz-elements-background-depth-4 transition-all group ${clickedActionId === action.id ? 'animate-pulse opacity-70 pointer-events-none' : ''}`}
+            className={`flex flex-col items-center gap-1 p-2 rounded-lg bg-wisp-elements-bg-depth-3 border border-wisp-elements-borderColor hover:border-accent-500/50 hover:bg-wisp-elements-background-depth-4 transition-all group ${clickedActionId === action.id ? 'animate-pulse opacity-70 pointer-events-none' : ''}`}
             title={action.description}
           >
             <div
-              className={`${action.icon} w-4 h-4 text-devonz-elements-textSecondary group-hover:text-accent-400 transition-colors`}
+              className={`${action.icon} w-4 h-4 text-wisp-elements-textSecondary group-hover:text-accent-400 transition-colors`}
             />
-            <span className="text-[10px] text-devonz-elements-textSecondary group-hover:text-devonz-elements-textPrimary">
+            <span className="text-[10px] text-wisp-elements-textSecondary group-hover:text-wisp-elements-textPrimary">
               {action.label}
             </span>
           </button>
         ))}
       </div>
 
-      <p className="text-[10px] text-devonz-elements-textTertiary text-center italic">
+      <p className="text-[10px] text-wisp-elements-textTertiary text-center italic">
         Click an action to send the request to AI
       </p>
     </div>

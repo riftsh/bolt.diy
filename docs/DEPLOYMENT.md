@@ -1,12 +1,12 @@
 # Deployment
 
-> Deploy integrations for Vercel, Netlify, GitHub, and GitLab in Devonz.
+> Deploy integrations for Vercel, Netlify, GitHub, and GitLab in wisp.
 
 ---
 
 ## Overview
 
-Devonz supports deploying generated projects to four platforms directly from the UI. All deployment credentials are managed through browser cookies (set via the Settings panel).
+wisp supports deploying generated projects to four platforms directly from the UI. All deployment credentials are managed through browser cookies (set via the Settings panel).
 
 ---
 
@@ -17,7 +17,7 @@ Devonz supports deploying generated projects to four platforms directly from the
 ```bash
 # 1. Clone the repo
 git clone https://https://github.com/riftsh/wisp.dev/.git
-cd Devonz
+cd wisp
 
 # 2. Copy environment template
 cp .env.example .env.local
@@ -49,7 +49,7 @@ The project publishes Docker images to GitHub Container Registry on every push t
 | Profile | Command | Description |
 | --- | --- | --- |
 | Default | `docker compose up -d` | Production mode |
-| Dev | `docker compose --profile dev up devonz-dev` | Dev mode with hot reload |
+| Dev | `docker compose --profile dev up wisp-dev` | Dev mode with hot reload |
 | Auto-Update | `docker compose --profile auto-update up -d` | Adds Watchtower for automatic updates |
 
 ### Environment Variables

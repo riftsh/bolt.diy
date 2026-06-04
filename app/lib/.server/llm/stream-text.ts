@@ -187,7 +187,7 @@ function isEssentialFile(filePath: string): boolean {
 }
 
 /**
- * Simplify non-essential devonzAction file contents to reduce token usage.
+ * Simplify non-essential wispAction file contents to reduce token usage.
  * Essential config/entry files keep their full content so the LLM understands the project structure.
  * Lock files are stripped entirely (they're huge and the LLM never needs them).
  * Non-essential files are collapsed into a compact summary line listing their paths.
@@ -195,7 +195,7 @@ function isEssentialFile(filePath: string): boolean {
 function simplifyTemplateActions(text: string): string {
   /* Strip lock files entirely — they can be 6000+ lines (~25K tokens) */
   let result = text.replace(
-    /<devonzAction type="file" filePath="(?:package-lock\.json|yarn\.lock|pnpm-lock\.yaml)">[\s\S]*?<\/devonzAction>/g,
+    /<wispAction type="file" filePath="(?:package-lock\.json|yarn\.lock|pnpm-lock\.yaml)">[\s\S]*?<\/wispAction>/g,
     '',
   );
 
@@ -203,7 +203,7 @@ function simplifyTemplateActions(text: string): string {
   const nonEssentialPaths: string[] = [];
 
   result = result.replace(
-    /(<devonzAction[^>]*type="file"[^>]*filePath="([^"]+)"[^>]*>)([\s\S]*?)(<\/devonzAction>)/g,
+    /(<wispAction[^>]*type="file"[^>]*filePath="([^"]+)"[^>]*>)([\s\S]*?)(<\/wispAction>)/g,
     (match, _openTag: string, filePath: string, _content: string, _closeTag: string) => {
       if (isEssentialFile(filePath)) {
         return match;
@@ -218,7 +218,7 @@ function simplifyTemplateActions(text: string): string {
   /* Append compact summary of non-essential files before closing artifact tag */
   if (nonEssentialPaths.length > 0) {
     const summary = `\n[Template includes ${nonEssentialPaths.length} additional pre-created files: ${nonEssentialPaths.join(', ')}]\n`;
-    const closingTag = '</devonzArtifact>';
+    const closingTag = '</wispArtifact>';
     const closingIdx = result.lastIndexOf(closingTag);
 
     if (closingIdx !== -1) {
@@ -232,7 +232,7 @@ function simplifyTemplateActions(text: string): string {
 }
 
 function sanitizeText(text: string): string {
-  let sanitized = text.replace(/<div class=\\"__devonzThought__\\">.*?<\/div>/s, '');
+  let sanitized = text.replace(/<div class=\\"__wispThought__\\">.*?<\/div>/s, '');
   sanitized = sanitized.replace(/<think>.*?<\/think>/s, '');
   sanitized = simplifyTemplateActions(sanitized);
 
@@ -454,7 +454,7 @@ When the user sends a message like "execute the plan", "approved", or "go ahead"
   }
 
   // PROJECT.md: Persistent project memory - read from project root if exists
-  const projectMemoryPaths = ['/home/project/PROJECT.md', '/home/project/DEVONZ.md', '/home/project/AGENTS.md'];
+  const projectMemoryPaths = ['/home/project/PROJECT.md', '/home/project/wisp.md', '/home/project/AGENTS.md'];
   let projectMemoryContent: string | undefined;
 
   for (const memoryPath of projectMemoryPaths) {
@@ -471,7 +471,7 @@ When the user sends a message like "execute the plan", "approved", or "go ahead"
     systemPrompt = `${systemPrompt}
 
 <project_memory>
-The following are project-specific instructions from the user's PROJECT.md (or DEVONZ.md/AGENTS.md) file. You MUST follow these instructions for this project:
+The following are project-specific instructions from the user's PROJECT.md (or wisp.md/AGENTS.md) file. You MUST follow these instructions for this project:
 
 ${projectMemoryContent}
 </project_memory>
@@ -560,7 +560,7 @@ ${projectMemoryContent}
     if (chatMode === 'build' && contextFiles && contextOptimization) {
       /*
        * In agent mode, provide file paths as references instead of full content.
-       * The agent can use devonz_read_file to read specific files when needed.
+       * The agent can use wisp_read_file to read specific files when needed.
        */
       const fileList = Object.keys(contextFiles);
 
@@ -581,7 +581,7 @@ ${codeContext}
         systemPrompt = `${systemPrompt}
 
 <context_buffer>
-The following ${fileList.length} project files are available. Use devonz_read_file to read specific files as needed:
+The following ${fileList.length} project files are available. Use wisp_read_file to read specific files as needed:
 ${fileList.map((f) => `- ${f}`).join('\n')}
 </context_buffer>
 `;
@@ -733,14 +733,14 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
    * event of the stream and throws if it is an error, enabling the
    * fallback chain to catch deferred provider errors.
    */
-  async function probeStreamForErrors(
-    streamResult: Awaited<ReturnType<typeof _streamText>>,
-  ): Promise<void> {
-    // AI SDK v4's `fullStream` is a GETTER that creates a fresh independent
-    // stream copy each time it's accessed (via internal `teeStream('full')`).
-    // We grab one copy to peek at the first event; downstream consumers
-    // (the monitoring IIFE and `mergeIntoDataStream()`) will each get
-    // their own complete copies when they access the getter later.
+  async function probeStreamForErrors(streamResult: Awaited<ReturnType<typeof _streamText>>): Promise<void> {
+    /*
+     * AI SDK v4's `fullStream` is a GETTER that creates a fresh independent
+     * stream copy each time it's accessed (via internal `teeStream('full')`).
+     * We grab one copy to peek at the first event; downstream consumers
+     * (the monitoring IIFE and `mergeIntoDataStream()`) will each get
+     * their own complete copies when they access the getter later.
+     */
     const probeStream = streamResult.fullStream;
     const iterator = probeStream[Symbol.asyncIterator]();
 
@@ -751,8 +751,10 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
         throw first.value.error ?? new Error('Stream returned an error event');
       }
     } finally {
-      // Always release the probe iterator to prevent resource leaks,
-      // whether we succeeded, found an error, or hit an unexpected exception.
+      /*
+       * Always release the probe iterator to prevent resource leaks,
+       * whether we succeeded, found an error, or hit an unexpected exception.
+       */
       await iterator.return?.();
     }
   }
@@ -774,22 +776,22 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
     }
 
     // Determine fallback candidates — use explicit config or auto-select for model_not_found
-    let effectiveFallbackRoute = fallbackRoute;
+    const effectiveFallbackRoute = fallbackRoute;
 
     if (!effectiveFallbackRoute && errorCategory === 'model_not_found') {
-      // No explicit fallback configured — build a list of candidate models to try.
-      // Prefer dynamic/cached models (represent actually-available API models)
-      // over static list (which may contain deprecated models).
+      /*
+       * No explicit fallback configured — build a list of candidate models to try.
+       * Prefer dynamic/cached models (represent actually-available API models)
+       * over static list (which may contain deprecated models).
+       */
       const llm = LLMManager.getInstance();
-      let candidateModels = llm.getModelList().filter(
-        (m) => m.provider === provider.name && m.name !== modelDetails.name,
-      );
+      let candidateModels = llm
+        .getModelList()
+        .filter((m) => m.provider === provider.name && m.name !== modelDetails.name);
 
       // If the full model list has no alternatives for this provider, fall back to static list
       if (candidateModels.length === 0) {
-        candidateModels = llm.getStaticModelListFromProvider(provider).filter(
-          (m) => m.name !== modelDetails.name,
-        );
+        candidateModels = llm.getStaticModelListFromProvider(provider).filter((m) => m.name !== modelDetails.name);
       }
 
       // Try each candidate until one succeeds with stream probing
@@ -824,8 +826,10 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
               `(primary ${primaryLabel} failed with ${errorCategory})`,
           );
 
-          // Found a working model — break out of candidate loop and skip the
-          // single-route fallback logic below
+          /*
+           * Found a working model — break out of candidate loop and skip the
+           * single-route fallback logic below
+           */
           if (props.wsConnection) {
             pipeStreamToWebSocket(result, props.wsConnection);
           }
@@ -836,6 +840,7 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
             `Fallback candidate ${provider.name}/${candidate.name} failed: ` +
               `${candidateError instanceof Error ? candidateError.message : String(candidateError)}`,
           );
+
           // Continue to next candidate
         }
       }
@@ -854,8 +859,7 @@ ${fileList.map((f) => `- ${f}`).join('\n')}
     );
 
     // Resolve fallback provider + model through the same resolution path as primary
-    const fallbackProvider =
-      PROVIDER_LIST.find((p) => p.name === effectiveFallbackRoute!.provider) || DEFAULT_PROVIDER;
+    const fallbackProvider = PROVIDER_LIST.find((p) => p.name === effectiveFallbackRoute!.provider) || DEFAULT_PROVIDER;
     const fallbackModelDetails = await resolveModel({
       provider: fallbackProvider,
       currentModel: effectiveFallbackRoute!.model,

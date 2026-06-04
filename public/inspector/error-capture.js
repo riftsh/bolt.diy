@@ -79,16 +79,16 @@ function isAutoFixableError(message) {
 function isInspectorInternalError(message, stack) {
   var combined = (message || '') + '\n' + (stack || '');
   var inspectorPatterns = [
-    /_devonz-inspector/,
-    /_devonz-capture/,
-    /_devonz-html2canvas/,
+    /_wisp-inspector/,
+    /_wisp-capture/,
+    /_wisp-html2canvas/,
     /screenshot-capture/,
     /error-capture\.js/,
     /inspector-core/,
     /vite-error-overlay/,
     /Cannot read properties of undefined \(reading 'frame'\)/,
   ];
-  return inspectorPatterns.some(function(p) { return p.test(combined); });
+  return inspectorPatterns.some(function (p) { return p.test(combined); });
 }
 
 /**

@@ -34,12 +34,12 @@ export function HeaderAvatar() {
               <img
                 src={profile.avatar}
                 alt={profile?.username || 'Profile'}
-                className="w-full h-full rounded-full object-cover ring-2 ring-devonz-elements-borderColor"
+                className="w-full h-full rounded-full object-cover ring-2 ring-wisp-elements-borderColor"
                 loading="eager"
                 decoding="sync"
               />
             ) : (
-              <div className="w-full h-full rounded-full flex items-center justify-center bg-devonz-elements-background-depth-3 text-devonz-elements-textSecondary ring-2 ring-devonz-elements-borderColor">
+              <div className="w-full h-full rounded-full flex items-center justify-center bg-wisp-elements-background-depth-3 text-wisp-elements-textSecondary ring-2 ring-wisp-elements-borderColor">
                 <div className="i-ph:user w-4 h-4" />
               </div>
             )}
@@ -50,17 +50,17 @@ export function HeaderAvatar() {
           <DropdownMenu.Content
             className={cn(
               'min-w-[180px] z-[9999]',
-              'bg-devonz-elements-background-depth-2',
+              'bg-wisp-elements-background-depth-2',
               'rounded-lg shadow-lg',
-              'border border-devonz-elements-borderColor',
+              'border border-wisp-elements-borderColor',
               'animate-in fade-in-0 zoom-in-95',
               'py-1',
             )}
             sideOffset={5}
             align="end"
           >
-            <div className="px-3 py-2 border-b border-devonz-elements-borderColor">
-              <p className="text-sm font-medium text-devonz-elements-textPrimary truncate">
+            <div className="px-3 py-2 border-b border-wisp-elements-borderColor">
+              <p className="text-sm font-medium text-wisp-elements-textPrimary truncate">
                 {profile?.username || 'Guest User'}
               </p>
             </div>
@@ -68,38 +68,38 @@ export function HeaderAvatar() {
             <DropdownMenu.Item
               className={cn(
                 'flex items-center gap-2 px-3 py-2',
-                'text-sm text-devonz-elements-textPrimary',
-                'hover:bg-devonz-elements-item-backgroundActive',
+                'text-sm text-wisp-elements-textPrimary',
+                'hover:bg-wisp-elements-item-backgroundActive',
                 'cursor-pointer transition-colors',
                 'outline-none',
               )}
               onClick={() => handleOpenSettings('profile')}
             >
-              <div className="i-ph:user-circle w-4 h-4 text-devonz-elements-textSecondary" />
+              <div className="i-ph:user-circle w-4 h-4 text-wisp-elements-textSecondary" />
               Edit Profile
             </DropdownMenu.Item>
 
             <DropdownMenu.Item
               className={cn(
                 'flex items-center gap-2 px-3 py-2',
-                'text-sm text-devonz-elements-textPrimary',
-                'hover:bg-devonz-elements-item-backgroundActive',
+                'text-sm text-wisp-elements-textPrimary',
+                'hover:bg-wisp-elements-item-backgroundActive',
                 'cursor-pointer transition-colors',
                 'outline-none',
               )}
               onClick={() => handleOpenSettings()}
             >
-              <div className="i-ph:gear-six w-4 h-4 text-devonz-elements-textSecondary" />
+              <div className="i-ph:gear-six w-4 h-4 text-wisp-elements-textSecondary" />
               Settings
             </DropdownMenu.Item>
 
-            <div className="my-1 border-t border-devonz-elements-borderColor" />
+            <div className="my-1 border-t border-wisp-elements-borderColor" />
 
             <DropdownMenu.Item
               className={cn(
                 'flex items-center gap-2 px-3 py-2',
-                'text-sm text-devonz-elements-textPrimary',
-                'hover:bg-devonz-elements-item-backgroundActive',
+                'text-sm text-wisp-elements-textPrimary',
+                'hover:bg-wisp-elements-item-backgroundActive',
                 'cursor-pointer transition-colors',
                 'outline-none',
               )}
@@ -111,7 +111,7 @@ export function HeaderAvatar() {
                 )
               }
             >
-              <div className="i-ph:bug w-4 h-4 text-devonz-elements-textSecondary" />
+              <div className="i-ph:bug w-4 h-4 text-wisp-elements-textSecondary" />
               Report Bug
             </DropdownMenu.Item>
           </DropdownMenu.Content>

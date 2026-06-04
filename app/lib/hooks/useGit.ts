@@ -72,7 +72,7 @@ export function useGit() {
       const headers: {
         [x: string]: string;
       } = {
-        'User-Agent': 'devonz.diy',
+        'User-Agent': 'wisp.diy',
       };
 
       const auth = lookupSavedPassword(url);
